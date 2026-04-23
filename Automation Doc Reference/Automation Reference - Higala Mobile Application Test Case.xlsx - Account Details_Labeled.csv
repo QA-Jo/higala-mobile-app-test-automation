@@ -1,0 +1,368 @@
+Test Case ID,Description,Automation Status,Pre-conditions,Steps Taken,Expected Output,1st Cycle: iOS,Actual Output,Comments,Tester,Date Tested,Version,1st Cycle: Android,Actual Output,Comments,Tester,Date Tested,Version
+"m4.1 As a User, I want to view my bank details",,,,,,,,,,,,,,,,,
+m4.1.1,Verify that the user can access bank details from home screen,✅ Automatable,"1. The user is logged into the mobile application.
+2. The user only has one product.","1. Observe the details on the screen
+2. Tap on Hide my Balance
+3. Tap on the ""View Account Details"" button","1. The following details are displayed correctly in the Home page:
+- Account Number
+- Available Balance
+- 3 Transaction History of the Account
+2. Tapping on ""Hide my balance"" should mask the available balance.
+3. The ff details are displayed:
+Account Details
+- Product Name
+- Account Type
+- Account Number
+
+Interest Configuration
+- Interest rate
+- Interest type
+- Interest time period
+- Interest rate structure
+4. The ""Switch Acct"" button should not be visible.",Not Tested,,,,,,Failed,Home screen elements not found within timeout.,AD_ACCT_NO_TEXT locator timed out (15s) during login navigation — home screen loads slower than expected after cold start. Investigate login flow timing.,,"Apr 22, 2026",
+m4.1.2,Verify that the transaction history shows only the last 3 transactions,✅ Automatable,"1. The user is logged into the mobile application.
+2. The user has 3 or more transactions.",1. Scroll to the transaction history section on the home page.,"1. The Switch Acct button is visible.
+2. When the Switch Acct button is clicked, the system displays the My Accounts modal containing list of all active products attached to the customer.
+2. Each product displays its corresponding details:
+- available/oustanding balance
+- product name
+- account number",Not Tested,,,,,,Passed,Transaction history shows only last 3 on home screen.,,,"Apr 22, 2026",
+m4.1.3,Verify the session timeout modal on the Home screen due to inactivity,🔴 Not Automatable,1. The user is on the Home page.,"1. Do not interact.
+2. Wait 5 minutes.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m4.1.4,Verify the session timeout modal on the Home screen after minimizing,🔴 Not Automatable,1. The user is on the Home page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m4.1.5,Verify the session timeout modal is still visible on Home screen after minimizing and reopening the app,🔴 Not Automatable,1. The user is on the Home page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session Expired screen is still visible with the ""Back to Login"" button
+2. Clicking the ""Back to Login"" will redirect to the Login screen",,,,,,,,,,,,
+m4.1.6,Verify that the session remains active while the user is interacting with the app,🔴 Not Automatable,1. The user is on the Home page.,"1. Continuously interact with the app (tap/scroll/input) within the 5 session timeout window.
+2. Observe the session status.","1. Session remains active.
+2. Session timeout screen should not be prompted",,,,,,,,,,,,
+m4.1.7,Verify the session timeout modal on the Transaction Details screen due to inactivity,🔴 Not Automatable,1. The user is on the Transaction Details page.,"1. Select a recent transaction on the homepage
+2. When on the Transaction Details screen, do not interact.
+3. Wait 5 minutes.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m4.1.8,Verify the session timeout modal on the Transaction Details screen after minimizing,🔴 Not Automatable,1. The user is on the Transaction Details page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m4.1.9,Verify the session timeout modal is still visible on Transaction Details screen after minimizing and reopening the app,🔴 Not Automatable,1. The user is on the Transaction Details page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session Expired screen is still visible with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m4.1.10,Verify that session timeout resets on user activity and the homepage loads data normally.,🔴 Not Automatable,1. The user is on the Transaction Details page.,"1. Remain on the page and occasionally tap the screen to indicate activity (scroll or tap every few seconds).
+2. Continue this for at least 8 minutes.
+3. Navigate back to homepage.","1. The session timeout timer should reset with every user activity.
+Homepage, Transaction History, and Profile should load and display their data normally.",,,,,,,,,,,,
+m4.1.11,Accessing Product List,✅ Automatable,"1. User has multiple products.
+2. User is on the Home Screen.","1. Observe the details on the screen
+2. Tap on the ""Switch Acct"" button.","1. The Switch Acct button is visible.
+2. When the Switch Acct button is clicked, the system displays the My Accounts modal containing list of all active products attached to the customer.
+2. Each product displays its corresponding details:
+- available/oustanding balance
+- account name
+- account number",,,,,,,Failed,Switch Acct button check failed — login for multi-account user timed out.,Account switch triggers full re-login for AD_MULTI_EMAIL; AD_ACCT_NO_TEXT not found within timeout after login.,,"Apr 22, 2026",
+m4.1.12,Verify switching to a different Savings product,✅ Automatable,"1. User is logged into the mobile app.
+2. Customer has at least two active savings accounts/product.
+","1. Tap on the ""Switch Acct"" button.
+2. From the My Accounts modal, select a different savings account.
+3. Tap on Hide my Balance","1. The UI smoothly transitions to the next account.
+2. The following details are displayed correctly in the Home page:
+- Account Number
+- Available Balance
+- 3 recent transactions
+4. Tapping on ""Hide my balance"" should mask the available balance.
+5. The system must strictly display only the information for the selected savings; it must not display transactions, balances, or configuration details belonging to any other savings product.",,,,,,,Failed,Account switch did not complete — login timed out for AD_MULTI_EMAIL.,Same root cause as m4.1.11 — AD_ACCT_NO_TEXT timeout on multi-account login.,,"Apr 22, 2026",
+m4.1.13,View Account Details of a Savings Product,✅ Automatable,"1. The user is logged into the mobile application.
+2. The user switched to a Savings Account","1. Tap on the ""View Account Details"" button","1. The savings product configuration details should be displayed:
+Account Details
+- Product Name
+- Account Type
+- Account Number
+
+Interest Configuration
+- Interest rate (%)
+- Interest type
+- Interest time period
+- Interest rate structure
+
+2. The system must strictly display only the information for the selected savings; it must not display configuration details belonging to any other savings product.",,,,,,,Failed,Account Details screen not reached — login timed out.,Same root cause as m4.1.11.,,"Apr 22, 2026",
+m4.1.14,Verify switching to a different Loans product,🔴 Not Automatable,"1. User is logged into the mobile app.
+2. Customer has at least one loan account/product.
+","1. Tap on the ""Switch Acct"" button.
+2. From the My Accounts modal, select a different loan account.
+3. Tap on Hide my Balance","1. The UI smoothly transitions to the next account.
+2. The following details are displayed correctly in the Home page:
+- Account Number
+- Outstanding Balance
+- 3 recent payments
+3. Tapping on ""Hide my balance"" should mask the available balance.
+4. The system must strictly display only the information for the selected loan; it must not display transactions, balances, or configuration details belonging to any other loan product.",,,,,,,,,,,,
+m4.1.15,View Account Details of a Loan Product (Customer has not paid amount due for the month),🔴 Not Automatable,"1. The user is logged into the mobile application.
+2. The user switched to a Loan Product
+3. The user has not paid the amount due.","1. Tap on the ""View Account Details"" button","1. The corresponding loan product configuration details should be displayed:
+Account Details
+- Loan Name
+- Loan Type
+- Account Number
+
+Payment Details
+- Amount Due Details
+- Total amount due
+- Due on 
+   - Mmm dd yyyy
+
+Loan Details
+- Loan amount 
+- Loan duration 
+- Date of loan
+- First due date
+- Maturity Date
+- Payment frequency
+- Interest type
+- Penalty fee
+
+2. The system must strictly display only the information for the selected loan; it must not display configuration details belonging to any other loan product.",,,,,,,,,,,,
+m4.1.16,View Account Details of a Loan Product (Customer has paid amount due for the amount),🔴 Not Automatable,"1. The user is logged into the mobile application.
+2. The user switched to a Loan Product
+3. The user has paid the amount due.","1. Tap on the ""View Account Details"" button","1. The loan product configuration details should be displayed:
+Account Details
+- Loan Name
+- Loan Type
+- Account Number
+
+Payment Details
+- Amount Due Details
+- Total amount due
+- Due on 
+   - If already paid, display ""Your next payment is due on <Mmm dd yyyy>."" 
+
+Loan Details
+- Loan amount 
+- Loan duration 
+- Date of loan
+- First due date
+- Maturity Date
+- Payment frequency
+- Interest type
+- Penalty fee
+
+2. The system must strictly display only the information for the selected loan; it must not display transactions, balances, or configuration details belonging to any other loan product.",,,,,,,,,,,,
+m4.1.17,View Account Details of a Loan Product (Customer has not paid for 2 months),🔴 Not Automatable,"1. The user is logged into the mobile application.
+2. The user switched to a Loan Product
+3. The user has not paid for 2 months.","1. Tap on the ""View Account Details"" button","1. The loan product configuration details and all pending payments and penalties that needs to be paid should be displayed:
+Account Details
+- Loan Name
+- Loan Type
+- Account Number
+
+Payment Details
+- Amount Due as of Mmm dd yyyy (month 1)
+- Total amount due
+- Due on 
+   - Mmm dd yyyy (month 1)
+
+- Amount Due as of Mmm dd yyyy (month 2)
+- Total amount due
+- Due on 
+   - Mmm dd yyyy (month 2)
+
+Loan Details
+- Loan amount 
+- Loan duration 
+- Date of loan
+- First due date
+- Maturity Date
+- Payment frequency
+- Interest type
+- Penalty fee
+
+2. The system must strictly display only the information for the selected loan; it must not display transactions, balances, or configuration details belonging to any other loan product.",,,,,,,,,,,,
+m4.1.18,"Verify data persistence when switching accounts with ""Hide Balance"" enabled",✅ Automatable,"1. User is logged into the mobile app.
+2. Customer has multiple accounts.","1. Tap ""Hide my balance"" on Account A.
+2. Switch to Account B.
+3. Observe the balance state.","1. The balance for Account B should remain masked (the ""Hide"" state should persist across account switches).
+2. Tapping ""Show balance"" should reveal the correct balance for Account B only.",,,,,,,Failed,Balance mask persistence check failed — login timed out for AD_MULTI_EMAIL.,Same root cause as m4.1.11.,,"Apr 22, 2026",
+m4.1.19,Verify behavior when switching to an account with zero transactions,✅ Automatable,"1. User is logged into the mobile app.
+2. Customer has a secondary account with no transaction history.",1. Switch from the primary account (with transactions) to the empty secondary account.,"1. The account details (Number/Balance) update correctly.
+2. The transaction section displays a placeholder message: 
+""No Transactions Yet
+Your transaction history will display here when you start using your account"" instead of showing data from the previous account.",,,,,,,Skipped,,No zero-transaction account available for AD_MULTI_EMAIL. Run manually with suitable test account.,,"Apr 22, 2026",
+m4.1.20,Verify system stability during rapid/consistent account switching,✅ Automatable,1. User has 3 or more active products (Savings and Loans).        ,"1. Tap ""Switch Acct"" and select Account A.
+2. Immediately tap ""Switch Acct"" again and select Account B.
+3. Repeat switching rapidly 5-10 times.","1. The app remains stable without crashing.
+2. The UI does not display ""flickering"" data (showing Account A's balance while on Account B's screen).
+3. The final account selected displays the correct, synchronized data.",,,,,,,Failed,Rapid account switching failed — login timed out.,Same root cause as m4.1.11.,,"Apr 22, 2026",
+"m4.2 As a User, I want to view my transaction history",,,,,,,,,,,,,,,,,
+m4.2.1,Verify that the user can access transaction history,✅ Automatable,"1. The user is logged into the mobile application.
+2. The user has 1 or more transactions.","1. Tap the “History” on the footer navigation bar.
+2. Scroll down to view the transaction history","1. The user is redirected to the Transaction History page.
+2. Transactions are filtered per month, showing only those within the last 30 calendar days.
+3. Each group of transactions is preceded by a month header in the format ""mmm yyyy"" (e.g., Aug 2025).
+4. Each transaction displays Account name, Transaction Amount, Bank, Masked Account number and a Timestamp in the format ""hh:mm AM/PM"".
+5. Transactions are sorted by date in descending order (most recent first).",Not Tested,,,,,,Skipped,,Requires account switch from multi to single account after prior test — run manually.,,"Apr 22, 2026",
+m4.2.2,Verify that a maximum of 100 transactions are displayed in the transaction history,🔴 Not Automatable,"1. The user is logged into the mobile application.
+2. The user has more than 100 transactions in the last 30 calendar days.","1. Tap the “History” icon on the footer navigation bar.
+2. On the Transaction History page, continuously scroll down to load more transactions.","1. The user is redirected to the Transaction History page.
+2. The system retrieves and displays transactions in increments of 10, up to a maximum 3. of 100 transactions.
+4. Transactions are filtered per month, showing only those within the last 30 calendar days.
+5. Each group of transactions is preceded by a month header in the format ""mmm yyyy"" (e.g., Aug 2025).
+4. Each transaction displays Account name, Transaction Amount, Bank, Masked Account number and a Timestamp in the format ""mm dd yyyy, hh:mm AM/PM"".
+7. Transactions are sorted by date in descending order (most recent first).
+8. No additional transactions are loaded after the 100th transaction, even if more exist in the backend.",,,,,,,,,,,,
+m4.2.3,Verify access to transaction history from the bank details page,✅ Automatable,"1. The user is logged into the mobile application.
+2. The user has 1 or more transactions.","1. Tap the “i” icon on the bank balance section of the home page.
+2. Scroll to view the last three (3) transactions.
+3. Tap the button below the last three account transaction records","1. The user is redirected to the full Transaction History page.
+2. All transactions related to the selected account are displayed.",Not Tested,,,,,,Skipped,,View More navigation causes stale element issues — run manually.,,"Apr 22, 2026",
+m4.2.4,Verify that the user can view full transaction details,✅ Automatable,"1. The user is logged into the mobile application.
+2. The user has 1 or more transactions.","""1. Tap the “History” on the footer navigation bar.
+2. Scroll down to view the transaction history""
+3. Tap on a listed transaction.","1. The user is redirected to the Transaction Details page.
+2. The following fields are shown clearly:
+If Send Money:
+- To: Receiver Name and Account Number
+- Receiver's bank
+- Date and Timestamp
+- Transaction ID
+- Instapay Reference Number (If extenal send)
+- Notes
+
+If Receive Money:
+- From: Sender Name
+- Sender's Bank
+- Date and timestamp
+- Transaction ID
+- Transaction ID
+- Instapay Reference Number (If extenal send)
+- Notes",Not Tested,,,,,,Passed,Full transaction details screen loads with all required fields.,,,"Apr 22, 2026",
+m4.2.5,Verify behavior when there are no transactions to show,✅ Automatable,"1. The user is logged into the mobile application.
+2. The user has no recorded transactions on their account.","1 Tap the “History” button in the footer navigation.
+
+Or tap the “i” icon to go to the bank details page, then tap “View More”.","1. The user is redirected to the Transaction History page.
+
+2. The screen displays a centered message:
+
+“No transactions available
+Your transaction history will display here when you start using your account.”
+
+3. No transaction records are shown.",Not Tested,,,,,,Passed,Empty state message displayed when account has no transactions.,,,"Apr 22, 2026",
+m4.2.6,Verify filter functionality for date range within past 30 days,✅ Automatable,"1. The user is logged into the mobile application.
+2. The user has transactions older and newer than 3 months from today.","1. Tap the “History” button in the footer.
+2. Use the filter option to select a custom date range (e.g., March 1–March 31).
+3. Apply the filter.","1. Only transactions that fall within the selected range (within the last 3 months) are displayed.
+
+2. Transactions outside the selected range are not shown.",Not Tested,,,,,,Skipped,,No filter button found in current app build — verify with Appium Inspector.,,"Apr 22, 2026",
+m4.2.7,Verify behavior when filtering beyond past 30 days limit,✅ Automatable,"1. The user is logged into the mobile application.
+2. The user attempts to view transactions older than 3 months.","1. Go to the Transaction History page.
+2. Attempt to filter/select a date range that extends beyond the past 3 months (e.g., 6 months ago).",1. The system prevents the user from selecting a date range that starts beyond the allowed limit.,Not Tested,,,,,,Skipped,,No filter button found in current app build — verify with Appium Inspector.,,"Apr 22, 2026",
+m4.2.8,Verify that the user can access and use the search bar in the transaction history,✅ Automatable,"1. The user is logged into the mobile application.
+2. The user has one or more transactions in their transaction history.","1. Tap the “History” on the footer navigation bar.
+2. Tap on the Search bar at the top of the Transaction History page.
+3. Type any input into the search bar.","1. The Search bar is visible and interactive.
+2. The system accepts both numeric and alphanumeric inputs.
+3. The transaction list dynamically filters based on the entered search keyword.
+4. Matching transactions are displayed in real-time while typing.",Not Tested,,,,,,Passed,Search bar is visible and filters transactions in real-time.,,,"Apr 22, 2026",
+m4.2.9,Search by Account Name,✅ Automatable,"1. User is on Transaction History. 
+2. A transaction with a known Account Name (e.g., ""John Doe"") exists.",1. Enter the account name into the search bar.,"1. The list filters to show only transactions involving ""John Doe"".",Not Tested,,,,,,Passed,Transactions filtered by account name as expected.,,,"Apr 22, 2026",
+m4.2.10,Search by Account Number,✅ Automatable,"1. User is on Transaction History. 
+2. A transaction with a known Account Number (e.g., ""...12345"") exists.",1. Enter the account number into the search bar.,"1. The list filters to show only transactions involving Account Number ""...12345"".",Not Tested,,,,,,Passed,Transactions filtered by account number as expected.,,,"Apr 22, 2026",
+m4.2.11,Search by Reference ID,✅ Automatable,"1. User is on Transaction History. 
+2. A transaction with a known Reference ID (e.g., ""R-ABC987"") exists.",1. Enter the reference ID into the search bar.,"1. The list filters to show only the transaction with Reference ID ""R-ABC987"".",Not Tested,,,,,,Skipped,,Instapay Ref ID not visible in history list — requires manual lookup from Transaction Details.,,"Apr 22, 2026",
+m4.2.12,Search by Transaction Amount,✅ Automatable,"1. User is on Transaction History. 
+2. A transaction with a known Amount (e.g., ""500.00"") exists.",1. Enter the transaction amount into the search bar.,"1. The list filters to show only transactions with an amount of ""500.00"".",Not Tested,,,,,,Passed,Transactions filtered by amount as expected.,,,"Apr 22, 2026",
+m4.2.13,Search with No Results,✅ Automatable,1. User is on Transaction History.,"1. Enter a random string (e.g., ""XYZ123NOMATCH"") into the search bar.","1. The list becomes empty. 
+2. A ""No transactions available"" message is displayed.",Not Tested,,,,,,Passed,No-results message displayed for unmatched search term.,,,"Apr 22, 2026",
+m4.2.14,Clear Search Bar,✅ Automatable,"1. User is on Transaction History and has entered text into the search bar, filtering the list.",1. Delete inputs in the search bar,"1. The search text is cleared. 
+2. The transaction list reverts to the full, unfiltered list.",Not Tested,,,,,,Passed,Full transaction list restored after clearing search bar.,,,"Apr 22, 2026",
+m4.2.15,Verify the session timeout modal on the History screen due to inactivity,🔴 Not Automatable,1. The user is on the History page.,"1. Do not interact.
+2. Wait 5 minutes.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m4.2.16,Verify the session timeout modal on the History screen after minimizing,🔴 Not Automatable,1. The user is on the History page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m4.2.17,Verify the session timeout modal is still visible on History screen after minimizing and reopening the app,🔴 Not Automatable,1. The user is on the History page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session Expired screen is still visible with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m4.2.18,Verify that the session remains active while the user is interacting with the app,🔴 Not Automatable,1. The user is on the History page.,"1. Continuously interact with the app (tap/scroll/input) within the 5 session timeout window.
+2. Observe the session status.","1. Session remains active.
+2. Session timeout screen should not be prompted",,,,,,,,,,,,
+m4.2.19,Verify the session timeout modal on the Transaction Details screen due to inactivity,🔴 Not Automatable,1. The user is on the Transaction Details page.,"1. Select a transaction on the history page.
+2. When on the Transaction Details screen, do not interact.
+3. Wait 5 minutes.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m4.2.20,Verify the session timeout modal on the Transaction Details screen after minimizing,🔴 Not Automatable,1. The user is on the Transaction Details page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m4.2.21,Verify the session timeout modal is still visible on Transaction Details screen after minimizing and reopening the app,🔴 Not Automatable,1. The user is on the Transaction Details page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session Expired screen is still visible with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m4.2.22,Verify that session timeout resets on user activity and the homepage loads data normally.,🔴 Not Automatable,1. The user is on the Transaction Details page.,"1. Remain on the page and occasionally tap the screen to indicate activity (scroll or tap every few seconds).
+2. Continue this for at least 8 minutes.
+3. Navigate back to homepage.","1. The session timeout timer should reset with every user activity.
+Homepage, Transaction History, and Profile should load and display their data normally.",,,,,,,,,,,,
+m4.2.23,View Full Transaction History for Savings Product,✅ Automatable,1. User is viewing a selected savings product.,1. Navigate to History.,1. System displays all past transactions (historical data) specific to that savings product.,,,,,,,Failed,Transaction history for savings product not loaded — login timed out for AD_MULTI_EMAIL.,Same root cause as m4.1.11.,,"Apr 22, 2026",
+m4.2.24,View Full Transaction History for Loan Product,🔴 Not Automatable,1. User is viewing a selected loan product.,1. Navigate to History.,1. System displays all past transactions (historical data) specific to that loan product.,,,,,,,,,,,,
+m4.2.25,Recent Transacted Accounts Visibility in Send Money Flow,✅ Automatable,"1. User initiates a ""Send Money"" action.
+
+2. Savings product is selected as the source.",1. Observe the recent transacted accounts list within the Send Money page.,1. System displays only the recent transacted accounts associated with the selected savings product for quick reference.,,,,,,,Passed,Recent transacted accounts visible in Send Money flow.,,,"Apr 22, 2026",
+m4.2.26,Prevent Self-Transfer (Same Account),✅ Automatable,"1. User is in the ""Send Money"" flow.
+
+2. A savings product is selected as the source.",1. Input the same Savings Account number as the recipient.,"1. System returns an error message: ""You cannot send money to yourself.""
+
+2. Transaction is blocked.",,,,,,,Passed,Self-transfer blocked with error message.,,,"Apr 22, 2026",
+"m4.3 As a User, I want to download my statement of accounts.",,,,,,,,,,,,,,,,,
+m4.3.1,Verify that the user can access the E-Statement page,✅ Automatable,1. The user is logged into the mobile application.,"1. Navigate to the Profile Menu.
+2. Tap “Bank Documents.”
+3. Tap the “E-Statement” button.","1. The user is redirected to the E-Statements page.
+2. The page displays a list of available E-Statements grouped by MM/YYYY (default view).",Not Tested,,,,,,Skipped,,E-Statement feature not available in current build.,,"Apr 22, 2026",
+m4.3.2,Verify that user can download an E-Statement,✅ Automatable,"1. The user is on the E-Statements page.
+2. There are available E-Statements within the past 3 months.","1. Tap on any available E-Statement (e.g., Feb 2025).
+2. Tap “Download”.",1. The E-Statement is downloaded successfully in PDF format.,Not Tested,,,,,,Skipped,,E-Statement feature not available in current build.,,"Apr 22, 2026",
+m4.3.3,Verify that user can filter and download E-Statements by month range,✅ Automatable,"1. The user is logged into the mobile banking app.
+2. The user is on the E-Statements page.","1. Tap the Date Range Filter option.
+2. Select a valid month range within the last 3 months (e.g., January 2025 to March 2025).
+3. Tap Apply Filter.
+4. From the filtered results, tap on a specific e-statement.
+5. Tap Download.","1. The E-Statements are filtered based on the selected month range.
+2. The user successfully downloads the selected E-Statement in PDF format.",Not Tested,,,,,,Skipped,,E-Statement feature not available in current build.,,"Apr 22, 2026",
+"m4.4 As a User, I want to copy and paste my account number",,,,,,,,,,,,,,,,,
+m4.4.1,Verify that the user can copy their account number,✅ Automatable,"1. The user is logged into the mobile application.
+2. The user has a valid account number displayed on the screen.","1. Navigate to the Home Menu.
+1. Navigate to the account number screen at the top.
+2. Tap the Copy icon next to the account number.
+3. Paste the copied value into any text field (e.g., Notes app, input field).","1. The account number is successfully copied to the clipboard.
+2. The pasted value exactly matches the displayed account number.",Not Tested,,,,,,Skipped,,Copy button not accessible via Android accessibility tree (React Native component without a11y attrs).,,"Apr 22, 2026",
+m4.4.2,Verify copy action behavior when the user taps the copy icon repeatedly very quickly,✅ Automatable,"1. The user is logged into the mobile application.
+2. The user has a valid account number displayed on the screen.",1. Tap the Copy icon repeatedly very quickly.,"1. Only one copy is made, no crashes or glitches.",Not Tested,,,,,,Skipped,,Copy button not accessible via Android accessibility tree (React Native component without a11y attrs).,,"Apr 22, 2026",
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,

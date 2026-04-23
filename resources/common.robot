@@ -32,7 +32,7 @@ Open Higala App
     ...    skipServerInstallation=${False}
     ...    newCommandTimeout=300
     Sleep    3s
-    Start Screen Recording
+    # Start Screen Recording    # disabled — saves storage
     Navigate To Login Page
 
 Navigate To Login Page
@@ -51,7 +51,7 @@ Reset To Login Page
     Navigate To Login Page
 
 Close Higala App
-    Stop And Save Recording
+    # Stop And Save Recording    # disabled — saves storage
     Close Application
 
 # -------------------------------------------------------
@@ -176,7 +176,7 @@ Open Higala App For Signup
     ...    uiautomator2ServerInstallTimeout=120000
     ...    newCommandTimeout=300
     Sleep    3s
-    Start Screen Recording
+    # Start Screen Recording    # disabled — saves storage
     Navigate To Welcome Screen
 
 Navigate To Signup Email Screen

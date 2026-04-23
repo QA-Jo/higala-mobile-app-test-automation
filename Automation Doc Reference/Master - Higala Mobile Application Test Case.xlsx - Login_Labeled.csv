@@ -1,0 +1,923 @@
+,Description,Automation Status,Pre-conditions,Steps Taken,Expected Output,1st Cycle: iOS,Actual Output,Comments,Tester,Date Tested,Version,1st Cycle: Android,Actual Output,Comments,Tester,Date Tested,Version
+"m2.1  As a User, I want to log in via Email Address and password with OTP security                                      ",,,,,,,,,,,,,,,,,
+m2.1.1,Verify the Login page UI elements,🔴 Not Automatable,1. The mobile app is launched.,"1. Tap the ""Sign In"" button to go to the login page
+2. Compare the displayed UI elements (layout, fonts, buttons icons, colors, fonts, spacing, and labels) to the Figma mockup.","1. The screen should display fields for username/email and password.
+2. The ""Sign In""  and ""Back"" button should be present.
+3. There should be clear and user-friendly labels for all input fields.
+4. ""Forgot your password?"" should be displayed below the input fields.
+5. All UI elements should match the Figma design mockup in terms of layout, fonts, buttons icons, colors, fonts, spacing, and labels.
+
+Refer to Card Bank Login page in this Figma file.",Not Tested,,,,,,Fail,,,jjavier,2026-04-23,
+m2.1.2,Verify back button on the login page.,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the login page.","1. Tap the ""Back"" button.","1. The system should redirect back to the Start page.
+
+Refer to Card Bank - Start page in this Figma file.",Not Tested,,,,,,Fail,,,jjavier,2026-04-23,
+m2.1.3,Verify if user can enter details in the login input fields,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the login page.","1. Tap on the email input field
+2. Enter an email address
+3. Tap on the password input field
+4. Enter a password","1. The user should be able to tap on input fields.
+2. The user should be able to enter details in the input fields.
+3. The password input should be masked by bullets or dots.",Not Tested,,,,,,Fail,,,jjavier,2026-04-23,
+m2.1.4,Verify Password Masking and Eye Icon Toggle Functionality,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the login page.","1. Tap on the email input field
+2. Enter an email address
+3. Tap on the password input field
+4. Enter a password
+5. Tap on the eye icon to open it.
+6. Observe the password input.
+7. Tap on the eye icon again to close it.
+8. Observe the password input.","1. The password input should be masked by bullets or dots.
+2. When the eye icon is open, the password should be displayed as plain text.
+3. When the eye icon is closed, the password should be masked again.",Not Tested,,,,,,Fail,,,jjavier,2026-04-23,
+m2.1.5,Verify if user can login with valid credentials and OTP,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the login page.
+3. The user has successfully activated their account by logging in for the first time.
+","1. Tap on the email input field
+2. Enter a valid email address
+3. Tap on the password input field
+4. Enter a valid password
+5. Tap on ""Sign In"" button
+6. On the OTP screen, enter the OTP sent to the registered email address.","1. The system should accept the inputs and proceed to the OTP verification screen.
+2. The user should be able to enter OTP and be redirected to the landing/home page.",Not Tested,,,,,,Pass,,,jjavier,2026-04-23,
+m2.1.6,Verify is user can login with valid credentials using saved password,✅ Automatable,"1. The mobile banking app is installed and launched.
+2. The user has previously saved their login credentials via the device's password manager (e.g., iCloud Keychain, Google Smart Lock).
+3. The user has successfully logged in and verified their identity at least once.","1. Launch the mobile banking app.
+2. On the login screen, tap the email input field.
+3. Tap the ""Passwords"" or key icon to open the device’s saved credentials list.
+4. Select the correct saved credentials for the banking app.
+5. The app auto-fills the email and password fields.
+6. Tap the ""Sign In"" button.
+7. On the OTP screen, enter the valid OTP sent to the registered email or mobile number.","1. The system successfully processes the credentials and navigates to the OTP verification screen.
+2. Upon entering a valid OTP, the user is logged in and redirected to the home page.
+
+",Not Tested,,,,,,Not Tested,,,,,
+,Verify that the system treats email addresses as case-insensitive during login,,"1. The mobile app is launched.
+2. The user is on the login page.
+3. The user has successfully activated their account by logging in for the first time.
+","1. Tap on the email input field
+2. Enter a mixed-case/Uppercase/lowercase version of the email
+3. Tap on the password input field
+4. Enter a valid password
+5. Tap on ""Sign In"" button
+6. On the OTP screen, enter the OTP sent to the registered email address.","1. The system should accept the inputs proving normalization of the string and proceed to the OTP verification screen.
+2. The user should be able to enter OTP and be redirected to the landing/home page.",,,,,,,,,,,,
+m2.1.7,Verify if user cannot login with incorrect OTP,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the login page.
+2. The OTP either is incorrect","1. Tap on the email input field
+2. Enter a valid email address
+3. Tap on the password input field
+4. Enter a valid password
+5. Tap on ""Sign In"" button
+6. On the OTP screen, enter an invalid OTP","1. The system should display a validation message: 
+
+“OTP is either Invalid or has expired, Please try again or request a new OTP”",Not Tested,,,,,,,,,,,
+m2.1.8,Verify that the user cannot request a new OTP upon login before the 1-minute cooldown period has passed,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the OTP screen after entering valid email and password.
+3. The 1-minute OTP cooldown has not passed yet.","1. Tap on the ""Resend code"" link.
+","1. ""Resend code"" should be disabled. 
+2. No new OTP should be generated or sent.
+3. The cooldown timer should continue until it completes the full 1-minute duration.",Not Tested,,,,,,Fail,,,jjavier,2026-04-23,
+m2.1.9,Verify that the user can request a new OTP upon login,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the OTP screen after entering valid email and password.
+3. The previously received OTP has expired or the 1-minute OTP cooldown is complete.","1. Tap on the ""Resend code"" link.
+2. Check the received email to confirm a new OTP has been sent.
+3. On the OTP screen, enter the newly received OTP.","1. The system should display a prompt indicating that a new OTP has been sent to the registered email address.
+2. The newly generated OTP should be received via email.
+3. The user should be able to enter OTP and be redirected to the landing/home page.",Not Tested,,,,,,,,,,,
+m2.1.10,Verify if previously received OTP is not valid upon login,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the OTP screen after entering valid email and password.","1. Tap on the ""Resend code"" link.
+2. Check the received email to confirm a new OTP has been sent.
+3. Attempt to enter the previously received OTP.
+4. Observe the system response.
+5. Repeat steps 1-4.","1. The system should display a validation message: 
+
+“OTP is either Invalid or has expired, Please try again or request a new OTP”
+
+2. Every request of new OTP will trigger all previously requested OTP to be invalid.
+",Not Tested,,,,,,,,,,,
+m2.1.11,Verify validation on the 5th failed OTP attempt (triggering max allowed attempts error),✅ Automatable,"1. The mobile app is launched.
+2. The user is on the login page.
+4. A valid email and password are known.
+5. The system allows a maximum of 5 OTP attempts per session.","1. Tap on the email input field.
+2. Enter a valid email address.
+3. Tap on the password input field.
+4. Enter a valid password.
+5. Tap on the ""Sign In"" button.
+6. On the OTP screen, enter an invalid OTP for 4 times
+7. On the 5th attempt, enter an invalid OTP again.
+8. Observe the system behavior immediately after the 5th invalid entry.
+9. Click"" Ok""","1. Immediately after the 5th invalid OTP attempt, the system should display:
+""Verification Failed: You have reached the maximum number of attempts. For your security, we’re redirecting you to the previous page.""
+
+2. The user should be redirected back to the login screen.",Not Tested,,,,,,Not Tested,,,,,
+m2.1.12,Verify validation on 5th OTP input attempt across multiple resend requests,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the login page.
+3. A valid email and password are known.
+4. The system allows only 5 total OTP input attempts per session, regardless of resend count.
+5. The user has reached the OTP verification screen during login.","1. Enter 2 invalid OTPs (Attempts 1 & 2).
+2. Tap ""Resend code"".
+3. Enter 2 more invalid OTPs (Attempts 3 & 4).
+4. Tap ""Resend code"" again.
+5. Enter one more invalid OTP (Attempt 5).
+6. Observe the system behavior immediately after the 5th invalid entry.
+7. Click"" Ok""","1. Immediately after the 5th invalid OTP attempt, the system should display:
+
+""Verification Failed: You have reached the maximum number of attempts. For your security, we’re redirecting you to the previous page.""
+",Not Tested,,,,,,Not Tested,,,,,
+m2.1.13,"Verify validation when OTP session expires before max attempts 
+
+(When the User has reached Session ID timeout without reaching the max input attempts.)",✅ Automatable,"1. User has attempted to login and OTP session started
+2. User is on the OTP verification screen.","1. Within 5 mins, input invalid OTP for 3 times
+2. After 5 mins when the OTP session expires, regardless of validity input an OTP (4th attempt)
+3. Tap on ""Resend Code""
+4. Tap on ""Request New Code"" button.","1. On the 4th OTP input attempt after session expiry, the system should display:
+
+“OTP is either invalid or has expired. Please try again or request a new OTP.”
+
+2. After tapping the ""Resend Code"" link, the system should show:
+
+“OTP Expired: Your one-time password has expired. Request a new code to continue.”
+
+3. After tapping the ""Request New Code"" button:
+
+- The user should be redirected back to the login screen.
+
+- A new OTP session should be required to continue the login process.",Not Tested,,,,,,Not Tested,,,,,
+m2.1.14,Verify that the system displays the correct error modal when an invalid or valid OTP is entered after the 5-minute OTP validity window has expired.,✅ Automatable,"1. User is on the OTP verification screen.
+2. An OTP has already been generated.
+3. The 5-minute OTP validity window has expired.","1. Wait until the OTP validity period exceeds 5 minutes.
+2. Enter a valid or invalid OTP.
+3. Observe the system behavior.
+4. Tap the OK button on the modal.","1. System does not proceed with OTP verification.
+2. An error modal is displayed with the message:
+“OTP is either invalid or has expired. Please try again or request a new OTP.”
+3. The modal displays an OK button.
+4. Tapping OK redirects the user to the previous screen.",Not Tested,,,,,,,,,,,
+m2.1.15,Verify the session timeout modal on the OTP  screen due to inactivity,✅ Automatable,1. The user is on the Login OTP page.,"1. Do not interact.
+2. Wait 5 minutes.","1. Session timeout screen prompted with the ""Back to Login"" button
+2. Clicking the ""Back to Login"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m2.1.16,Verify the session timeout modal on the OTP screen after minimizing,✅ Automatable,1. The user is on the Login OTP page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session timeout screen prompted with the ""Back to Login"" button
+2. Clicking the ""Back to Login"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m2.1.17,Verify the session timeout modal is still visible on OTP screen after minimizing and reopening the app,✅ Automatable,1. The user is on the Login OTP page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session timeout screen is still visible with the ""Back to Login"" button
+2. Clicking the ""Back to Login"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m2.1.18,Verify that the session remains active while the user is interacting with the app,✅ Automatable,1. The user is on the Login OTP page.,"1. Continuously interact with the app (tap/scroll/input) within the 5 session timeout window.
+2. Observe the session status.","1. Session remains active.
+2. Session timout screen should not be prompted",Not Tested,,,,,,Fail,,,jjavier,2026-04-23,
+m2.1.19,Verify validation message if entered email address is not related to the inputted password,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the login page.","1. Tap on the email input field
+2. Enter an incorrect email address
+3. Tap on the password input field
+4. Enter a valid password
+5. Tap on ""Sign In"" button","1. The system should display a validation message:
+
+“Incorrect email or password, please try again.”
+
+2. The system should not proceed to the next screen or trigger login.
+",Not Tested,,,,,,Not Tested,,,,,
+m2.1.20,Verify validation message for blank email field,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the login page.","1. Leave the email field empty
+3. Tap on the password input field
+4. Enter a valid password
+5. Tap on ""Sign In"" button","1. The system should display a validation message under the empty input field in red text:
+
+""Email address is required.""
+
+2. The user should not proceed to the next screen or trigger login.
+",Not Tested,,,,,,Not Tested,,,,,
+m2.1.21,Verify validation message for incorrect email format in the email field,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the login page.","1. Tap on the email input field
+2. Enter an email address with incorrect format
+3. Tap on the password input field
+4. Enter a valid password
+5. Tap on ""Sign In"" button
+6. On the OTP screen, enter an invalid OTP","1. The system should display a validation message under the email input field in red text:
+
+“Incorrect email format.”
+
+2. The system should not proceed to the next screen or trigger login.
+",Not Tested,,,,,,Not Tested,,,,,
+m2.1.22,Verify validation message if entered password is not related to the inputted email,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the login page.","1. Tap on the email input field
+2. Enter valid email address
+3. Tap on the password input field
+4. Enter an incorrect password
+5. Tap on ""Sign In"" button","1. The system should display a validation message:
+
+“Incorrect email or password, please try again.”
+
+2. The system should not proceed to the next screen or trigger login.
+",Not Tested,,,,,,Not Tested,,,,,
+m2.1.23,Verify validation message for blank password field,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the login page.","1. Tap on the email input field
+2. Enter a valid email address
+3. Leave the password field empty
+4. Tap on ""Sign In"" button","1. The system should display a validation message under the empty input field in red text:
+
+""Password is required.""
+
+2. The user should not proceed to the next screen or trigger login.
+",Not Tested,,,,,,Not Tested,,,,,
+m2.1.24,Verify validation message if entered email address and passwor is not existing in the system,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the login page.","1. Tap on the email input field
+2. Enter a valid email address
+3. Enter a password
+4. Tap on ""Sign In"" button","1. The system should display a validation message:
+
+“Incorrect email or password, please try again.”
+
+2. The system should not proceed to the next screen or trigger login.
+",Not Tested,,,,,,,,,,,
+m2.1.25,Verify that the user's email is blocked for 30 minutes after 3 unverified login sessions with 5 invalid attempts per session,✅ Automatable,"1.User is registered.
+2. Email is not currently blocked.
+","1. Initiate Login Session #1
+ - Enter 5 incorrect OTP(s)
+2. Initiate Login Session #2
+ - Enter 5 incorrect OTP(s)
+3. Initiate Login Session #3
+ - Enter 5 incorrect OTP(s)
+
+4. Attempt to initiate Login Session #4 using the same email.","1. After the 3rd unverified login session, the system blocks the user's email for 30 minutes.
+
+2. Any OTP login attempt during the block period should return an error message:
+
+""You have exceeded the maximum number of OTP attempts. You can try again in <time remaining> minutes.""
+
+3. Email is sent to the customer:
+Subject: Security Notice: Unusual Activity Detected on Your Account
+
+Body:
+Hi <Customer Name>,
+
+We noticed several attempts to access your account that exceeded our security limits. To help keep your account safe, we’ve temporarily locked it as a precaution.
+
+If these attempts were made by you, no further action is needed. You can try signing in again after the cooldown period. If you need immediate access, please contact <replace customer support email> for assistance with resetting your account.
+",Not Tested,,,,,,Not Tested,,,,,
+m2.1.26,Verify that the user's email is blocked for 30 minutes after 3 unverified login sessions with no OTP attempts (session abandoned),✅ Automatable,"1.User is registered.
+2. Email is not currently blocked.
+","1. Initiate Login Session #1
+ - Leave the OTP input field blank
+ - Cancel the OTP verification and go back to login page.
+
+2. Initiate Login Session #2
+ - Leave the OTP input field blank
+ - Cancel the OTP verification and go back to login page.
+
+3. Initiate Login Session #3
+ - Leave the OTP input field blank
+ - Cancel the OTP verification and go back to login page.
+
+4. Attempt to initiate Login Session #4 using the same email.","1. After the 3rd unverified login session, the system blocks the user's email for 30 minutes.
+
+2. Any OTP login attempt during the block period should return an error message:
+
+""You have exceeded the maximum number of OTP attempts. You can try again in <time remaining> minutes.""
+
+3. Email is sent to the customer:
+Subject: Security Notice: Unusual Activity Detected on Your Account
+
+Body:
+Hi <Customer Name>,
+
+We noticed several attempts to access your account that exceeded our security limits. To help keep your account safe, we’ve temporarily locked it as a precaution.
+
+If these attempts were made by you, no further action is needed. You can try signing in again after the cooldown period. If you need immediate access, please contact <replace customer support email> for assistance with resetting your account.
+",Not Tested,,,,,,,,,,,
+m2.1.27,Verify that a user receives a blocking error message when trying to log in with an email address that is currently blocked.,✅ Automatable,1. The user's email has been blocked due to failed OTP attempts ,"1. During the 30-minute blocking period, attempt to log in using the blocked email address multiple times.
+2. Observe the system’s response.","1. System does not proceed with OTP generation.
+
+2. A clear error message is displayed indicating the email is blocked:
+
+""You have exceeded the maximum number of OTP attempts. You can try again in <time remaining> minutes.""
+
+3. Each time the user attempts to log in while the email is still blocked, the system displays the same error message, with the remaining block time updated accordingly.",Not Tested,,,,,,Not Tested,,,,,
+m2.1.28,Verify that a user can log in successfully with a valid OTP after the 30-minute block period has expired.,✅ Automatable,1. The user's email was blocked and 30 minutes have passed.,"1. Wait until 30 minutes have passed since the block was applied.
+2. Attempt to log in using the same email.
+3. Enter the correct OTP.","1. Login process resumes normally.
+2. OTP is sent and validated successfully.
+3. User is logged in.",Not Tested,,,,,,Not Tested,,,,,
+m2.1.29,Verify that the system does not block the user if they input a valid OTP on the 5th attempt during the 3rd session,✅ Automatable,"1. User is registered.
+2. Two previous login sessions have already occurred, both unverified and/or expired.
+5. Each session allows up to 5 OTP attempts.","1. Initiate Login Session #3
+2. Enter 4 incorrect OTPs.
+3. On the 5th attempt, enter the correct OTP.
+4. Observe the outcome of the session.
+5. Attempt to initiate Login Session #4.","1. Session #3 is considered verified.
+2. Blocking is not triggered (since only 2 sessions were unverified in last 15 minutes).
+3. Session #4 starts normally.
+4. User is not blocked.",Not Tested,,,,,,,,,,,
+m2.1.30,Verify that the counter resets after successful verification of any session,✅ Automatable,"1. User is registered and not currently blocked.
+2. Each OTP session allows a maximum of 5 attempts.
+3. Session timeout is 5 minutes.
+4. Blocking occurs only after 3 unverified sessions within 15 minutes.
+5. Two previous login sessions have already occurred, both unverified and/or expired.
+","1. Initiate Login Session #3
+2. Enter 4 incorrect OTPs.
+3. On the 5th attempt, enter the correct OTP.
+4. Observe the outcome of the session.
+5. 1. Initiate Login Session #4
+ - Leave the OTP input field blank
+ - Cancel the OTP verification and go back to login page.
+
+2. Initiate Login Session #5
+ - Leave the OTP input field blank
+ - Cancel the OTP verification and go back to login page.
+
+3. Initiate Login Session #6
+ - Leave the OTP input field blank
+ - Cancel the OTP verification and go back to login page.
+
+4. Attempt to initiate Login Session #7 using the same email.""","1. Login Sessions 4-6 are counted as new failures.
+2. No blocking should occur on session #6 because the previous two failures (1 & 2) were cleared due to the successful verification in #3.
+3. Blocking would only occur if 3 new unverified sessions happen after a successful one - within a new 15-minute window so in this case on Session 7
+4. On Session 7, a clear error message is displayed indicating the email is blocked:
+
+""You have exceeded the maximum number of OTP attempts. You can try again in <time remaining> minutes.""",Not Tested,,,,,,,,,,,
+m2.1.31,Verify that the system does not block the user if the 3 unverified sessions span more than 15 minutes,✅ Automatable,"1.User is registered.
+2. Email is not currently blocked.
+3. Blocking occurs only after 3 unverified sessions within 15 minutes.","1. Start Login Session #1
+ - Time: 00:00:00
+ - Enter incorrect OTPs (1–5) or let session expire unverified.
+ - Ends at: 00:05:00 min
+
+2. Start Login Session #2
+ - Time: 00:06:00 min
+ - Request OTP.
+ - Enter incorrect OTPs (1–5) or let session expire unverified.
+ - Ends at: 00:10:00 min
+
+3. Wait for 5 mins
+ - Time: 00:10:00 min
+ - Ends at 00:15:00 min
+
+4. Start Login Session #3
+- Time: 00:16:00 min
+- Enter incorrect OTPs (1–5) or let session expire unverified.
+- Ends at: 00:20:00 mins
+
+5. Start Login Session #4
+ - Time: 00:20:00 or 00:21:00  min
+ - Attempt to initiate login using the same email.","1. The system does not block the user.
+
+2. The system evaluates the previous sessions:
+
+ - Session #1: ended at 00:05
+
+ - Session #3: started at 00:16 → more than 15 minutes since #1 ended
+
+Therefore, the 3 unverified sessions do not fall within a 15-minute window.
+
+3. Session #4 is allowed.
+
+4. OTP is sent normally.
+
+5. No blocking error is shown.",Not Tested,,,,,,,,,,,
+m2.1.32,Verify account is not blocked when user has Incorrect attempts but under threshold,✅ Automatable,"1. User is on the login page.
+2. User has a valid account.","1. Enter incorrect credentials 4 times consecutively.
+2. On the 5th attempt, enter the correct credentials.","1. For the invalid attempts, the system displays the login error message. The user may retry until the 5th attempt.
+2. On the 5th attempt with vlid creds, the system successfully processes the credentials and navigates to the OTP verification screen.
+3. Upon entering a valid OTP, the user is logged in and redirected to the home page.",Not Tested,,,,,,,,,,,
+m2.1.33,Verify account is blocked after 5 consecutive failed login attempts,✅ Automatable,"1. User is on the login page.
+2. User has a valid account.",1. Enter incorrect password 5 times consecutively.,"1. On the 5th failed attempt, system blocks the account.
+2. Displays message: “Incorrect email or password. Too many attempts -- please try again in 5 minutes.”
+3. All further login attempts denied during cooldown.
+4. Email is sent to the customer. Subject: Security Alert: Your Account Has Been Temporarily Locked.
+Email body:
+Body:
+Hi <Customer Name>,
+
+For your protection, we temporarily locked your account after multiple incorrect password attempts. This may happen if:
+
+    - You forgot your password, or
+    - Someone else tried to access your account without permission
+
+To regain access, simply use the Forgot Password option in the mobile app.
+
+If you did not try to log in, please contact support@higala.ph immediately so we can help secure your account.
+",Not Tested,,,,,,,,,,,
+m2.1.34,Verify blocked account cannot log in during 5-minute cooldown,✅ Automatable,"1. User is on the login page.
+2. Account blocked due to 5 failed attempts.
+3. 5-minute cooldown not expired.",1. Try logging in with correct credentials during cooldown.,"1. Login is denied.
+2. Message:  “Incorrect email or password. Too many attempts -- please try again in 5 minutes.”",Not Tested,,,,,,,,,,,
+m2.1.35,Verify account automatically unlocks after cooldown,✅ Automatable,"1. User is on the login page.
+2. Account previously blocked due to failed attempts.
+3. 5 minutes passed.",1. Log in with valid credentials after cooldown expires.,"1. The system successfully processes the credentials and navigates to the OTP verification screen.
+4. Upon entering a valid OTP, the user is logged in and redirected to the home page.",Not Tested,,,,,,Fail,,,jjavier,2026-04-23,
+m2.1.36,Verify failed attempt counter persists across sessions/devices,🔴 Not Automatable,1. User failed login 3 times on Device A.,1. Attempt login with same account on Device B using wrong password 2 times.,"1. Counter continues from Device A (e.g., 4th attempt).
+2. Account blocks on 5th attempt overall.",Not Tested,,,,,,,,,,,
+m2.1.37,Verify blocking applies per account (not per device/IP),🔴 Not Automatable,1. Account is blocked on Device A.,1. Attempt login on Device B.,"1. Login blocked.
+2. Message indicates account-level lockout.",Not Tested,,,,,,,,,,,
+m2.1.38,Verify admin unlock restores access immediately,🔴 Not Automatable,1. Account blocked.,"1. Admin manually unlocks user in backend.
+2. User logs in with correct credentials.","1. Login successful.
+2. Counter resets to 0.
+3. “Account Unlocked by Admin” logged in audit table.",Invalid,,,,,,,,,,,
+m2.1.39,Verify password reset during block period lifts block,✅ Automatable,1. Account blocked after failed attempts.,"1. Perform Forgot Password.
+2. Reset password.
+3. Log in with new credentials.","1. Login successful even before cooldown ends.
+2. Counter resets.
+3. Block lifted automatically.",Not Tested,,,,,,Pass,,,jjavier,2026-04-23,
+m2.1.40,Verify counter resets to zero after successful login ,✅ Automatable,1. User is on login page.,"1. Enter incorrect credentials 4 times consecutively.
+2. On the 5th attempt, enter the correct credentials.
+3. Enter incorrect credentials 5 times consecutively.","1. After a successful login, user can have another max 5 attempts.
+2. On the 5th attempt, user is now blocked.",Not Tested,,,,,,,,,,,
+m2.1.41,Verify failed login with incorrect email address,✅ Automatable,1. User is on login page.,1. Login using unregistered email and any password 5 times consecutively.,"1. On the 5th failed attempt, system blocks the account.
+2. Displays message: “This account has reached the maximum number of login attempts. Please try again after 5 minutes.”
+3. All further login attempts denied during cooldown.",Not Tested,,,,,,,,,,,
+m2.1.42,Verify failed login with incorrect temporary password,✅ Automatable,1. Account is under password reset flow.,1. Enter correct email but invalid temporary password 5 times consecutively.,"1. On the 5th failed attempt, system blocks the account.
+2. Displays message: “This account has reached the maximum number of login attempts. Please try again after 5 minutes.”
+3. All further login attempts denied during cooldown.",Not Tested,,,,,,,,,,,
+m2.1.43,Verify behavior when an expired temporary password is used on the Login page.,🔴 Not Automatable,"1. The mobile app is launched.
+2. The user is on the login page.
+3. Temporary password has already expired beyond the 24 hour limit","1. Tap on the email input field.
+2. Enter a correct email address.
+3. Tap on the password input field.
+4. Enter an expired temporary password.
+5. Tap on the ""Sign In"" button.","1. A “Temporary password expired” modal displays with message:
+“Please request a new one to continue.” with an ""OK"" button.
+
+2. Click the ""OK"" button — the system should redirect the user back to the Login screen.",Not Tested,,,,,,,,,,,
+m2.1.44,Verify audit logging for failed login attempts,🔴 Not Automatable,1. User enters invalid credentials.,"1. Perform 3 failed login attempts.
+2. Check login audit table (via API or DB).","1. Each attempt logged with user ID, timestamp, device info, and status = “Failed.”",Not Tested,,,,,,,,,,,
+m2.1.45,Verify audit logging for failed login attempts,🔴 Not Automatable,1. Account blocked after 5 failed attempts.,1. Check login audit table.,"1. Log entry created for “Account Blocked” event with timestamp, duration (5 mins), and unblock method.",Not Tested,,,,,,,,,,,
+m2.1.46,Verify failed login with incorrect MPIN,🔴 Not Automatable,1. MPIN login enabled.,1. Enter incorrect MPIN 5 times consecutively.,"1. System locks account.
+2. Message: “You have reached the maximum number of attempts. Please try again after 5 minutes.”",Not Tested,,,,,,,,,,,
+m2.1.47,Verify Landing/Home Page UI for Users with Recent Transactions,🔴 Not Automatable,"1. The user has successfully logged in.
+2. The user account has existing recent transactions","1. Compare the UI elements (layout, buttons, icons, colors, fonts, spacing, and labels) with the provided design specifications or the Figma mockups.","1.  All UI elements on the landing/home page should exactly match the design specifications in terms of layout, colors, font style and size, positioning, icons, spacing, and labels. 
+2. There should be no missing elements or visual inconsistencies.
+3. Transaction list is displayed correctly
+
+Refer to Card Bank - HP page in this Figma file.
+",Not Tested,,,,,,Fail,,,,,
+m2.1.48, Verify Landing/Home Page UI for New Users with No Transactions,🔴 Not Automatable,"1. The user has successfully logged in.
+2. The user account has no transaction history.","1. Compare the UI elements (layout, buttons, icons, colors, fonts, spacing, and labels) with the provided design specifications or the Figma mockups.","1.  All UI elements on the landing/home page should exactly match the design specifications in terms of layout, colors, font style and size, positioning, icons, spacing, and labels. 
+2. There should be no missing elements or visual inconsistencies.
+3. No transactions is displayed yet.
+
+Refer to Card Bank - HP page in this Figma file.
+",Not Tested,,,,,,Not Tested,,,,,
+m2.1.49,Verify navigation options on the landing page,✅ Automatable,1. The user has successfully logged in. ,"1. Check if the navigation icons for Home, MY QR, and History are displayed.
+2. Tap on the MY QR icon.
+3. Check the screen
+4. Tap on the History icon.
+5. Check the screen
+6. Tap on the Profile icon.
+7. Check the screen
+8. Tap on the Home icon.","1. The Home, MY QR, History, Profile navigation icons should be visible on the Home page.
+2. Tapping MY QR should navigate the user to their QR code screen.
+3. Tapping History should navigate the user to their transaction history screen.
+4. Tapping Profile should navigate to the profile page.
+5. Tapping Home should navigate to the home or landing page.",Not Tested,,,,,,Not Tested,,,,,
+"m2.2 As a User, I want to initiate the forgot password process",,,,,,,,,,,,,,,,,
+m2.2.1,Verify that the user is able to change password,✅ Automatable,"1. The mobile app is launched.
+2. The user has already changed the temporary password.
+3. The user is on the login screen.","1. Tap the ""Forgot your password?""
+2. Enter a registered email address in the prompt.
+3. Tap “Submit” to proceed.
+4. Check the provided email for the OTP code sent by the system.
+5. Enter the received OTP in the verification screen.
+6. Tap on Password input field, then enter a valid new password that meets the system’s password criteria.
+6. Re-enter the same password in the Confirm Password field.
+7. Tap “Submit” to finalize the password change.
+8. Tap on ""Back to login"" button.","1. The system sends a verification code (OTP) to the registered email after submitting the address.
+2. The OTP is verified successfully upon input.
+3. The system accepts the new password and confirmation message is displayed after password update.
+4. The user is redirected to the login screen.
+
+",Not Tested,,,,,,Not Tested,,,,,
+m2.2.2,Verify successful login and access to the digital bank account after password update,✅ Automatable,"1. The mobile app is launched.
+2. The user has successfully updated their password.","1. Tap the ""Sign In"" button to go to the login page
+2. Log in using the registered email and the new password.
+3. On the OTP screen, enter the OTP sent to the registered email address.","1. The system should accept the inputs and proceed to the OTP verification screen.
+2. The user should be able to enter OTP and be redirected to the landing/home page.",Not Tested,,,,,,Not Tested,,,,,
+,Verify that the system treats email addresses as case-insensitive during Forgot Password,,"1. The user has already changed the temporary password.
+2. The user is on the login screen.
+3. The registered email is ex. pvillados+7@nmblr.ai","1. Tap ""Forgot your password?"".
+2. Enter the registered email in mixed-case/uppercase/lowercase.
+3. Tap “Submit”.
+4. Enter the OTP received via email.
+5. Enter and confirm a valid new password.
+6. Tap “Submit” and then ""Back to login"".","1. The system recognizes the uppercase/mixed-case email and sends an OTP.
+2. The OTP is verified successfully.
+3. The system updates the password and displays a confirmation message.
+4. The user is redirected to the login screen.",,,,,,,,,,,,
+m2.2.3,Verify the session timeout modal on the Forgot Password - Email  screen due to inactivity,✅ Automatable,1. The user is on the Forgot Password - Email page.,"1. Do not interact.
+2. Wait 5 minutes.","1. Session timeout screen prompted with the ""Back to Login"" button
+2. Clicking the ""Back to Login"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m2.2.4,Verify the session timeout modal on the Forgot Password - Email screen after minimizing,✅ Automatable,1. The user is on the Forgot Password - Email page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session timeout screen prompted with the ""Back to Login"" button
+2. Clicking the ""Back to Login"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m2.2.5,Verify the session timeout modal is still visible on Forgot Password - Email screen after minimizing and reopening the app,✅ Automatable,1. The user is on the Forgot Password - Email page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session timeout screen is still visible with the ""Back to Login"" button
+2. Clicking the ""Back to Login"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m2.2.6,Verify that the user cannot request a new OTP upon password reset before the 1-minute cooldown period has passed,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the OTP screen after password reset flow.","1. Tap on the ""Resend code"" link.
+","1. ""Resend code"" should be disabled. 
+2. No new OTP should be generated or sent.
+3. The cooldown timer should continue until it completes the full 1-minute duration.",Not Tested,,,,,,Not Tested,,,,,
+m2.2.7,Verify that the user can request a new OTP upon password reset ,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the OTP screen after password reset flow.","1. Tap on the ""Resend code"" link.
+2. Check the received email to confirm a new OTP has been sent.
+3. On the OTP screen, enter the newly received OTP.","1. The system should display a prompt indicating that a new OTP has been sent to the registered email address.
+2. The newly generated OTP should be received via email.
+3. The user should be able to enter OTP",Not Tested,,,,,,Not Tested,,,,,
+m2.2.8,Verify if previously received OTP is not valid upon password reset ,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the OTP screen after password reset flow.","1. Tap on the ""Resend code"" link.
+2. Check the received email to confirm a new OTP has been sent.
+3. Attempt to enter the previously received OTP.
+4. Observe the system response.
+5. Repeat steps 1-4.","1. The system should display a validation message: 
+
+“OTP is either Invalid or has expired, Please try again or request a new OTP”
+
+2. Every request of new OTP will trigger all previously requested OTP to be invalid.
+",Not Tested,,,,,,Not Tested,,,,,
+m2.2.9,Verify validation message for incorrect OTP upon password reset,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the OTP screen after password reset flow.","1. Tap the ""Forgot your password?""
+2. Enter a registered email address in the prompt.
+3. Tap “Submit” to proceed.
+4. Check the provided email for the OTP code sent by the system.
+5. On the OTP in the verification screen, enter an incorrect OTP","1. The system should display a validation message: 
+
+“OTP is either Invalid or has expired, Please try again or request a new OTP”",Not Tested,,,,,,,,,,,
+m2.2.10,Verify validation message for expired OTP upon password reset,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the OTP screen after password reset flow.
+3. The received OTP has expired.","1. Tap the ""Forgot your password?""
+2. Enter a registered email address in the prompt.
+3. Tap “Submit” to proceed.
+4. Check the provided email for the OTP code sent by the system.
+5. On the OTP in the verification screen, enter an expired OTP","1. The system should display a validation message: 
+
+“OTP is either Invalid or has expired, Please try again or request a new OTP”",Not Tested,,,,,,,,,,,
+m2.2.11,Verify validation on the 5th failed OTP attempt (triggering max allowed attempts error),✅ Automatable,"1. The mobile app is launched.
+2. The user is on the login page.
+3.The system allows a maximum of 5 OTP attempts per session.","1. Tap on the ""Forgot your password?""
+2. Enter a valid email address.
+3. On the OTP screen, enter an invalid OTP for 4 times
+4. On the 5th attempt, enter an invalid OTP again.
+5. Observe the system behavior immediately after the 5th invalid entry.
+6. Click"" Ok""","1. Immediately after the 5th invalid OTP attempt, the system should display:
+""Verification Failed: You have reached the maximum number of attempts. For your security, we’re redirecting you to the previous page.""
+
+2. The user should be redirected back to entering the email address page. ",Not Tested,,,,,,,,,,,
+m2.2.12,Verify validation on 5th OTP input attempt across multiple resend requests,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the OTP Verification page after initiating forgot password process.
+3.The system allows a maximum of 5 OTP attempts per session.","1. Enter 2 invalid OTPs (Attempts 1 & 2).
+2. Tap ""Resend code"".
+3. Enter 2 more invalid OTPs (Attempts 3 & 4).
+4. Tap ""Resend code"" again.
+5. Enter one more invalid OTP (Attempt 5).
+6. Observe the system behavior immediately after the 5th invalid entry.
+7. Click"" Ok""","1. Immediately after the 5th invalid OTP attempt, the system should display:
+
+""Verification Failed: You have reached the maximum number of attempts. For your security, we’re redirecting you to the previous page.""
+
+2. The user should be redirected back to entering the email address page. ",Not Tested,,,,,,,,,,,
+m2.2.13,"Verify validation when OTP session expires before max attempts 
+
+(When the User has reached Session ID timeout without reaching the max input attempts.)",✅ Automatable,"1. The mobile app is launched.
+2. The user is on the OTP Verification page after initiating forgot password process.
+3.The system allows a maximum of 5 OTP attempts per session.","1. Within 5 mins, input invalid OTP for 3 times
+2. After 5 mins when the OTP session expires, regardless of validity input an OTP (4th attempt)
+3. Tap on ""Resend Code""
+4. Tap on ""Request New Code"" button.","1. On the 4th OTP input attempt after session expiry, the system should display:
+
+“OTP is either invalid or has expired. Please try again or request a new OTP.”
+
+2. After tapping the ""Resend Code"" link, the system should show:
+
+“OTP Expired: Your one-time password has expired. Request a new code to continue.”
+
+3. After tapping the ""Request New Code"" button:
+
+- The user should be redirected back to entering the email address page. 
+- A new OTP session should be required to continue the login process.",Not Tested,,,,,,,,,,,
+m2.2.14,Verify that the system displays the correct error modal when an invalid or valid OTP is entered after the 5-minute OTP validity window has expired.,✅ Automatable,"1. User is on the OTP verification screen.
+2. An OTP has already been generated.
+3. The 5-minute OTP validity window has expired.","1. Wait until the OTP validity period exceeds 5 minutes.
+2. Enter a valid or invalid OTP.
+3. Observe the system behavior.
+4. Tap the OK button on the modal.","1. System does not proceed with OTP verification.
+2. An error modal is displayed with the message:
+“OTP is either invalid or has expired. Please try again or request a new OTP.”
+3. The modal displays an OK button.
+4. Tapping OK redirects the user to the previous screen.",Not Tested,,,,,,,,,,,
+m2.2.15,Verify the session timeout modal on the OTP  screen due to inactivity,✅ Automatable,1. The user is on the OTP page.,"1. Do not interact.
+2. Wait 5 minutes.","1. Session timeout screen prompted with the ""Back to Login"" button
+2. Clicking the ""Back to Login"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m2.2.16,Verify the session timeout modal on the OTP screen after minimizing,✅ Automatable,1. The user is on the OTP page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session timeout screen prompted with the ""Back to Login"" button
+2. Clicking the ""Back to Login"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m2.2.17,Verify the session timeout modal is still visible on OTP screen after minimizing and reopening the app,✅ Automatable,1. The user is on the OTP page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session timeout screen is still visible with the ""Back to Login"" button
+2. Clicking the ""Back to Login"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m2.2.18,Verify the session timeout modal on the Enter new password screen due to inactivity,✅ Automatable,1. The user is on the Enter new password page.,"1. Do not interact.
+2. Wait 5 minutes.","1. Session timeout screen prompted with the ""Back to Login"" button
+2. Clicking the ""Back to Login"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m2.2.19,Verify the session timeout modal on the Enter new password screen after minimizing,✅ Automatable,1. The user is on the Enter new password page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session timeout screen prompted with the ""Back to Login"" button
+2. Clicking the ""Back to Login"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m2.2.20,Verify the session timeout modal is still visible on Enter new password screen after minimizing and reopening the app,✅ Automatable,1. The user is on the Enter new password page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session timeout screen is still visible with the ""Back to Login"" button
+2. Clicking the ""Back to Login"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m2.2.21,Verify the session timeout modal on the new password screen due to inactivity,✅ Automatable,1. The user is on the new password set page.,"1. Do not interact.
+2. Wait 5 minutes.","1. Session timeout screen prompted with the ""Back to Login"" button
+2. Clicking the ""Back to Login"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m2.2.22,Verify the session timeout modal on the new password screen after minimizing,✅ Automatable,1. The user is on the new password set page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session timeout screen prompted with the ""Back to Login"" button
+2. Clicking the ""Back to Login"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m2.2.23,Verify the session timeout modal is still visible on new password screen after minimizing and reopening the app,✅ Automatable,1. The user is on the new password set page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session timeout screen is still visible with the ""Back to Login"" button
+2. Clicking the ""Back to Login"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m2.2.24,Verify validation messages when user inputs invalid or empty email address on Forgot Password screen,✅ Automatable,,"1. Tap the “Forgot your password?” link on the login page.
+2. Leave the Email Address field empty.
+3. Tap the “Submit” button.
+4. Enter an email with an incorrect format (e.g., useremail.com or user@).
+5. Tap the “Submit” button again.
+6. Enter an unregistered/incorrect email address
+7. Tap the “Submit” button.""","1. When the Email Address field is left empty, the system should display the validation message:
+“This field is required.”
+
+2. When an incorrectly formatted email address is entered, the system should display the validation message:
+“Incorrect email format.”
+
+3. When an unregistered email address is entered, the system should display the validation message:
+“Email address is invalid, please try again.”
+
+The “Submit” button should remain disabled or the process should not proceed until a valid email address is entered.""",Not Tested,,,,,,,,,,,
+m2.2.25,Verify validation message for blank password input fields,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the Forgot Password page.",1. Tap on each of the Password input fields and leave it blank.,"1. The system should display a validation message under the empty input field in red text:
+
+""<Field name> is required.""
+
+
+2. The user should not proceed to the next screen or trigger login.",Not Tested,,,,,,,,,,,
+m2.2.26,Verify validation message when user inputs invalid password format on New Password Field,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the login page.","1. Tap the ""Forgot your password?""
+2. Enter a registered email address in the prompt.
+3. Tap “Submit” to proceed.
+4. Check the provided email for the OTP code sent by the system.
+5. Enter the received OTP in the verification screen.
+6. Tap on Password input field, then enter a new password that does not meet the system’s password criteria.
+","1. In typing the new password, the system should display the validation message message below until the inputted password meets the system requirements: 
+
+""Please follow the password complexity
+         
+1 Uppercase Letter
+1 Lowercase Letter
+1 Number
+1 Special Character
+8 Characters minimum
+127 Characters maximum”
+
+2. The ""Submit"" button should still be disabled.",Not Tested,,,,,,Not Tested,,,,,
+m2.2.27,Verify validation message when user inputs invalid password format on Confirm Password Field,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the login page.","1. Tap the ""Forgot your password?""
+2. Enter a registered email address in the prompt.
+3. Tap “Submit” to proceed.
+4. Check the provided email for the OTP code sent by the system.
+5. Enter the received OTP in the verification screen.
+6. Tap on Confirm Password input field, then enter a password that does not meet the system’s password criteria.
+","1. In typing the new password, the system should display the validation message message below until the inputted password meets the system requirements: 
+
+""Please follow the password complexity
+         
+1 Uppercase Letter
+1 Lowercase Letter
+1 Number
+1 Special Character
+8 Characters minimum
+127 Characters maximum”
+
+2. The ""Submit"" button should still be disabled.",Not Tested,,,,,,,,,,,
+m2.2.28,Verify validation message when user re-enters a password not matching the first,✅ Automatable,"1. The mobile app is launched.
+2. The user has already changed the temporary password.","1. Tap the ""Forgot your password?""
+2. Enter a registered email address in the prompt.
+3. Tap “Submit” to proceed.
+4. Check the provided email for the OTP code sent by the system.
+5. Enter the received OTP in the verification screen.
+6. Tap on Password input field, then enter a valid new password that meets the system’s password criteria.
+6. Re-enter the same password in the Confirm Password field.
+7. Tap “Submit” to finalize the password change.","1. In typing the new password in the confirm password field, the system should display the validation message message below until the inputted password matches the password: 
+
+""Passwords do not match. Please try again.""
+
+2. The ""Submit"" button should still be disabled.",Not Tested,,,,,,Not Tested,,,,,
+m2.2.29,Verify that the user's email is blocked for 60 minutes after 3 unverified Forgot Password OTP sessions with 5 invalid attempts per session,✅ Automatable,"1.User is registered.
+2. Email is not currently blocked.
+","1. Initiate Forgot Password Session #1
+ - Enter 5 incorrect OTP(s)
+2. Initiate Forgot Password Session #2
+ - Enter 5 incorrect OTP(s)
+3. Initiate Forgot Password Session #3
+ - Enter 5 incorrect OTP(s)
+
+4. Attempt to initiate Forgot Password Session #4
+5. Click ""OK""","1. After the 3rd unverified OTP session, if all 3 occurred within 15 minutes, the system blocks the user's email for 60 minutes.
+
+2. After the 3rd unverified session, an error message is displayed:
+""You have exceeded the maximum number of OTP attempts. You can try again in 59 mins.""
+
+3. Any attempt in clicking ""Submit"" from the Forgot Password page during the block period should return an error message:
+
+""You have exceeded the maximum number of OTP attempts. You can try again in <time remaining> minutes.""
+
+4. Clicking ""OK"" will close the modal and user is still on the Forgot Password page
+
+5. Email is sent to the customer:
+Subject: Security Notice: Unusual Activity Detected on Your Account
+
+Body:
+Hi <Customer Name>,
+
+We noticed several attempts to access your account that exceeded our security limits. To help keep your account safe, we’ve temporarily locked it as a precaution.
+
+If these attempts were made by you, no further action is needed. You can try signing in again after the cooldown period. If you need immediate access, please contact <replace customer support email> for assistance with resetting your account.
+",Not Tested,,,,,,Not Tested,,,,,
+m2.2.30,Verify that the user's email is blocked for 60 minutes after 3 unverified Forgot Password OTP sessions with invalid attempts not reaching max (5) per session,✅ Automatable,"1.User is registered.
+2. Email is not currently blocked.
+","1. Initiate Forgot Password Session #1
+ - Enter 3 incorrect OTP(s) then exit to go back to home page
+2. Initiate Forgot Password Session #2
+ - Enter 3 incorrect OTP(s) then exit to go back to home page
+3. Initiate Forgot Password Session #3
+ - Enter 3 incorrect OTP(s) then exit to go back to home page
+4. Attempt to initiate Forgot Password Session #4
+5. Click ""OK""","1. After the 3rd unverified OTP session, if all 3 occurred within 15 minutes, the system blocks the user's email for 60 minutes.
+
+2. After the 3rd unverified session, an error message is displayed:
+""You have exceeded the maximum number of OTP attempts. You can try again in 59 mins.""
+
+3. Any attempt in clicking ""Submit"" from the Forgot Password page during the block period should return an error message:
+
+""You have exceeded the maximum number of OTP attempts. You can try again in <time remaining> minutes.""
+
+4. Clicking ""OK"" will close the modal and user is still on the Forgot Password page
+
+5. Email is sent to the customer:
+Subject: Security Notice: Unusual Activity Detected on Your Account
+
+Body:
+Hi <Customer Name>,
+
+We noticed several attempts to access your account that exceeded our security limits. To help keep your account safe, we’ve temporarily locked it as a precaution.
+
+If these attempts were made by you, no further action is needed. You can try signing in again after the cooldown period. If you need immediate access, please contact <replace customer support email> for assistance with resetting your account.
+",Not Tested,,,,,,Not Tested,,,,,
+m2.2.31,Verify that the user's email is blocked for 60 minutes after 3 unverified Forgot Password OTP sessions with no OTP attempts (session abandoned),✅ Automatable,"1.User is registered.
+2. Email is not currently blocked.
+","1. Initiate Forgot Password Session #1
+ - Leave the OTP input field blank
+ - Cancel the OTP verification and go back to home page.
+
+2. Initiate Forgot Password Session #2
+ - Leave the OTP input field blank
+ - Cancel the OTP verification and go back to home page.
+
+3. Initiate Forgot Password Session #3
+ - Leave the OTP input field blank
+ - Cancel the OTP verification and go back to home page.
+
+4. Attempt to initiate Forgot Password Session #4","1. After the 3rd unverified OTP session, if all 3 occurred within 15 minutes, the system blocks the user's email for 60 minutes.
+
+2. After the 3rd unverified session, an error message is displayed:
+""You have exceeded the maximum number of OTP attempts. You can try again in 59 mins.""
+
+3. Any attempt in clicking ""Submit"" from the Forgot Password page during the block period should return an error message:
+
+""You have exceeded the maximum number of OTP attempts. You can try again in <time remaining> minutes.""
+
+4. Clicking ""OK"" will close the modal and user is still on the Forgot Password page
+
+5. Email is sent to the customer:
+Subject: Security Notice: Unusual Activity Detected on Your Account
+
+Body:
+Hi <Customer Name>,
+
+We noticed several attempts to access your account that exceeded our security limits. To help keep your account safe, we’ve temporarily locked it as a precaution.
+
+If these attempts were made by you, no further action is needed. You can try signing in again after the cooldown period. If you need immediate access, please contact <replace customer support email> for assistance with resetting your account.
+",Not Tested,,,,,,Not Tested,,,,,
+m2.2.32,Verify that a user receives a blocking error message when trying to reset password through Forgot Password process with an email address that is currently blocked.,✅ Automatable,1. The user's email has been blocked due to failed OTP attempts ,"1. During the 60-minute blocking period, attempt to send money using the blocked email address multiple times.
+2. Observe the system’s response.","1. System does not proceed with OTP generation.
+
+2. A clear error message is displayed indicating the email is blocked:
+
+""You have exceeded the maximum number of OTP attempts. You can try again in <time remaining> minutes.""
+
+3. Each time the user attempts to initiate forgot password while the email is still blocked, the system displays the same error message, with the remaining block time updated accordingly.",Not Tested,,,,,,Not Tested,,,,,
+m2.2.33,Verify that a user can reset password successfully through forgot password  with a valid OTP after the 60-minute block period has expired.,✅ Automatable,1. The user's email was blocked and 30 minutes have passed.,"1. Wait until 60 minutes have passed since the block was applied.
+2. Attempt to send money using the same email.
+3. Enter the correct OTP.","1.Forgot password process resumes normally.
+2. OTP is sent and validated successfully.
+3. Password update is successful..",Not Tested,,,,,,Not Tested,,,,,
+m2.2.34,Verify that the system does not block the user if they input a valid OTP on the 5th attempt during the 3rd Forgot Password OTP  session,✅ Automatable,"1. User is registered.
+2. Two previous forgot password sessions have already occurred, both unverified and/or expired.
+5. Each session allows up to 5 OTP attempts.","1. Initiate forgot password Session #3
+2. Enter 4 incorrect OTPs.
+3. On the 5th attempt, enter the correct OTP.
+4. Observe the outcome of the session.
+5. Attempt to initiate forgot password Session #4.","1. Session #3 is considered verified.
+2. Blocking is not triggered (since only 2 sessions were unverified in last 10 minutes).
+3. Session #4 starts normally.
+4. User is not blocked.",Not Tested,,,,,,Not Tested,,,,,
+m2.2.35,Verify that the system does not block the user if the 3 unverified Forgot Password OTP sessions span more than 15 minutes,✅ Automatable,"1.User is registered.
+2. Email is not currently blocked.
+3. Blocking occurs only after 3 unverified sessions within 10 minutes.","1. Start Session #1
+ - Time: 00:00:00
+ - Enter 2 incorrect OTPs then exit
+ - Ends at: 00:05:00 min
+
+2. Start  Session #2
+ - Time: 00:05:00 min
+ - Request OTP.
+ - Enter 2 incorrect OTPs then exit
+ - Ends at: 00:10:00 min
+
+3. Wait for 5 mins
+ - Time: 00:10:00 min
+ - Ends at 00:15:00 min
+
+4. Start Session #3
+- Time: 00:16:00 min
+- Enter incorrect OTPs then exit.
+- Ends at: 00:20:00 mins
+
+5. Start Session #4
+ - Time: 00:20:00 or 00:21:00  min
+ - Attempt to initiate send money session using the same email.","1. The system does not block the user.
+
+2. The system evaluates the previous sessions:
+
+ - Session #1: ended at 00:05
+
+ - Session #3: started at 00:16 → more than 15 minutes since #1 ended
+
+Therefore, the 3 unverified sessions do not fall within a 15-minute window.
+
+3. Session #4 is allowed.
+
+4. OTP is sent normally.
+
+5. No blocking error is shown.",Not Tested,,,,,,Not Tested,,,,,
+m2.2.36,Verify that the counter resets after successful verification of any forgot password OTP session ,✅ Automatable,"1. User is registered and not currently blocked.
+2. Each OTP session allows a maximum of 5 attempts.
+3. Session timeout is 5 minutes.
+4. Blocking occurs only after 3 unverified sessions within 15 minutes.
+5. Two previous send money sessions have already occurred, both unverified and/or expired.
+","1. Initiate forgot password Session #3
+2. Enter 4 incorrect OTPs.
+3. On the 5th attempt, enter the correct OTP.
+4. Observe the outcome of the session.
+5. Initiate forgot password Session #4
+ - Leave the OTP input field blank
+ - Cancel the OTP verification 
+
+2.  Initiate forgot password Session #5
+ - Leave the OTP input field blank
+ - Cancel the OTP verification 
+
+3.  Initiate forgot password Session #6
+ - Leave the OTP input field blank
+ - Cancel the OTP verification 
+
+4. Attempt to initiate Forgot Password Session #7 using the same email.""","1. Forgot Password OTP sessions 4-6 are counted as new failures.
+2. No blocking should occur on session #6 because the previous two failures (1 & 2) were cleared due to the successful verification in #3.
+3. Blocking would only occur if 3 new unverified sessions happen after a successful one - within a new 15-minute window so in this case on Session 7
+4. On Session 7, a clear error message is displayed indicating the email is blocked:
+
+""You have exceeded the maximum number of OTP attempts. You can try again in <time remaining> minutes.""
+",Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,

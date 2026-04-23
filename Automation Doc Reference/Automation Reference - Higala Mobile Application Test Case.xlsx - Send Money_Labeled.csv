@@ -1,0 +1,1510 @@
+Test Case ID,Description,Automation Status,Pre-conditions,Steps Taken,Expected Output,1st Cycle: iOS,Actual Output,Comments,Tester,Date Tested,Version,1st Cycle: Android,Actual Output,Comments,Tester,Date Tested,Version
+"m5.1 As a User, I want to send money to other accounts within the same bank (On Us).",,,,,,,,,,,,,,,,,
+m5.1.1, Verify that the user can successfully send money to another account within the same bank,✅ Automatable,"1. The user is logged in and on the mobile banking home screen.
+2. The recipient’s account number is valid and active within the same bank.","1.  Tap the ""Send Money"" button on the home screen.
+2. Select ""Bank Name (Same bank)"" option.
+3. Enter a valid recipient account number
+4. Tap ""Next"".
+5. Enter a valid amount.
+6. (Optional) Enter transfer notes
+7. Tap ""Next"" 
+8. Review the transfer summary page (sender and recipient name, bank name, amount, fee, reference number, notes).
+9. Tap ""Confirm"" to proceed.
+10. Enter the OTP sent via SMS/email.
+11. Review the Confirmation Page, then tap ""Done"".
+12. View the transaction history.","1. The system processes the transfer in real-time.
+2. A success message is displayed.
+3. The following details are shown on the confirmation screen:
+✅ Success message
+- Amount
+-Recipient Name & Bank Name
+-Sender Name & Bank Name
+-Transfer Fee
+-Reference Number
+-Transfer Notes (if any)
+
+5. The transaction is recorded in the user's transaction history.
+6. The user is redirected to the Home page. 
+7. The updated balance of the account should be correctly reflected.",Not Tested,,,,,,Pass,,,,,
+m5.1.2,Verify that the user can send money to a recent recipient,✅ Automatable,"1. The user is logged in and on the mobile banking home screen.
+2. The recipient’s account number is valid and active within the same bank.
+3. There is a history of past successful transactions to same-bank recipients.","1. Tap the ""Send Money"" button on the home screen.
+2. Select ""Bank Name (Same bank)"" option.
+3. Tap on a recipient from the Recent Recipients section.
+4. Tap ""Next"".
+5. Enter a valid amount.
+6. (Optional) Enter transfer notes.
+7. Tap ""Next"".
+8. Review the transfer summary page.
+9. Tap ""Confirm"" to proceed.
+10. Enter the OTP sent via SMS/email.
+11. Review the confirmation page, then tap ""Done"".
+12. View the transaction history.","1. The system should only display recent recipients that are affiliated with the same bank.
+2. The recipient's details are automatically populated.
+3. The system processes the transfer in real-time.
+4. A success message is displayed.
+5. The following details are shown on the confirmation screen:
+✅ Success message
+- Amount
+-Recipient Name & Bank Name
+-Sender Name & Bank Name
+-Transfer Fee
+-Reference Number
+-Transfer Notes (if any)
+
+7. The transaction is recorded in the user's transaction history.
+8. The user is redirected to the Home page.
+9. The updated balance of the account should be correctly reflected.",Not Tested,,,,,,Not Tested,,,,,
+m5.1.3,Verify the session timeout modal on the Send Funds screen due to inactivity,🔴 Not Automatable,1. The user is on the Send Funds page.,"1. Do not interact.
+2. Wait 5 minutes.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.1.4,Verify the session timeout modal on the Send Funds screen after minimizing,🔴 Not Automatable,1. The user is on the Send Funds page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.1.5,Verify the session timeout modal is still visible on Send Funds screen after minimizing and reopening the app,🔴 Not Automatable,1. The user is on the Send Funds page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session Expired screen is still visible with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.1.6,Verify that session timeout resets on user activity and the homepage loads data normally.,🔴 Not Automatable,1. The user is on the Send Funds page.,"1. Remain on the page and occasionally tap the screen to indicate activity (scroll or tap every few seconds).
+2. Continue this for at least 8 minutes.
+3. Navigate back to homepage.","1. The session timeout timer should reset with every user activity.
+2. Homepage, Transaction History, and Profile should load and display their data normally.",Not Tested,,,,,,,,,,,
+m5.1.7,Verify validation when entering special characters in Account Number field,✅ Automatable,1. The user is on To Same Bank page.,"1. Enter @#! into Account Number field
+2. Tap Next","1. Error message ""Only numerical values are allowed"" is displayed",Not Tested,,,,,,,,,,,
+m5.1.8,Verify validation when Account Number field is left blank ,✅ Automatable,1. The user is on To Same Bank page.,"1. Leave Account Number field empty
+2. Tap Next","1. Error message ""Account number is required."" is displayed",Not Tested,,,,,,,,,,,
+m5.1.9,Verify validation when entering own account number in the Account Number field,✅ Automatable,1. The user is logged in with an active account,1. Enter own account number (same as logged-in account),"1. Error message ""You cannot send money to yourself."" is displayed and Next button is disabled",Not Tested,,,,,,,,,,,
+m5.1.10,Verify validation when Account Name field is left blank,✅ Automatable,1. The user is on To Same Bank page.,1. Leave Account Name field empty,"1. Error message ""Account name is required."" is displayed",Not Tested,,,,,,,,,,,
+m5.1.11,Verify validation when entering invalid special characters in the Account Name field,✅ Automatable,1. The user is on To Same Bank page.,"1. Enter invalid characters (e.g., @#$%) in Account Name field","1. Error message ""Special characters are not allowed except for comma (,), dash (-), and space ( ). Please remove any other special characters."" is displayed and Next button is disabled",Not Tested,,,,,,,,,,,
+m5.1.12,Verify the session timeout modal on the To Same Bank screen due to inactivity,🔴 Not Automatable,1. The user is on To Same Bank page.,"1. Do not interact.
+2. Wait 5 minutes.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.1.13,Verify the session timeout modal on the To Same Bank screen after minimizing,🔴 Not Automatable,1. The user is on To Same Bank page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.1.14,Verify the session timeout modal is still visible on To Same Bank screen after minimizing and reopening the app,🔴 Not Automatable,1. The user is on To Same Bank page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session Expired screen is still visible with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.1.15,Verify that session timeout resets on user activity and the homepage loads data normally.,🔴 Not Automatable,1. The user is on To Same Bank page.,"1. Remain on the page and occasionally tap the screen to indicate activity (scroll or tap every few seconds).
+2. Continue this for at least 8 minutes.
+3. Navigate back to homepage.","1. The session timeout timer should reset with every user activity.
+2. Homepage, Transaction History, and Profile should load and display their data normally.",Not Tested,,,,,,,,,,,
+m5.1.16,Verify validation when entering more than 300 characters in the Notes field,✅ Automatable,1. The user is on Transfer page.,1. Enter more than 300 characters in the Notes field,"1. Error message ""Must not exceed 300 characters."" is displayed",,,,,,,,,,,,
+m5.1.17,Verify validation when entering invalid special characters in the Notes field,✅ Automatable,1. The user is on Transfer page.,"1. Enter invalid characters (e.g., @#$%) in Account Name field","1. Error message ""Special characters are not allowed except for comma (,), dash (-), and space ( ). Please remove any other special characters."" is displayed",,,,,,,,,,,,
+m5.1.18,Verify the session timeout modal on the Transfer screen due to inactivity,🔴 Not Automatable,1. The user is on Transfer page.,"1. Do not interact.
+2. Wait 5 minutes.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.1.19,Verify the session timeout modal on the Transfer screen after minimizing,🔴 Not Automatable,1. The user is on Transfer page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.1.20,Verify the session timeout modal is still visible on Transfer screen after minimizing and reopening the app,🔴 Not Automatable,1. The user is on Transfer page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session Expired screen is still visible with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.1.21,Verify that session timeout resets on user activity and the homepage loads data normally.,🔴 Not Automatable,1. The user is on Transfer page.,"1. Remain on the page and occasionally tap the screen to indicate activity (scroll or tap every few seconds).
+2. Continue this for at least 8 minutes.
+3. Navigate back to homepage.","1. The session timeout timer should reset with every user activity.
+2. Homepage, Transaction History, and Profile should load and display their data normally.",Not Tested,,,,,,,,,,,
+m5.1.22,Verify the session timeout modal on the Confirmation screen due to inactivity,🔴 Not Automatable,1. The user is on Confirmation page.,"1. Do not interact.
+2. Wait 5 minutes.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.1.23,Verify the session timeout modal on the Confirmation screen after minimizing,🔴 Not Automatable,1. The user is on Confirmation page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.1.24,Verify the session timeout modal is still visible on Confirmation screen after minimizing and reopening the app,🔴 Not Automatable,1. The user is on Confirmation page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session Expired screen is still visible with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.1.25,Verify that session timeout resets on user activity and the homepage loads data normally.,🔴 Not Automatable,1. The user is on Confirmation page.,"1. Remain on the page and occasionally tap the screen to indicate activity (scroll or tap every few seconds).
+2. Continue this for at least 8 minutes.
+3. Navigate back to homepage.","1. The session timeout timer should reset with every user activity.
+2. Homepage, Transaction History, and Profile should load and display their data normally.",Not Tested,,,,,,,,,,,
+m5.1.26,Verify the session timeout modal on the OTP Verification screen due to inactivity,🔴 Not Automatable,1. The user is on OTP Verification page.,"1. Do not interact.
+2. Wait 5 minutes.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.1.27,Verify the session timeout modal on the OTP Verification screen after minimizing,🔴 Not Automatable,1. The user is on OTP Verification page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.1.28,Verify the session timeout modal is still visible on OTP Verification screen after minimizing and reopening the app,🔴 Not Automatable,1. The user is on OTP Verification page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session Expired screen is still visible with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.1.29,Verify that session timeout resets on user activity and the homepage loads data normally.,🔴 Not Automatable,1. The user is on OTP Verification page.,"1. Remain on the page and occasionally tap the screen to indicate activity (scroll or tap every few seconds).
+2. Continue this for at least 8 minutes.
+3. Navigate back to homepage.","1. The session timeout timer should reset with every user activity.
+2. Homepage, Transaction History, and Profile should load and display their data normally.",Not Tested,,,,,,,,,,,
+m5.1.30,Verify validation message for incorrect OTP upon sending money,✅ Automatable,"1. The user is on the OTP entry screen (after confirming transfer summary).
+2. The previously received OTP has expired or the 1-minute OTP cooldown is complete.","1. Enter an invalid or expired OTP in the verification screen.
+","1. The system should display a validation message: 
+
+“OTP is either Invalid or has expired, Please try again or request a new OTP”",Not Tested,,,,,,Not Tested,,,,,
+m5.1.31,Verify validation message for expired OTP upon sending money,✅ Automatable,"1. The user is on the OTP entry screen (after confirming transfer summary).
+2. The previously received OTP has expired.","1. Attempt to enter the expired OTP and submit.
+2. Observe the validation response.","1. The system should display a validation message: 
+
+“OTP is either Invalid or has expired, Please try again or request a new OTP”",Not Tested,,,,,,Not Tested,,,,,
+m5.1.32,Verify that the user cannot request a new OTP upon send money before the 1-minute cooldown period has passed,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the OTP screen during send money flow.
+3. The 1-minute OTP cooldown has not passed yet.","1. Tap on the ""Resend code"" link.
+","1. ""Resend code"" should be disabled. 
+2. No new OTP should be generated or sent.
+3. The cooldown timer should continue until it completes the full 1-minute duration.",Not Tested,,,,,,,,,,,
+m5.1.33,Verify that the user can request a new OTP upon sending money,🔴 Not Automatable,"1. The mobile app is launched.
+2. The user is on the OTP screen during send money flow.
+3. The previously received OTP has expired or the 1-minute OTP cooldown is complete.","1. Tap on the ""Resend code"" link.
+2. Check the received email to confirm a new OTP has been sent.
+3. On the OTP screen, enter the newly received OTP.","1. The system should display a prompt indicating that a new OTP has been sent to the registered email address.
+2. The newly generated OTP should be received via email.
+3. The user should be able to enter OTP and be redirected to transfer result screen.",Not Tested,,,,,,,,,,,
+m5.1.34,Verify if previously received OTP is not valid upon sending money,🔴 Not Automatable,"1. The mobile app is launched.
+2. The user is on the OTP screen during send money flow.","1. Tap on the ""Resend code"" link.
+2. Check the received email to confirm a new OTP has been sent.
+3. Attempt to enter the previously received OTP.
+4. Observe the system response.
+5. Repeat steps 1-4.","1. The system should display a validation message: 
+
+“OTP is either Invalid or has expired, Please try again or request a new OTP”
+
+2. Every request of new OTP will trigger all previously requested OTP to be invalid.
+",Not Tested,,,,,,,,,,,
+m5.1.35,Verify validation on the 5th failed OTP attempt (triggering max allowed attempts error),✅ Automatable,"1. The mobile app is launched.
+2. The user is on the OTP screen during send money flow.
+3. The system allows a maximum of 5 OTP attempts per session.","1. On the OTP screen, enter an invalid OTP for 4 times
+2. On the 5th attempt, enter an invalid OTP again.
+3. Observe the system behavior immediately after the 5th invalid entry.
+4. Click"" Ok""","1. Immediately after the 5th invalid OTP attempt, the system should display:
+""Verification Failed: You have reached the maximum number of attempts. For your security, we’re redirecting you to the previous page.""
+
+2. The user should be redirected back to the confirmation screen.",Not Tested,,,,,,,,,,,
+m5.1.36,Verify validation on 5th OTP input attempt across multiple resend requests,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the OTP screen during send money flow.
+3. The system allows only 5 total OTP input attempts per session, regardless of resend count.","1. Enter 2 invalid OTPs (Attempts 1 & 2).
+2. Tap ""Resend code"".
+3. Enter 2 more invalid OTPs (Attempts 3 & 4).
+4. Tap ""Resend code"" again.
+5. Enter one more invalid OTP (Attempt 5).
+6. Observe the system behavior immediately after the 5th invalid entry.
+7. Click"" Ok""","1. Immediately after the 5th invalid OTP attempt, the system should display:
+
+""Verification Failed: You have reached the maximum number of attempts. For your security, we’re redirecting you to the previous page.""
+
+2. The user should be redirected back to the confirmation of amount screen.",Not Tested,,,,,,,,,,,
+m5.1.37,"Verify validation when OTP session expires before max attempts 
+
+(When the User has reached Session ID timeout without reaching the max input attempts.)",🔴 Not Automatable,"1. User has attempted to send money and OTP session started
+2. User is on the OTP verification screen.","1. Within 5 mins, input invalid OTP for 3 times
+2. After 5 mins when the OTP session expires, regardless of validity input an OTP (4th attempt)
+3. Tap on ""Resend Code""
+4. Tap on ""Request New Code"" button.","1. On the 4th OTP input attempt after session expiry, the system should display:
+
+“OTP is either invalid or has expired. Please try again or request a new OTP.”
+
+2. After tapping the ""Resend Code"" link, the system should show:
+
+“OTP Expired: Your one-time password has expired. Request a new code to continue.”
+
+3. After tapping the ""Request New Code"" button:
+
+- The user should be redirected back to the confirmation of amount screen..
+
+- A new OTP session should be required to continue the send money process.",Not Tested,,,,,,,,,,,
+m5.1.38,Verify that the system displays the correct error modal when an invalid or valid OTP is entered after the 5-minute OTP validity window has expired.,🔴 Not Automatable,"1. User is on the OTP verification screen.
+2. An OTP has already been generated.
+3. The 5-minute OTP validity window has expired.","1. Wait until the OTP validity period exceeds 5 minutes.
+2. Enter a valid or invalid OTP.
+3. Observe the system behavior.
+4. Tap the OK button on the modal.","1. System does not proceed with OTP verification.
+2. An error modal is displayed with the message:
+“OTP is either invalid or has expired. Please try again or request a new OTP.”
+3. The modal displays an OK button.
+4. Tapping OK redirects the user to the previous screen.",,,,,,,,,,,,
+m5.1.39,Verify if user can send money with insufficient funds,✅ Automatable,"1. The user is logged in and on the mobile banking home screen.
+2. The recipient’s account number is valid and active within the same bank.","1.  Tap the ""Send Money"" button on the home screen.
+2. Select ""Bank Name (Same bank)"" option.
+3. Enter a valid recipient account number, then tap ""Next"".
+4. Enter an amount exceeding the available balance.","1. An error message is displayed in red text:
+
+“Maximum amount is <current balance>.""",Not Tested,,,,,,Not Tested,,,,,
+m5.1.40, Verify that the user can edit the transfer amount after an insufficient funds error,✅ Automatable,"1. The user is logged in and on the mobile banking home screen.
+2. The recipient’s account number is valid and active within the same bank.
+3. The user received an insufficient funds error","1. Enter a new amount that is within available balance.
+2. Tap ""Next"" again, review the updated transfer summary.
+3. Tap ""Confirm"", enter OTP, and complete the transaction.","1. The system accepts the new amount and proceeds with the transaction.
+2. No further insufficient funds error occurs if the new amount is valid.
+3.  The transaction completes successfully.",Not Tested,,,,,,Not Tested,,,,,
+m5.1.41,Verify Transaction failed error validation when there's something wrong in the OTP endpoint,🔴 Not Automatable,"1. User has attempted to send money and OTP session started
+2. User is on the OTP verification screen.","1. Input valid otp
+2. Simulate a system error specific for OTP or RCBC down during a transaction ",1. User should get redirected to Transaction Failed error screen,Not Tested,,"Note: This is very edge case scenario and hard to simulate
+Most likely to be encountered in external transaction when RCBC is down",,,,,,,,,
+m5.1.42,Verify that the user's email is blocked for 30 minutes after 3 unverified send money sessions with 5 invalid attempts per session,🔴 Not Automatable,"1. The email is currently not blocked.
+2. The user has not started any Send Money session prior.
+","1. Initiate Send Money Session #1
+ - Enter 5 incorrect OTP(s)
+2. Initiate Send Money Session #2 by clicking ""Confirm""
+ - Enter 5 incorrect OTP(s)
+3. Initiate Send Money Session #3 by clicking ""Confirm""
+ - Enter 5 incorrect OTP(s)
+
+4. Click ""Confirm"" and observe the system response.
+5. Attempt to initiate Send Money Session #4 by clicking ""Confirm""
+6. Click ""OK""","1. After the 3rd unverified send money session, if all 3 occurred within 10 minutes, the system blocks the user's email for 30 minutes.
+
+2. When ""Confirm"" is clicked after the 3rd unverified session, an error message is displayed:
+""You have exceeded the maximum number of OTP attempts. You can try again in 29 mins.""
+
+3. Any attempt in clicking ""Send Money"" from the homepage during the block period should return an error message:
+
+""Send Money is currently unavailable. You can try again in <time remaining> minutes.""
+
+4. Clicking ""OK"" will redirect the user to the home page
+
+5. Email is sent to the customer:
+Subject: Security Notice: Unusual Activity Detected on Your Account
+
+Body:
+Hi <Customer Name>,
+
+We noticed several attempts to access your account that exceeded our security limits. To help keep your account safe, we’ve temporarily locked it as a precaution.
+
+If these attempts were made by you, no further action is needed. You can try signing in again after the cooldown period. If you need immediate access, please contact <replace customer support email> for assistance with resetting your account.
+",Not Tested,,,,,,,,,,,
+m5.1.43,Verify that the user's email is blocked for 30 minutes after 3 unverified send money sessions with invalid attempts not reaching max (5) per session,🔴 Not Automatable,"1. The email is currently not blocked.
+2. The user has not started any Send Money session prior.
+","1. Initiate Send Money Session #1
+ - Enter 3 incorrect OTP(s) then exit to go back to home page
+2. Initiate Send Money Session #2 
+ - Enter 3 incorrect OTP(s) then exit to go back to home page
+3. Initiate Send Money Session #3
+ - Enter 3 incorrect OTP(s) then exit to go back to home page
+4. Attempt to initiate Send Money Session #4
+5. Click ""OK""","1. After the 3rd unverified send money session, if all 3 occurred within 10 minutes, the system blocks the user's email for 30 minutes.
+
+2. Any attempt in clicking ""Send Money"" from the homepage during the block period should return an error message:
+
+""Send Money is currently unavailable. You can try again in <time remaining> minutes.""
+
+3. Clicking ""OK"" will redirect the user to the home page
+
+4. Email is sent to the customer:
+Subject: Security Notice: Unusual Activity Detected on Your Account
+
+Body:
+Hi <Customer Name>,
+
+We noticed several attempts to access your account that exceeded our security limits. To help keep your account safe, we’ve temporarily locked it as a precaution.
+
+If these attempts were made by you, no further action is needed. You can try signing in again after the cooldown period. If you need immediate access, please contact <replace customer support email> for assistance with resetting your account.
+",Not Tested,,,,,,,,,,,
+m5.1.44,Verify that the user's email is blocked for 30 minutes after 3 unverified send money sessions with no OTP attempts (session abandoned),🔴 Not Automatable,"1. The email is currently not blocked.
+2. The user has not started any Send Money session prior.
+","1. Initiate Send Money Session #1
+ - Leave the OTP input field blank
+ - Cancel the OTP verification and go back to home page.
+
+2. Initiate Send Money Session #2
+ - Leave the OTP input field blank
+ - Cancel the OTP verification and go back to home page.
+
+3. Initiate Send Money Session #3
+ - Leave the OTP input field blank
+ - Cancel the OTP verification and go back to home page.
+
+4. Attempt to initiate Send Money Session #4","1. After the 3rd unverified send money session, if all 3 occurred within 10 minutes, the system blocks the user's email for 30 minutes.
+
+2. Any attempt in clicking ""Send Money"" from the homepage during the block period should return an error message:
+
+""Send Money is currently unavailable. You can try again in <time remaining> minutes.""
+
+3. Email is sent to the customer:
+Subject: Security Notice: Unusual Activity Detected on Your Account
+
+Body:
+Hi <Customer Name>,
+
+We noticed several attempts to access your account that exceeded our security limits. To help keep your account safe, we’ve temporarily locked it as a precaution.
+
+If these attempts were made by you, no further action is needed. You can try signing in again after the cooldown period. If you need immediate access, please contact <replace customer support email> for assistance with resetting your account.
+",Not Tested,,,,,,,,,,,
+m5.1.45,Verify that a user receives a blocking error message when trying to send money with an email address that is currently blocked.,🔴 Not Automatable,1. The user's email has been blocked due to failed OTP attempts ,"1. During the 30-minute blocking period, attempt to send money using the blocked email address multiple times.
+2. Observe the system’s response.","1. System does not proceed with OTP generation.
+
+2. A clear error message is displayed indicating the email is blocked:
+
+""Send Money is currently unavailable. You can try again in <time remaining> minutes.""
+
+3. Each time the user attempts to send money while the email is still blocked, the system displays the same error message, with the remaining block time updated accordingly.",Not Tested,,,,,,,,,,,
+m5.1.46,Verify that a user can send money successfully with a valid OTP after the 30-minute block period has expired.,🔴 Not Automatable,1. The user's email was blocked and 30 minutes have passed.,"1. Wait until 30 minutes have passed since the block was applied.
+2. Attempt to send money using the same email.
+3. Enter the correct OTP.","1. Send money process resumes normally.
+2. OTP is sent and validated successfully.
+3. Transfer is successful..",Not Tested,,,,,,,,,,,
+m5.1.47,Verify that the system does not block the user if they input a valid OTP on the 5th attempt during the 3rd send money session,🔴 Not Automatable,"1. User is registered.
+2. Two previous send money sessions have already occurred, both unverified and/or expired.
+5. Each session allows up to 5 OTP attempts.","1. Initiate send money Session #3
+2. Enter 4 incorrect OTPs.
+3. On the 5th attempt, enter the correct OTP.
+4. Observe the outcome of the session.
+5. Attempt to initiate send money Session #4.","1. Session #3 is considered verified.
+2. Blocking is not triggered (since only 2 sessions were unverified in last 10 minutes).
+3. Session #4 starts normally.
+4. User is not blocked.",Not Tested,,,,,,,,,,,
+m5.1.48,Verify that the counter resets after successful verification of any send money session ,🔴 Not Automatable,"1. User is registered and not currently blocked.
+2. Each OTP session allows a maximum of 5 attempts.
+3. Session timeout is 5 minutes.
+4. Blocking occurs only after 3 unverified sessions within 15 minutes.
+5. Two previous send money sessions have already occurred, both unverified and/or expired.
+","1. Initiate send money Session #3
+2. Enter 4 incorrect OTPs.
+3. On the 5th attempt, enter the correct OTP.
+4. Observe the outcome of the session.
+5. 1. Initiate send money Session #4
+ - Leave the OTP input field blank
+ - Cancel the OTP verification and go back to login page.
+
+2. Initiate send money Session #5
+ - Leave the OTP input field blank
+ - Cancel the OTP verification and go back to login page.
+
+3. Initiate send money Session #6
+ - Leave the OTP input field blank
+ - Cancel the OTP verification and go back to login page.
+
+4. Attempt to initiate send money Session #7 using the same email.""","1. Send money sessions 4-6 are counted as new failures.
+2. No blocking should occur on session #6 because the previous two failures (1 & 2) were cleared due to the successful verification in #3.
+3. Blocking would only occur if 3 new unverified sessions happen after a successful one - within a new 15-minute window so in this case on Session 7
+4. On Session 7, a clear error message is displayed indicating the email is blocked:
+
+""Send Money is currently unavailable. You can try again in <time remaining> minutes.""
+",Not Tested,,,,,,,,,,,
+m5.1.49,Verify that the system does not block the user if the 3 unverified send money sessions span more than 10 minutes,🔴 Not Automatable,"1.User is registered.
+2. Email is not currently blocked.
+3. Blocking occurs only after 3 unverified sessions within 10 minutes.","1. Start send money Session #1
+ - Time: 00:00:00
+ - Enter 2 incorrect OTPs then exit
+ - Ends at: 00:03:00 min
+
+2. Start send money Session #2
+ - Time: 00:03:00 min
+ - Request OTP.
+ - Enter 2 incorrect OTPs then exit
+ - Ends at: 00:05:00 min
+
+3. Wait for 5 mins
+ - Time: 00:05:00 min
+ - Ends at 00:10:00 min
+
+4. Start Send money Session #3
+- Time: 00:11:00 min
+- Enter incorrect OTPs then exit.
+- Ends at: 00:15:00 mins
+
+5. Start send money Session #4
+ - Time: 00:15:00 or 00:16:00  min
+ - Attempt to initiate send money session using the same email.","1. The system does not block the user.
+
+2. The system evaluates the previous sessions:
+
+ - Session #1: ended at 00:05
+
+ - Session #3: started at 00:16 → more than 15 minutes since #1 ended
+
+Therefore, the 3 unverified sessions do not fall within a 15-minute window.
+
+3. Session #4 is allowed.
+
+4. OTP is sent normally.
+
+5. No blocking error is shown.",Not Tested,,,,,,,,,,,
+m5.1.50,Verify error when recipient account is not found (ACCOUNT_NOT_FOUND),✅ Automatable,User is logged in with a valid sender account,"1. Go to Send Money – Internal Transfer
+2. Enter a random invalid Account Number as recipient
+3. Enter valid amount and confirm","1. User gets redirected to Transfer Failed screen with below error message:
+""The account xxxxxx doesn't exist. Please check and try again.""
+2. The account balance remains unchanged.",Not Tested,,,,,,,,,,,
+m5.1.51,Verify error when recipient account is inactive (ACCOUNT_STATE_INVALID),🔴 Not Automatable,Dev sets recipient account to Inactive,"1. Go to Send Money – Internal Transfer
+2. Enter inactive account number as recipient
+3. Enter valid amount and confirm
+4. Enter valid OTP","1. User gets redirected to Transfer Failed screen with below error message:
+""The account xxxxxx has an invalid status. Please check the account status and try again.""
+2. The account balance remains unchanged.",Not Tested,,,,,,,,,,,
+m5.1.52,Verify error when sender account is inactive (ACCOUNT_STATE_INVALID),🔴 Not Automatable,Use the account that dev sets the account status to inactive,"1. Log in with inactive account
+2. Go to Send Money – Internal Transfer
+3. Enter valid recipient account
+4. Enter valid amount and confirm
+5. Enter valid OTP","1. User gets redirected to Transfer Failed screen with below error message:
+""The account xxxxxx has an invalid status. Please check the account status and try again.""
+2. The account balance remains unchanged.",Not Tested,,,,,,,,,,,
+m5.1.53,Verify daily transfer limit validation (DAILY_TRANSFER_LIMIT_REACHED),✅ Automatable,User is logged in with valid account,"1. Go to Send Money – Internal Transfer
+2. Enter valid recipient account
+3. Enter transfer amount greater than 100,000 in one transaction
+4. Confirm transaction","1. User gets redirected to Transfer Failed screen with below error message:
+""Transaction amount exceeds the allowed limit per transaction.""
+2. The account balance remains unchanged.",Not Tested,,,,,,,,,,,
+m5.1.54,Verify the session timeout modal on the Transfer Result screen due to inactivity,🔴 Not Automatable,1. The user is on Transfer Result page.,"1. Do not interact.
+2. Wait 5 minutes.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.1.55,Verify the session timeout modal on the Transfer Result screen after minimizing,🔴 Not Automatable,1. The user is on Transfer Result page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.1.56,Verify the session timeout modal is still visible on Transfer Result screen after minimizing and reopening the app,🔴 Not Automatable,1. The user is on Transfer Result page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session Expired screen is still visible with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.1.57,Verify that session timeout resets on user activity and the homepage loads data normally.,🔴 Not Automatable,1. The user is on Transfer Result page.,"1. Remain on the page and occasionally tap the screen to indicate activity (scroll or tap every few seconds).
+2. Continue this for at least 8 minutes.
+3. Navigate back to homepage.","1. The session timeout timer should reset with every user activity.
+2. Homepage, Transaction History, and Profile should load and display their data normally.",Not Tested,,,,,,,,,,,
+"m5.2 As a User, I want to send money to accounts in other banks (Off Us).",,,,,,,,,,,,,,,,,
+m5.2.1,Verify that the user can successfully send money to another bank,✅ Automatable,"1. User is logged into the mobile banking application.
+2. User has sufficient balance in the selected account.
+3. Recipient’s bank account is valid and active.","1. Tap the ""Send"" button on the home screen.
+2. Select ""Other Bank"" option.
+3. Scroll down to search for bank or enter bank name in search bar
+4. Select the bank
+5. the Enter a valid recipient account number
+6. tap ""Next"".
+7. Enter a valid amount.
+8. (Optional) Enter transfer notes.
+9. Tap ""Next"".
+10. Review the transfer summary.
+11. Tap ""Confirm"".
+12. Enter the OTP received via SMS/email.
+13. Review the Transfer Result and tap ""Done"".
+14. If transfer is still pending, tap ""Refresh"" button to get the updated status.
+15. View the transaction history. ","1. The system should only display recent recipients that are affiliated with the other bank.
+2. The recipient's details are automatically populated.
+3. The system processes the transfer in real-time.
+4. The following details are shown on the Transfer Result screen:
+Trasfer Status
+- Total Amount (Transfer amount + service fee 15 php)
+-Recipient Name and Account Number
+-Sender Name
+-Transfer Fee
+-Reference Number
+- Instapay Reference Number
+-Transfer Notes (if any)
+5. Status changes from ""Transfer Pending"" to ""Transfer Successful""
+6. The transaction is recorded in the user's transaction history.
+7. The updated balance of the account should be correctly reflected.",Not Tested,,,,,,Pass,,,,,
+m5.2.2,Verify that the user can send money to a recent recipient of another bank,✅ Automatable,"1. The user is logged in and on the mobile banking home screen.
+2. The recipient’s account number is valid and active within the same bank.
+3. There is a history of past successful transactions to same-bank recipients.","1. Tap the ""Send"" button on the home screen.
+2. Select ""Other Bank"" option.
+3. Scroll down to search for bank or enter bank name in search bar
+4. Select the bank
+5. Tap on a recipient from the Recent Recipients section.
+6. tap ""Next"".
+7. Enter a valid amount.
+8. (Optional) Enter transfer notes.
+9. Tap ""Next"".
+10. Review the transfer summary.
+11. Tap ""Confirm"".
+12. Enter the OTP received via SMS/email.
+13. Review the Transfer Result and tap ""Done"".
+14. If transfer is still pending, tap ""Refresh"" button to get the updated status.
+15. View the transaction history. ","1. The system should only display recent recipients that are affiliated with the other bank.
+2. The recipient's details are automatically populated.
+3. The system processes the transfer in real-time.
+4. The following details are shown on the Transfer Result screen:
+Trasfer Status
+- Total Amount (Transfer amount + service fee 15 php)
+-Recipient Name and Account Number
+-Sender Name
+-Transfer Fee
+-Reference Number
+- Instapay Reference Number
+-Transfer Notes (if any)
+5. Status changes from ""Transfer Pending"" to ""Transfer Successful""
+6. The transaction is recorded in the user's transaction history.
+7. The updated balance of the account should be correctly reflected.",Not Tested,,,,,,Not Tested,,,,,
+m5.2.3,Verify that the user can send money to a recent recipient of another Rural Bank,🔴 Not Automatable,"1. The user is logged in and on the mobile banking home screen.
+2. The recipient’s account number is valid and active within the same bank.
+3. There is a history of past successful transactions to same-bank recipients.","1. Tap the ""Send"" button on the home screen.
+2. Select ""Other Bank"" option.
+3. Scroll down to search for RCBC
+4. Select the bank
+5. Enter recipient details or select from Recent Recipients section.
+6. Tap ""Next"".
+7. Enter a valid amount.
+8. Enter transfer notes.
+9. Tap ""Next"".
+10. Review the transfer summary page.
+11. Tap ""Confirm"" to proceed.
+12. Enter the OTP sent via SMS/email.
+13. Review the confirmation page, then tap ""Done"".
+14. View the transaction history.","1. The system should only display recent recipients that are affiliated with the other bank.
+2. The recipient's details are automatically populated.
+3. The system processes the transfer in real-time.
+4. The following details are shown on the Transfer Result screen:
+Trasfer Status
+- Total Amount (Transfer amount + service fee 15 php)
+-Recipient Name and Account Number
+-Sender Name
+-Transfer Fee
+-Reference Number
+- Instapay Reference Number
+-Transfer Notes (if any)
+5. Status changes from ""Transfer Pending"" to ""Transfer Successful""
+6. The transaction is recorded in the user's transaction history.
+7. The updated balance of the account should be correctly reflected.",Not Tested,,,,,,,,,,,
+m5.2.4,Verify validation when entering special characters in Account Number field,✅ Automatable,User is on Send Money screen,"1. Enter @#! into Account Number field
+2. Tap Next","1. Error message ""Only numerical values are allowed"" is displayed",Not Tested,,,,,,,,,,,
+m5.2.5,Verify validation when Account Number field is left blank ,✅ Automatable,User is on Send Money screen,"1. Leave Account Number field empty
+2. Tap Next","1. Error message ""This field is required."" is displayed",Not Tested,,,,,,,,,,,
+m5.2.6,Verify validation when entering own account number in the Account Number field,✅ Automatable,User is logged in with an active account,1. Enter own account number (same as logged-in account),"1. Error message ""You cannot send money to yourself."" is displayed and Next button is disabled",Not Tested,,,,,,,,,,,
+m5.2.7,Verify validation when Account Name field is left blank,✅ Automatable,User is on Send Money screen,1. Leave Account Name field empty,"1. Error message ""This field is required."" is displayed",Not Tested,,,,,,,,,,,
+m5.2.8,Verify validation when entering invalid special characters in the Account Name field,✅ Automatable,User is on Send Money screen,"1. Enter invalid characters (e.g., @#$%) in Account Name field","1. Error message ""Only the following special characters are allowed: ` - , and space"" is displayed and Next button is disabled",Not Tested,,,,,,,,,,,
+m5.2.9,Verify the session timeout modal on the To Selected Bank screen due to inactivity,🔴 Not Automatable,1. The user is on To Selected Bank page.,"1. Do not interact.
+2. Wait 5 minutes.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.2.10,Verify the session timeout modal on the To Selected Bank screen after minimizing,🔴 Not Automatable,1. The user is on To Selected Bank page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.2.11,Verify the session timeout modal is still visible on To Selected Bank screen after minimizing and reopening the app,🔴 Not Automatable,1. The user is on To Selected Bank page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session Expired screen is still visible with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.2.12,Verify that session timeout resets on user activity and the homepage loads data normally.,🔴 Not Automatable,1. The user is on To Selected Bank page.,"1. Remain on the page and occasionally tap the screen to indicate activity (scroll or tap every few seconds).
+2. Continue this for at least 8 minutes.
+3. Navigate back to homepage.","1. The session timeout timer should reset with every user activity.
+2. Homepage, Transaction History, and Profile should load and display their data normally.",Not Tested,,,,,,,,,,,
+m5.2.13,Verify the session timeout modal on the Transfer screen due to inactivity,🔴 Not Automatable,1. The user is on Transfer page.,"1. Do not interact.
+2. Wait 5 minutes.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.2.14,Verify the session timeout modal on the Transfer screen after minimizing,🔴 Not Automatable,1. The user is on Transfer page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.2.15,Verify the session timeout modal is still visible on Transfer screen after minimizing and reopening the app,🔴 Not Automatable,1. The user is on Transfer page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session Expired screen is still visible with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.2.16,Verify that session timeout resets on user activity and the homepage loads data normally.,🔴 Not Automatable,1. The user is on Transfer page.,"1. Remain on the page and occasionally tap the screen to indicate activity (scroll or tap every few seconds).
+2. Continue this for at least 8 minutes.
+3. Navigate back to homepage.","1. The session timeout timer should reset with every user activity.
+2. Homepage, Transaction History, and Profile should load and display their data normally.",Not Tested,,,,,,,,,,,
+m5.2.17,Verify the session timeout modal on the Confirmation screen due to inactivity,🔴 Not Automatable,1. The user is on Confirmation page.,"1. Do not interact.
+2. Wait 5 minutes.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.2.18,Verify the session timeout modal on the Confirmation screen after minimizing,🔴 Not Automatable,1. The user is on Confirmation page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.2.19,Verify the session timeout modal is still visible on Confirmation screen after minimizing and reopening the app,🔴 Not Automatable,1. The user is on Confirmation page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session Expired screen is still visible with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.2.20,Verify that session timeout resets on user activity and the homepage loads data normally.,🔴 Not Automatable,1. The user is on Confirmation page.,"1. Remain on the page and occasionally tap the screen to indicate activity (scroll or tap every few seconds).
+2. Continue this for at least 8 minutes.
+3. Navigate back to homepage.","1. The session timeout timer should reset with every user activity.
+2. Homepage, Transaction History, and Profile should load and display their data normally.",Not Tested,,,,,,,,,,,
+m5.2.21,Verify the session timeout modal on the OTP Verification screen due to inactivity,🔴 Not Automatable,1. The user is on OTP Verification page.,"1. Do not interact.
+2. Wait 5 minutes.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.2.22,Verify the session timeout modal on the OTP Verification screen after minimizing,🔴 Not Automatable,1. The user is on OTP Verification page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.2.23,Verify the session timeout modal is still visible on OTP Verification screen after minimizing and reopening the app,🔴 Not Automatable,1. The user is on OTP Verification page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session Expired screen is still visible with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.2.24,Verify that session timeout resets on user activity and the homepage loads data normally.,🔴 Not Automatable,1. The user is on OTP Verification page.,"1. Remain on the page and occasionally tap the screen to indicate activity (scroll or tap every few seconds).
+2. Continue this for at least 8 minutes.
+3. Navigate back to homepage.","1. The session timeout timer should reset with every user activity.
+2. Homepage, Transaction History, and Profile should load and display their data normally.",Not Tested,,,,,,,,,,,
+m5.2.25,Verify that the user cannot request a new OTP upon login before the 1-minute cooldown period has passed,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the OTP screen during send money flow.
+3. The 1-minute OTP cooldown has not passed yet.","1. Tap on the ""Resend code"" link.
+","1. ""Resend code"" should be disabled. 
+2. No new OTP should be generated or sent.
+3. The cooldown timer should continue until it completes the full 1-minute duration.",Not Tested,,,,,,,,,,,
+m5.2.26,Verify that the user can request a new OTP upon sending money,🔴 Not Automatable,"1. The mobile app is launched.
+2. The user is on the OTP screen during send money flow.
+3. The previously received OTP has expired or the 1-minute OTP cooldown is complete.","1. Tap on the ""Resend code"" link.
+2. Check the received email to confirm a new OTP has been sent.
+3. On the OTP screen, enter the newly received OTP.","1. The system should display a prompt indicating that a new OTP has been sent to the registered email address.
+2. The newly generated OTP should be received via email.
+3. The user should be able to enter OTP and be redirected to transfer result screen.",Not Tested,,,,,,Not Tested,,,,,
+m5.2.27,Verify if previously received OTP is not valid upon sending money,🔴 Not Automatable,"1. The mobile app is launched.
+2. The user is on the OTP screen during send money flow.","1. Tap on the ""Resend code"" link.
+2. Check the received email to confirm a new OTP has been sent.
+3. Attempt to enter the previously received OTP.
+4. Observe the system response.
+5. Repeat steps 1-4.","1. The system should display a validation message: 
+
+“OTP is either Invalid or has expired, Please try again or request a new OTP”
+
+2. Every request of new OTP will trigger all previously requested OTP to be invalid.
+",Not Tested,,,,,,Not Tested,,,,,
+m5.2.28,Verify validation message for incorrect OTP upon sending money,✅ Automatable,"1. The user is on the OTP entry screen (after confirming transfer summary).
+2. The previously received OTP has expired or the 1-minute OTP cooldown is complete.","1. Enter a registered email address in the prompt.
+2. Tap “Submit” to proceed.
+3. Check the provided email for the OTP code sent by the system.
+4. Enter an invalid or expired OTP in the verification screen.
+","1. The system should display a validation message: 
+
+“OTP is either Invalid or has expired, Please try again or request a new OTP”",Not Tested,,,,,,Not Tested,,,,,
+m5.2.29,Verify validation message for expired OTP upon sending money,✅ Automatable,"1. The user is on the OTP entry screen (after confirming transfer summary).
+2. The previously received OTP has expired.","1. Attempt to enter the expired OTP and submit.
+2. Observe the validation response.","1. The system should display a validation message: 
+
+“OTP is either Invalid or has expired, Please try again or request a new OTP”",Not Tested,,,,,,Not Tested,,,,,
+m5.2.30,Verify Transaction failed error validation when there's something wrong in the OTP endpoint,🔴 Not Automatable,"1. User has attempted to send money and OTP session started
+2. User is on the OTP verification screen.","1. Input valid otp
+2. Simulate a system error specific for OTP or RCBC down during a transaction ",1. User should get redirected to Transaction Failed error screen,Not Tested,,"Note: This is very edge case scenario and hard to simulate
+Most likely to be encountered in external transaction when RCBC is down",,,,,,,,,
+m5.2.31,Verify validation on the 5th failed OTP attempt (triggering max allowed attempts error),✅ Automatable,"1. The mobile app is launched.
+2. The user is on the OTP screen during send money flow.
+3. The system allows a maximum of 5 OTP attempts per session.","1. On the OTP screen, enter an invalid OTP for 4 times
+2. On the 5th attempt, enter an invalid OTP again.
+3. Observe the system behavior immediately after the 5th invalid entry.
+4. Click"" Ok""","1. Immediately after the 5th invalid OTP attempt, the system should display:
+""Verification Failed: You have reached the maximum number of attempts. For your security, we’re redirecting you to the previous page.""
+
+2. The user should be redirected back to the confirmation screen.",Not Tested,,,,,,,,,,,
+m5.2.32,Verify validation on 5th OTP input attempt across multiple resend requests,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the OTP screen during send money flow.
+3. The system allows only 5 total OTP input attempts per session, regardless of resend count.
+4. The user has reached the OTP verification screen during send money flow.","1. Enter 2 invalid OTPs (Attempts 1 & 2).
+2. Tap ""Resend code"".
+3. Enter 2 more invalid OTPs (Attempts 3 & 4).
+4. Tap ""Resend code"" again.
+5. Enter one more invalid OTP (Attempt 5).
+6. Observe the system behavior immediately after the 5th invalid entry.
+7. Click"" Ok""","1. Immediately after the 5th invalid OTP attempt, the system should display:
+
+""Verification Failed: You have reached the maximum number of attempts. For your security, we’re redirecting you to the previous page.""
+
+2. The user should be redirected back to the confirmation of amount screen.",Not Tested,,,,,,,,,,,
+m5.2.33,"Verify validation when OTP session expires before max attempts 
+
+(When the User has reached Session ID timeout without reaching the max input attempts.)",🔴 Not Automatable,"1. User has attempted to send money and OTP session started
+2. User is on the OTP verification screen.","1. Within 5 mins, input invalid OTP for 3 times
+2. After 5 mins when the OTP session expires, regardless of validity input an OTP (4th attempt)
+3. Tap on ""Resend Code""
+4. Tap on ""Request New Code"" button.","1. On the 4th OTP input attempt after session expiry, the system should display:
+
+“OTP is either invalid or has expired. Please try again or request a new OTP.”
+
+2. After tapping the ""Resend Code"" link, the system should show:
+
+“OTP Expired: Your one-time password has expired. Request a new code to continue.”
+
+3. After tapping the ""Request New Code"" button:
+
+- The user should be redirected back to the confirmation of amount screen..
+
+- A new OTP session should be required to continue the send money process.",Not Tested,,,,,,,,,,,
+m5.2.34,Verify that the system displays the correct error modal when an invalid or valid OTP is entered after the 5-minute OTP validity window has expired.,🔴 Not Automatable,"1. User is on the OTP verification screen.
+2. An OTP has already been generated.
+3. The 5-minute OTP validity window has expired.","1. Wait until the OTP validity period exceeds 5 minutes.
+2. Enter a valid or invalid OTP.
+3. Observe the system behavior.
+4. Tap the OK button on the modal.","1. System does not proceed with OTP verification.
+2. An error modal is displayed with the message:
+“OTP is either invalid or has expired. Please try again or request a new OTP.”
+3. The modal displays an OK button.
+4. Tapping OK redirects the user to the previous screen.",,,,,,,,,,,,
+m5.2.35,Verify if user can send money to other bank with insufficient funds,✅ Automatable,"1. The user is logged in and on the mobile banking home screen.
+2. The recipient’s account number is valid and active within the same bank.","1.  Tap the ""Send"" button on the home screen.
+2. Select ""Bank Name (Same bank)"" option.
+3. Enter a valid recipient account number, then tap ""Next"".
+4. Enter an amount exceeding the available balance.","1. An error message is displayed in red text:
+
+“Insufficient Funds.”",Not Tested,,,,,,,,,,,
+m5.2.36, Verify that the user can edit the transfer amount after an insufficient funds error,✅ Automatable,"1. The user is logged in and on the mobile banking home screen.
+2. The recipient’s account number is valid and active within the same bank.
+3. The user received an insufficient funds error","1. Enter a new amount that is within available balance.
+2. Tap ""Next"" again, review the updated transfer summary.
+3. Tap ""Confirm"", enter OTP, and complete the transaction.","1. The system accepts the new amount and proceeds with the transaction.
+2. No further insufficient funds error occurs if the new amount is valid.
+3.  The transaction completes successfully.",Not Tested,,,,,,,,,,,
+m5.2.37,Verify if transaction fails when account number and account name do not match,🔴 Not Automatable,"1. The user is logged in and on the mobile banking home screen.
+2. Take note of the starting balance.","Tap the ""Send"" button on the home screen.
+Select ""Bank Name (Same bank)"" option.
+1. Enter a valid recipient account number, but ensure it corresponds to a different account name (intentional mismatch).
+2. Tap ""Next"".
+3. The system retrieves and displays the account name associated with the entered account number.
+4. Manually edit or input a mismatching account name.
+5. Enter a valid amount.
+6. (Optional) Enter transfer notes.
+7. Tap ""Next"".
+8. Review the transfer summary page (it will reflect the mismatched name and number).
+9. Tap ""Confirm"" to proceed.
+10. Enter the OTP sent via SMS/email.
+11. Tap ""Submit"" or continue.
+12. Observe the system response.","1. The system displays a ""Transaction failed"" message.
+2. The message is displayed in red text color.
+3. The transaction is not processed.
+4. The user is returned to the transfer summary or error page.
+5. The account balance remains unchanged.
+
+",Not Tested,,,,,,,,,,,
+m5.2.38,Verify that the user's email is blocked for 30 minutes after 3 unverified send money sessions with 5 invalid attempts per session,🔴 Not Automatable,"1.User is registered.
+2. Email is not currently blocked.
+","1. Initiate Send Money Session #1
+ - Enter 5 incorrect OTP(s)
+2. Initiate Send Money Session #2 by clicking ""Confirm""
+ - Enter 5 incorrect OTP(s)
+3. Initiate Send Money Session #3 by clicking ""Confirm""
+ - Enter 5 incorrect OTP(s)
+
+4. Click ""Confirm"" and observe the system response.
+5. Attempt to initiate Send Money Session #4 by clicking ""Confirm""
+6. Click ""OK""","1. After the 3rd unverified send money session, if all 3 occurred within 10 minutes, the system blocks the user's email for 30 minutes.
+
+2. When ""Confirm"" is clicked after the 3rd unverified session, an error message is displayed:
+""You have exceeded the maximum number of OTP attempts. You can try again in 29 mins.""
+
+3. Any attempt in clicking ""Send"" from the homepage during the block period should return an error message:
+
+""Send Money is currently unavailable. You can try again in <time remaining> minutes.""
+
+4. Clicking ""OK"" will redirect the user to the home page
+
+5. Email is sent to the customer:
+Subject: Security Notice: Unusual Activity Detected on Your Account
+
+Body:
+Hi <Customer Name>,
+
+We noticed several attempts to access your account that exceeded our security limits. To help keep your account safe, we’ve temporarily locked it as a precaution.
+
+If these attempts were made by you, no further action is needed. You can try signing in again after the cooldown period. If you need immediate access, please contact <replace customer support email> for assistance with resetting your account.
+",Not Tested,,,,,,,,,,,
+m5.2.39,Verify that the user's email is blocked for 30 minutes after 3 unverified send money sessions with invalid attempts not reaching max (5) per session,🔴 Not Automatable,"1.User is registered.
+2. Email is not currently blocked.
+","1. Initiate Send Money Session #1
+ - Enter 3 incorrect OTP(s) then exit to go back to home page
+2. Initiate Send Money Session #2 
+ - Enter 3 incorrect OTP(s) then exit to go back to home page
+3. Initiate Send Money Session #3 by clicking ""Confirm""
+ - Enter 3 incorrect OTP(s) then exit to go back to home page
+4. Attempt to initiate Send Money Session #4
+5. Click ""OK""","1. After the 3rd unverified send money session, if all 3 occurred within 10 minutes, the system blocks the user's email for 30 minutes.
+
+2. Any attempt in clicking ""Send"" from the homepage during the block period should return an error message:
+
+""Send Money is currently unavailable. You can try again in <time remaining> minutes.""
+
+3. Clicking ""OK"" will redirect the user to the home page
+
+4. Email is sent to the customer:
+Subject: Security Notice: Unusual Activity Detected on Your Account
+
+Body:
+Hi <Customer Name>,
+
+We noticed several attempts to access your account that exceeded our security limits. To help keep your account safe, we’ve temporarily locked it as a precaution.
+
+If these attempts were made by you, no further action is needed. You can try signing in again after the cooldown period. If you need immediate access, please contact <replace customer support email> for assistance with resetting your account.
+",Not Tested,,,,,,,,,,,
+m5.2.40,Verify that the user's email is blocked for 30 minutes after 3 unverified send money sessions with no OTP attempts (session abandoned),🔴 Not Automatable,"1.User is registered.
+2. Email is not currently blocked.
+","1. Initiate Send Money Session #1
+ - Leave the OTP input field blank
+ - Cancel the OTP verification and go back to home page.
+
+2. Initiate Send Money Session #2
+ - Leave the OTP input field blank
+ - Cancel the OTP verification and go back to home page.
+
+3. Initiate Send Money Session #3
+ - Leave the OTP input field blank
+ - Cancel the OTP verification and go back to home page.
+
+4. Attempt to initiate Send Money Session #4","1. After the 3rd unverified send money session, if all 3 occurred within 10 minutes, the system blocks the user's email for 30 minutes.
+
+2. Any attempt in clicking ""Send"" from the homepage during the block period should return an error message:
+
+""Send Money is currently unavailable. You can try again in <time remaining> minutes.""
+
+3. Email is sent to the customer:
+Subject: Security Notice: Unusual Activity Detected on Your Account
+
+Body:
+Hi <Customer Name>,
+
+We noticed several attempts to access your account that exceeded our security limits. To help keep your account safe, we’ve temporarily locked it as a precaution.
+
+If these attempts were made by you, no further action is needed. You can try signing in again after the cooldown period. If you need immediate access, please contact <replace customer support email> for assistance with resetting your account.
+",Not Tested,,,,,,,,,,,
+m5.2.41,Verify that a user receives a blocking error message when trying to send money with an email address that is currently blocked.,🔴 Not Automatable,1. The user's email has been blocked due to failed OTP attempts ,"1. During the 30-minute blocking period, attempt to send money using the blocked email address multiple times.
+2. Observe the system’s response.","1. System does not proceed with OTP generation.
+
+2. A clear error message is displayed indicating the email is blocked:
+
+""Send Money is currently unavailable. You can try again in <time remaining> minutes.""
+
+3. Each time the user attempts to send money while the email is still blocked, the system displays the same error message, with the remaining block time updated accordingly.",Not Tested,,,,,,,,,,,
+m5.2.42,Verify that a user can send money successfully with a valid OTP after the 30-minute block period has expired.,🔴 Not Automatable,1. The user's email was blocked and 30 minutes have passed.,"1. Wait until 30 minutes have passed since the block was applied.
+2. Attempt to send money using the same email.
+3. Enter the correct OTP.","1. Send money process resumes normally.
+2. OTP is sent and validated successfully.
+3. Transfer is successful..",Not Tested,,,,,,,,,,,
+m5.2.43,Verify that the system does not block the user if they input a valid OTP on the 5th attempt during the 3rd send money session,🔴 Not Automatable,"1. User is registered.
+2. Two previous send money sessions have already occurred, both unverified and/or expired.
+5. Each session allows up to 5 OTP attempts.","1. Initiate send money Session #3
+2. Enter 4 incorrect OTPs.
+3. On the 5th attempt, enter the correct OTP.
+4. Observe the outcome of the session.
+5. Attempt to initiate send money Session #4.","1. Session #3 is considered verified.
+2. Blocking is not triggered (since only 2 sessions were unverified in last 10 minutes).
+3. Session #4 starts normally.
+4. User is not blocked.",Not Tested,,,,,,,,,,,
+m5.2.44,Verify that the counter resets after successful verification of any send money session ,🔴 Not Automatable,"1. User is registered and not currently blocked.
+2. Each OTP session allows a maximum of 5 attempts.
+3. Session timeout is 5 minutes.
+4. Blocking occurs only after 3 unverified sessions within 15 minutes.
+5. Two previous send money sessions have already occurred, both unverified and/or expired.
+","1. Initiate send money Session #3
+2. Enter 4 incorrect OTPs.
+3. On the 5th attempt, enter the correct OTP.
+4. Observe the outcome of the session.
+5. 1. Initiate send money Session #4
+ - Leave the OTP input field blank
+ - Cancel the OTP verification and go back to home page.
+
+2. Initiate send money Session #5
+ - Leave the OTP input field blank
+ - Cancel the OTP verification and go back to home page.
+
+3. Initiate send money Session #6
+ - Leave the OTP input field blank
+ - Cancel the OTP verification and go back to home page.
+
+4. Attempt to initiate send money Session #7 using the same email.""","1. Send money sessions 4-6 are counted as new failures.
+2. No blocking should occur on session #6 because the previous two failures (1 & 2) were cleared due to the successful verification in #3.
+3. Blocking would only occur if 3 new unverified sessions happen after a successful one - within a new 15-minute window so in this case on Session 7
+4. On Session 7, a clear error message is displayed indicating the email is blocked:
+
+""Send Money is currently unavailable. You can try again in <time remaining> minutes.""
+",Not Tested,,,,,,,,,,,
+m5.2.45,Verify that the system does not block the user if the 3 unverified send money sessions span more than 10 minutes,🔴 Not Automatable,"1.User is registered.
+2. Email is not currently blocked.
+3. Blocking occurs only after 3 unverified sessions within 10 minutes.","1. Start send money Session #1
+ - Time: 00:00:00
+ - Enter 2 incorrect OTPs then exit
+ - Ends at: 00:03:00 min
+
+2. Start send money Session #2
+ - Time: 00:03:00 min
+ - Request OTP.
+ - Enter 2 incorrect OTPs then exit
+ - Ends at: 00:05:00 min
+
+3. Wait for 5 mins
+ - Time: 00:05:00 min
+ - Ends at 00:10:00 min
+
+4. Start Send money Session #3
+- Time: 00:11:00 min
+- Enter incorrect OTPs then exit.
+- Ends at: 00:15:00 mins
+
+5. Start send money Session #4
+ - Time: 00:15:00 or 00:16:00  min
+ - Attempt to initiate send money session using the same email.","1. The system does not block the user.
+
+2. The system evaluates the previous sessions:
+
+ - Session #1: ended at 00:05
+
+ - Session #3: started at 00:16 → more than 15 minutes since #1 ended
+
+Therefore, the 3 unverified sessions do not fall within a 15-minute window.
+
+3. Session #4 is allowed.
+
+4. OTP is sent normally.
+
+5. No blocking error is shown.",Not Tested,,,,,,,,,,,
+m5.2.46,Verify error when recipient account is not found (ACCOUNT_NOT_FOUND),✅ Automatable,User is logged in with a valid sender account,"1. Go to Send Money – External Transfer
+2. Enter an invalid Account Number as recipient provided from RCBC
+3. Enter valid amount and confirm","1. User gets redirected to Transfer Failed screen with below error message:
+""The account xxxxxx doesn't exist. Please check and try again.""
+2. The account balance remains unchanged.",Not Tested,,,,,,,,,,,
+m5.2.47,Verify error when recipient account is inactive (ACCOUNT_STATE_INVALID),🔴 Not Automatable,Dev sets recipient account to Inactive,"1. Go to Send Money – External Transfer
+2. Enter inactive account number as recipient
+3. Enter valid amount and confirm","1. User gets redirected to Transfer Failed screen with below error message:
+""The account xxxxxx has an invalid status. Please check the account status and try again.""
+2. The account balance remains unchanged.",Not Tested,,,,,,,,,,,
+m5.2.48,Verify error when sender account is inactive (ACCOUNT_STATE_INVALID),🔴 Not Automatable,Use the account that dev sets the account status to inactive,"1. Log in with inactive account
+2. Go to Send Money – External Transfer
+3. Enter valid recipient account
+4. Enter valid amount and confirm","1. User gets redirected to Transfer Failed screen with below error message:
+""The account xxxxxx has an invalid status. Please check the account status and try again.""
+2. The account balance remains unchanged.",Not Tested,,,,,,,,,,,
+m5.2.49,Verify daily transfer limit validation (DAILY_TRANSFER_LIMIT_REACHED),✅ Automatable,User is logged in with valid account,"1. Go to Send Money – Internal Transfer
+2. Enter valid recipient account
+3. Enter transfer amount greater than 50,000 in one transaction
+4. Submit transaction","1. User gets redirected to Transfer Failed screen with below error message:
+""Transaction amount exceeds the allowed limit per transaction.""
+2. The account balance remains unchanged.",Not Tested,,,,,,,,,,,
+m5.2.50,Verify daily transfer limit validation (DAILY_TRANSFER_LIMIT_REACHED),🔴 Not Automatable,User is logged in with valid account,"1. Go to Send Money – Internal Transfer
+2. Enter valid recipient account
+3. Enter transfer amount greater than 500,000 total transactions in one day
+4. Submit transaction","1. User gets redirected to Transfer Failed screen with below error message:
+""You've reached your daily transfer limit of PHP 500,000.""
+2. The account balance remains unchanged.",Not Tested,,,,,,,,,,,
+m5.2.51,Verify Transfer Result Screen when transaction failed due to external error,🔴 Not Automatable,"1. The user is logged in and on the mobile banking home screen.
+2. The recipient’s account number is valid and active within the same bank.
+3. There is a history of past successful transactions to same-bank recipients.
+4. An external error causes the transaction to fail.","1. Tap the ""Send"" button on the home screen.
+2. Select ""Other Bank"" option.
+3. Scroll down to search for bank or enter bank name in search bar
+4. Select the bank
+5.  Select a recipient or enter recipient account details
+6. tap ""Next"".
+7. Enter a valid amount.
+8. (Optional) Enter transfer notes.
+9. Tap ""Next"".
+10. Review the transfer summary.
+11. Tap ""Confirm"".
+12. Enter the OTP received via SMS/email.
+13. Review the Transfer Result and tap ""Done"".
+14. If transfer is still pending, tap ""Refresh"" button to get the updated status.
+15. View the transaction history. ","1. The following details should be shown on the Transfer Result screen:
+-Transfer Status
+-Total Amount (Transfer amount + service fee of PHP 15)
+-Recipient Name and Account Number
+-Sender Name
+-Transfer Fee
+-Reference Number
+-InstaPay Reference Number
+-Transfer Notes (if any)
+2. The status should change from ""Transfer Pending"" to ""Transfer Failed"".
+3. The transaction should not be recorded in the user's transaction history.
+4. The account balance should be correctly reflected and should not be deducted, since the transaction failed to send.",Not Tested,,,,,,,,,,,
+m5.2.52,Verify the session timeout modal on the Transfer Pending screen due to inactivity,🔴 Not Automatable,1. The user is on Transfer Pending page.,"1. Do not interact.
+2. Wait 5 minutes.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.2.53,Verify the session timeout modal on the Transfer Pending screen after minimizing,🔴 Not Automatable,1. The user is on Transfer Pending page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.2.54,Verify the session timeout modal is still visible on Transfer Pending screen after minimizing and reopening the app,🔴 Not Automatable,1. The user is on Transfer Pending page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session Expired screen is still visible with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.2.55,Verify that session timeout resets on user activity and the homepage loads data normally.,🔴 Not Automatable,1. The user is on Transfer Pending page.,"1. Remain on the page and occasionally tap the screen to indicate activity (scroll or tap every few seconds).
+2. Continue this for at least 8 minutes.
+3. Navigate back to homepage.","1. The session timeout timer should reset with every user activity.
+2. Homepage, Transaction History, and Profile should load and display their data normally.",Not Tested,,,,,,,,,,,
+m5.2.56,Verify the session timeout modal on the Transfer Result screen due to inactivity,🔴 Not Automatable,1. The user is on Transfer Result page.,"1. Do not interact.
+2. Wait 5 minutes.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.2.57,Verify the session timeout modal on the Transfer Result screen after minimizing,🔴 Not Automatable,1. The user is on Transfer Result page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.2.58,Verify the session timeout modal is still visible on Transfer Result screen after minimizing and reopening the app,🔴 Not Automatable,1. The user is on Transfer Result page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session Expired screen is still visible with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
+m5.2.59,Verify that session timeout resets on user activity and the homepage loads data normally.,🔴 Not Automatable,1. The user is on Transfer Result page.,"1. Remain on the page and occasionally tap the screen to indicate activity (scroll or tap every few seconds).
+2. Continue this for at least 8 minutes.
+3. Navigate back to homepage.","1. The session timeout timer should reset with every user activity.
+2. Homepage, Transaction History, and Profile should load and display their data normally.",Not Tested,,,,,,,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+"m5.3 As a User, I want to generate a QR code for my account or transactions.",,,,,,,,,,,,,,,,,
+m5.3.1,Verify that the user can access the QR code generator,✅ Automatable,"1. The user is logged into the mobile banking app
+2. The user has an active bank account","1. Tap the “My QR” button in the footer navigation bar.
+2. Select “Generate QR Code” .","1. A QR code is generated and displayed with Account Name and the correct last 4 digits of the Account Number with leading asterisks to mask the first numbers.
+2. ""Download QR"" button should also be visible.",Passed,,,,,,Not Tested,,,,,
+m5.3.2,Verify that the user can copy the Account Name and verify copied data is accurate by pasting it,✅ Automatable,"1. The user is logged into the mobile banking app
+2. The user has an active bank account
+3. The user has generated a QR code.","1. Tap the Copy button beside the Account Name.
+2. Navigate to any text field or note-taking area.
+3. Paste the copied content.","1. The Account Name is successfully copied to the clipboard.
+2. The pasted text exactly matches the Account Name displayed on the QR code screen.",Passed,,,,,,,,,,,
+m5.3.3,Verify that the user can copy the Account Number and paste it,✅ Automatable,"1. The user is logged into the mobile banking app
+2. The user has an active bank account
+3. The user has generated a QR code.","1. Tap the Copy button beside the Account Number.
+2. Navigate to any text field or note-taking area.
+3. Paste the copied content.","1. The Account Number is successfully copied to the clipboard.
+2. The pasted text exactly matches the Account Number displayed on the QR code screen.",Passed,,,,,,,,,,,
+m5.3.4,Verify that the user can download the QR code and QR code displays correct account information,🔴 Not Automatable,"1. The user is logged into the mobile banking app
+2. The user has an active bank account
+3. The user has generated a QR code.","1. Tap the ""Download QR"" button.","1. The QR code should be downloaded in the device.
+2. Downloaded image must contain the QR Image, Account Name, and the last 4 digits of the Account Number with leading asterisks to mask the first numbers.",Passed,,,,,,Not Tested,,,,,
+m5.3.5,Verify that an error is displayed when internet connection is lost during QR code generation,🔴 Not Automatable,"1. User is logged into the mobile banking application.
+2. User has an active bank account.
+3. QR code generation feature is accessible.
+4. Internet connection on the device is lost or disabled.","1. Open the mobile banking application.
+2. Navigate to the My QR section.
+3. Attempt to generate a QR code while the internet connection is unavailable.","1. The system detects the loss of internet connectivity during QR code generation.
+2. An error prompt is displayed with the following details:
+
+Header: Connection Error
+
+Body: Internet connection issues detected. Please try again later.
+
+3. The QR code is not generated.
+",Passed,,,,,,,,,,,
+m5.3.6,Verify the session timeout modal on the Scan QR Code screen due to inactivity,🔴 Not Automatable,1. The user is on Scan QR Code page.,"1. Do not interact.
+2. Wait 5 minutes.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m5.3.7,Verify the session timeout modal on the Scan QR Code screen after minimizing,🔴 Not Automatable,1. The user is on Scan QR Code page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m5.3.8,Verify the session timeout modal is still visible on Scan QR Code screen after minimizing and reopening the app,🔴 Not Automatable,1. The user is on Scan QR Code page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session Expired screen is still visible with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m5.3.9,Verify that session timeout resets on user activity and the homepage loads data normally.,🔴 Not Automatable,1. The user is on Scan QR Code page.,"1. Remain on the page and occasionally tap the screen to indicate activity (scroll or tap every few seconds).
+2. Continue this for at least 8 minutes.
+3. Navigate back to homepage.","1. The session timeout timer should reset with every user activity.
+2. Homepage, Transaction History, and Profile should load and display their data normally.",,,,,,,,,,,,
+m5.3.10,Verify the session timeout modal on the My QR screen due to inactivity,🔴 Not Automatable,1. The user is on My QR page.,"1. Do not interact.
+2. Wait 5 minutes.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m5.3.11,Verify the session timeout modal on the My QR screen after minimizing,🔴 Not Automatable,1. The user is on My QR page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m5.3.12,Verify the session timeout modal is still visible on My QR screen after minimizing and reopening the app,🔴 Not Automatable,1. The user is on My QR page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session Expired screen is still visible with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m5.3.13,Verify that session timeout resets on user activity and the homepage loads data normally.,🔴 Not Automatable,1. The user is on My QR page.,"1. Remain on the page and occasionally tap the screen to indicate activity (scroll or tap every few seconds).
+2. Continue this for at least 8 minutes.
+3. Navigate back to homepage.","1. The session timeout timer should reset with every user activity.
+2. Homepage, Transaction History, and Profile should load and display their data normally.",,,,,,,,,,,,
+"m5.4 As a User, I want to send money by scanning a QR code.",,,,,,,,,,,,,,,,,
+m5.4.1,Verify that the user can send money to same bank via scanning a QR code,🔴 Not Automatable,"1. User is logged into the mobile banking application.
+2. User has sufficient balance in the selected account.
+3. Recipient’s bank account is valid and active.
+4. Recipient's QR code is available.","1. Tap the “My QR” button in the footer navigation bar.
+2. Scan the code of the recipient.
+3. Enter a valid amount.
+4. (Optional) Enter transfer notes.
+5. Tap ""Next"".
+6. Review the transfer summary.
+7. Tap ""Confirm"".
+8. Enter the OTP received via SMS/email.
+9. Review the Transfer Result and tap ""Done"".
+10. If transfer is still pending, tap ""Refresh"" button to get the updated status.
+11. View the transaction history. ","1. The Qr Scanner Page via the mobile phone’s camera will open
+2. The user is redirected to transfer page where the Bank and the recipient's details are pre-filled correctly with the details of the QR.
+3. The system processes the transfer in real-time.
+4. A success message is displayed.
+5. The following details are shown on the confirmation screen:
+✅ Success message
+- Amount
+-Recipient Name & Bank Name
+-Sender Name & Bank Name
+-Transfer Fee
+-Reference Number
+-Transfer Notes (if any)
+
+7. The transaction is recorded in the user's transaction history.
+8. The user is redirected to the Home page.
+9. The updated balance of the account should be correctly reflected.",Passed,,,,,,Not Tested,,,,,
+m5.4.2,Verify that the user can send money to same bank via uploading a QR code,🔴 Not Automatable,"1. User is logged into the mobile banking application.
+2. User has sufficient balance in the selected account.
+3. Recipient’s bank account is valid and active.
+4. Recipient's QR code is available.","1. Tap the “My QR” button in the footer navigation bar.
+2. Tap the ""Upload QR"".
+3. Enter a valid amount.
+4. (Optional) Enter transfer notes.
+5. Tap ""Next"".
+6. Review the transfer summary.
+7. Tap ""Confirm"".
+8. Enter the OTP received via SMS/email.
+9. Review the Transfer Result and tap ""Done"".
+10. If transfer is still pending, tap ""Refresh"" button to get the updated status.
+11. View the transaction history. ","1. The user is redirected to transfer page where the Bank and the recipient's details are pre-filled correctly with the details of the QR.
+2. The system processes the transfer in real-time.
+3. A success message is displayed.
+4. The following details are shown on the confirmation screen:
+✅ Success message
+- Amount
+-Recipient Name & Bank Name
+-Sender Name & Bank Name
+-Transfer Fee
+-Reference Number
+-Transfer Notes (if any)
+
+5. The transaction is recorded in the user's transaction history.
+6. The user is redirected to the Home page.
+7. The updated balance of the account should be correctly reflected.",Passed,,,,,,Not Tested,,,,,
+m5.4.3,Verify that an error is displayed when internet connection is lost during QR code scanning,🔴 Not Automatable,"1. User is logged into the mobile banking application.
+2. User has an active bank account.
+3. QR code scanning feature is accessible.
+4. Internet connection is lost or disabled on the device.","1. Open the mobile banking application.
+2. Navigate to My QR to initiate the QR Scanner.
+3. Tap “Upload QR” or initiate the QR code scanner.
+4. Attempt to scan a QR code while the internet connection is unavailable.","1. The system detects the loss of internet connectivity during the QR scanning process.
+2. An error prompt is displayed with the following details:
+
+Header: Connection Error
+
+Body: Internet connection issues detected. Please try again later.
+
+3. The user is prevented from proceeding with the QR-based transaction.
+4. After clicking ""OK"", the user is logged out (Okay for now as per product).",Passed,,,,,,,,,,,
+m5.4.4,Verify that an error is displayed when camera access is unavailable during QR code scanning,🔴 Not Automatable,"1. User is logged into the mobile banking application.
+2. User has an active bank account.
+3. QR code scanning feature is accessible.
+4. Device has no camera or camera permissions are disabled for the mobile banking app.","1. Open the mobile banking application.
+2. Navigate to My QR to initiate the QR Scanner.
+3. Observe the error prompt indicating camera access is unavailable.
+4. Tap OK on the error prompt.
+","1. The system detects that camera access is unavailable.
+2. An error prompt is displayed with the following details:
+
+Header: Camera Access Required
+
+Body: Camera access is required to scan QR codes. Please enable camera permissions in Settings.
+3. The QR scanner does not open.
+4. The user is prevented from proceeding with QR scanning until camera access is enabled.",Passed,,,,,,,,,,,
+m5.4.5,Verify that an error is displayed when scanning an unsupported QR code,🔴 Not Automatable,"1. User is logged into the mobile banking application.
+2. User has an active bank account.
+3. QR code scanning feature is accessible.
+4. QR code is unsupported.","1. Open the mobile banking application.
+2. Navigate to My QR to initiate the QR Scanner.
+3. Tap “Upload QR” or open the QR code scanner.
+4. Scan a QR code that is not supported by Higala.
+5. Tap OK on the error prompt.
+","1. The system detects that the scanned QR code format is unsupported.
+2. An error prompt is displayed with the following details:
+
+Header: Unsupported QR Code
+
+Body: This QR code format is not supported.
+3. The user is prevented from proceeding with the transaction.
+4. The user remains on the QR scanning screen and may scan a different, supported QR code.",Passed,,,,,,,,,,,
+m5.4.6,Verify that the system does not process non-QR images during QR scanning,🔴 Not Automatable,"1. User is logged into the mobile banking application.
+2. User has an active bank account.
+3. QR code scanning feature is accessible.
+4. An image that is not a QR code (e.g., photo, screenshot, document) is available.","1. Open the mobile banking application.
+2. Navigate to the My QR section.
+3. Tap “Upload QR” or open the QR code scanner.
+4. Scan or upload an image that is not a QR code.","1. The system detects that the scanned image is not a valid QR code.
+2. The system does not process the image as a QR code.
+3. When uploaded, an error prompt is displayed with the following details:
+
+Header: Invalid QR Code
+
+Body: Code is invalid, Please make sure code is clear.
+
+3. The user remains on the QR scanning screen and is able to retry scanning images.",Passed,,,,,,,,,,,
+m5.4.7,Verify that an error is displayed when scanning a heavily blurred or unclear QR code,🔴 Not Automatable,"1. User is logged into the mobile banking application.
+2. User has an active bank account.
+3. QR code scanning feature is accessible.
+4. A blurry or unclear QR code image is available.","1. Open the mobile banking application.
+2. Navigate to the My QR section.
+3. Tap “Upload QR” or open the QR code scanner.
+4. Attempt to scan a blurry or unclear QR code.","1. The system detects that the scanned image is not a valid QR code.
+2. The system does not process the image as a QR code.
+3. When uploaded, an error prompt is displayed with the following details:
+
+Header: Invalid QR Code
+
+Body: Code is invalid, Please make sure code is clear.
+
+3. The user remains on the QR scanning screen and is able to retry scanning images.",Passed,,,,,,,,,,,
+m5.4.8,Verify that an error is displayed when scanning a mildly blurred QR code,🔴 Not Automatable,"1. User is logged into the mobile banking application.
+2. User has an active bank account.
+3. QR code scanning feature is accessible.
+4. A blurry or unclear QR code image is available.","1. Open the mobile banking application.
+2. Navigate to the My QR section.
+3. Tap “Upload QR” or open the QR code scanner.
+4. Attempt to scan a blurry or unclear QR code.","1. The system fails to read the QR code due to poor image quality.
+2. An error prompt is displayed with the following details:
+
+Header: Unsupported QR Code
+
+Body: Code is not supported
+
+3. The user is prevented from proceeding with the transaction.
+4. The user remains on the QR scanning screen and can retry scanning QR code.",Passed,,,,,,,,,,,
+m5.4.9,Verify that an error is displayed when a customer scans their own QR code,🔴 Not Automatable,"1. User is logged into the mobile banking application.
+2. User has an active bank account.
+3. QR code scanning feature is accessible.
+4. The QR code being scanned belongs to the logged-in user.","1. Open the mobile banking application.
+2. Navigate to the My QR section.
+3. Tap “Upload QR” or open the QR code scanner.
+4. Scan the user’s own QR code.","1. The system detects that the sender and recipient accounts are the same.
+2. An error prompt is displayed with the following details:
+
+Header: Invalid Transaction
+
+Body: You cannot send money to yourself.
+
+3. The transaction is not initiated.
+4. The user is prevented from proceeding with the transfer.
+5. The user remains on the QR scanning screen and can scan a different QR code.",Passed,,,,,,,,,,,
+m5.4.10,Verify that the user can cancel a transaction after scanning a QR code,🔴 Not Automatable,"1. User is logged into the mobile banking application.
+2. User has scanned a valid recipient QR code and is on the OTP page.","1. Tap cancel button to cancel transfer.
+2. Confirm any confirmation prompt if it appears","1. The transaction is not processed.
+2. The user is redirected directly to the Home page.
+3. Account balance remains unchanged.",Passed,,,,,,,,,,,
+m5.4.11,Verify that the user can navigate back from the QR Scanner page,🔴 Not Automatable,"1. User is logged into the mobile banking application.
+2. User has scanned a valid recipient QR code and is on any page of the send money flow after scanning the QR.","1. Tap the back button (or use the device back navigation).
+2. Repeat step 1 to navigate back through the send money flow pages.
+3. Continue until the homepage is reached.","1. The user is successfully navigated back step by step through all pages.
+2. The QR scanner closes properly without initiating or processing any transaction.
+3. The user ends on the home page and account balance remains unchanged.",Passed,,,,,,,,,,,
+m5.4.12,Verify validation message for scanning QR code of an inactive or closed account,🔴 Not Automatable,"1. User is logged into the mobile banking application.
+2. User has sufficient balance in the selected account.
+3. Recipient’s bank account is inactive or closed.
+4. Recipient's QR code is available.","1. Tap the “My QR” button in the footer navigation bar.
+2. Tap the ""Upload QR"".
+3. Enter a valid amount.
+4. (Optional) Enter transfer notes.
+5. Tap ""Next"".
+6. Review the transfer summary.
+7. Tap ""Confirm"".
+8. Enter the OTP received via SMS/email.","1. User gets redirected to Transfer Failed screen with below error message:
+""The account xxxxxx has an invalid status. Please check the account status and try again.""
+2. The account balance remains unchanged.",Passed,,,,,,,,,,,
+m5.4.13,Verify error when sender account is inactive using QR to send money,🔴 Not Automatable,"1. User is logged into the mobile banking application.
+2. User has sufficient balance in the selected account.
+3. Sender's bank account is inactive or closed.
+4. Recipient's QR code is available and valid.","1. Tap the “My QR” button in the footer navigation bar.
+2. Tap the ""Upload QR"".
+3. Enter a valid amount.
+4. (Optional) Enter transfer notes.
+5. Tap ""Next"".
+6. Review the transfer summary.
+7. Tap ""Confirm"".
+8. Enter the OTP received via SMS/email.","1. User gets redirected to Transfer Failed screen with below error message:
+""The account xxxxxx has an invalid status. Please check the account status and try again.""
+2. The account balance remains unchanged.",Passed,,,,,,,,,,,
+"m5.5 As a User, I want to receive money using my generated QR code",,,,,,,,,,,,,,,,,
+m5.5.1,Verify receiver can view QR-based transaction in transaction history and can view its details,🔴 Not Automatable,"1. User is logged into the mobile banking app.
+2. User has received funds through QR.","1. Tap the “History” button in the footer navigation bar.
+2. View the transactions.
+3. Tap the transaction to view full transaction details","1. Transaction is visible in the history with correct details such as: Account Name of Sender, Bank Name, Masked Account Number of Sender, and Date and Timestamp.
+2. Transaction details are accurate and include:
+
+- Amount received matches what the sender entered
+-Recipient Name & Bank Name
+-Sender Name & Bank Name
+-Transfer Fee
+-Reference Number
+-Transfer Notes (if any)",Passed,,,,,,Not Tested,,,,,
+m5.5.2,Verify receiver account balance is updated after receiving money via QR,🔴 Not Automatable,"1. User is logged into the mobile banking app.
+2. User has received funds through QR.","1. Check account balance before the transaction.
+2. View balance after transfer","1. Receiver’s available balance is updated correctly to reflect the received amount.
+",Passed,,,,,,Not Tested,,,,,
+m5.5.3,Verify receiver cannot receive money if their account is inactive or closed,🔴 Not Automatable,"1. User is logged into the mobile banking app.
+2. User has received funds through QR.","1. Receiver checks the account balance before the transaction.
+2. Sender completes the transfer attempt via QR.
+3. Receiver views the history after the attempt.","1. Receiver does not see any incoming transaction.
+2. Account balance remains unchanged.",Passed,,,,,,,,,,,
+m5.5.4,Verify receiver cannot receive money if sender is inactive,🔴 Not Automatable,"1. User is logged into the mobile banking app.
+2. User has received funds through QR.","1. Receiver checks the account balance before the transaction.
+2. Sender attempts the transfer attempt via QR.
+3. Receiver views the history after the attempt.","1. Receiver does not see any incoming transaction.
+2. Account balance remains unchanged.",Passed,,,,,,Not Tested,,,,,
+"m5.6 As a User, I want to view Withdrawal/Deposity Type of Transactions made via Teller",,,,,,,,,,,,,,,,,
+m5.6.1,"Verify ""Cash Withdrawal"" in Transaction History List",🔴 Not Automatable,"1. Mobile user is logged in. 
+2. A successful ""Cash Withdrawal"" was processed for this user via the Teller App.","1. Log in to the Mobile App. 
+2. Navigate to the Transaction History page. 
+3. Locate the recent transaction corresponding to the teller withdrawal.","1. The transaction is present in the history list. 
+2. The transaction amount is displayed in black text with a minus sign (e.g., -₱500.00). 
+3. The transaction amount correctly reflects a debit.",Not Tested,,,,,,Not Tested,,,,,
+m5.6.2,"Verify ""Cash Withdrawal"" Transaction Details",🔴 Not Automatable,"1. Mobile user is logged in. 
+2. A successful ""Cash Withdrawal"" was processed for this user via the Teller App.","1. Log in to the Mobile App. 
+2. Navigate to the Transaction History page. 
+3. Locate the recent transaction corresponding to the teller deposit. 
+4. Tap on the transaction to view the Transaction Details page.","1. The transaction is present in the history list. 
+2. On the details page, the Transaction Type is confirmed as ""Cash Withdrawal"". 
+3. The transaction amount is correctly reflected (e.g., as a debit/negative value).
+4. The date and timestamp, reference number, and notes field corresponds to the transaction made via teller.",,,,,,,,,,,,
+m5.6.3,"Verify ""Cash Deposit"" in Transaction History List",🔴 Not Automatable,"1. Mobile user is logged in. 
+2. A successful ""Cash Deposit"" was processed for this user via the Teller App.","1. Log in to the Mobile App. 
+2. Navigate to the Transaction History page. 
+3. Locate the recent transaction corresponding to the teller deposit.","1. The transaction is present in the history list. 
+2. The transaction type is clearly labeled ""Cash Deposit"". 
+3. The transaction amount is displayed in green text with a plus sign (e.g., +₱500.00). 
+4. The transaction amount correctly reflects a credit.",,,,,,,,,,,,
+m5.6.4,"Verify ""Cash Deposit"" Transaction Details",🔴 Not Automatable,"1. Mobile user is logged in. 
+2. A successful ""Cash Deposit"" was processed for this user via the Teller App.","1. Log in to the Mobile App. 
+2. Navigate to the Transaction History page. 
+3. Locate the recent transaction corresponding to the teller deposit. 
+4. Tap on the transaction to view the Transaction Details page.","1. The transaction is present in the history list. 
+2. On the details page, the Transaction Type is confirmed as ""Cash Deposit"". 
+3. The transaction amount is correctly reflected (e.g., as a credit/positive value).
+4. The date and timestamp, reference number, and notes field corresponds to the transaction made via teller.",,,,,,,,,,,,
+m5.6.5,Verify Failed/Cancelled Teller Transaction,🔴 Not Automatable,"1. Mobile user is logged in. 
+2. A ""Cash Deposit"" or ""Cash Withdrawal"" transaction was Failed or Cancelled in the Teller App.","1. Log in to the Mobile App. 
+2. Navigate to the Transaction History page.","1. The failed transaction does not appear in the history list at all. 
+2. The user's main balance should not reflect this failed transaction.",,,,,,,,,,,,
+m5.6.6,"Verify ""Pending"" Deposit Teller Transaction",🔴 Not Automatable,"1. Mobile user is logged in. 
+2. A ""Cash Deposit"" was processed at the Teller, but it is in a ""Pending"" state.","1. Log in to the Mobile App. 
+2. Navigate to the Transaction History page. 
+3. Locate the pending transaction. 
+4. Tap on the transaction to view the Transaction Details page.","1. The transaction appears in the history list with a clear ""Pending"" status. 
+2. The details page reflects the amount, date and timestamp, reference number, and notes field that corresponds to the transaction made via teller app.",,,,,,,,,,,,
+m5.6.7,"Verify ""Pending"" Withdrawal Teller Transaction",🔴 Not Automatable,"1. Mobile user is logged in. 
+2. A ""Cash Withdrawal"" was processed at the Teller, but it is in a ""Pending"" state.","1. Log in to the Mobile App. 
+2. Navigate to the Transaction History page. 
+3. Locate the pending transaction. 
+4. Tap on the transaction to view the Transaction Details page.","1. The transaction appears in the history list with a clear ""Pending"" status. 
+2. The details page reflects the amount, date and timestamp, reference number, and notes field that corresponds to the transaction made via teller app.",,,,,,,,,,,,
+"m5.7 As a User, I want to send money to my other savings account",,,,,,,,,,,,,,,,,
+m5.7.1,Verify that the user can successfully send money to another of their own savings accounts,✅ Automatable,"1. User is logged into the mobile app.
+2. User has at least two active savings accounts with sufficient balance in the source account.","1.  Tap the ""Send Money"" button on the home screen.
+2. Select ""Bank Name (Same bank)"" option.
+3. Enter the account number of the other savings account
+4. Tap ""Next"".
+5. Enter a valid amount.
+6. (Optional) Enter transfer notes
+7. Tap ""Next"" 
+8. Review the transfer summary page (sender and recipient name, bank name, amount, fee, reference number, notes).
+9. Tap ""Confirm"" to proceed.
+10. Enter the OTP sent via SMS/email.
+11. Review the Confirmation Page, then tap ""Done"".
+12. View the transaction history.","""1. The system processes the transfer in real-time.
+2. A success message is displayed.
+3. The following details are shown on the confirmation screen:
+✅ Success message
+- Amount
+-Recipient Name & Bank Name
+-Sender Name & Bank Name
+-Transfer Fee
+-Reference Number
+-Transfer Notes (if any)
+
+4. User is redirected to the Home page.
+5. The transaction is reflected in the home page.
+6. Account A balance is correctly deducted.",Not Tested,,,,,,Pass,,,,,
+m5.7.2,"Verify that when switching to the recipient savings account, the transaction is reflected and the balance is updated",✅ Automatable,"1. The user has successfully transferred money from Account A to Account B.
+
+2. The user is on the Home screen.","1. Observe the current balance of Account A (Sender).
+2. Switch Account to view the homepage of Account B (Recipient).
+3. Observe the balance of Account B.
+4. Scroll down to the Transaction History section of Account B.","1. The balance of Account A correctly reflects the deducted amount and fees.
+2. Upon switching, Account B displays the updated balance (Previous Balance + Transferred Amount).
+3. The transaction history in the home page for Account B displays a ""Credit"" entry with the correct amount and a timestamp of the recent transfer.
+4. The UI transitions smoothly without showing stale data from the previous account.",Not Tested,,,,,,Not Tested,,,,,
+m5.7.3,Verify transaction history and details for the Sender Account (Account A),✅ Automatable,"1. The transfer from m5.7.1 is successful.
+2. User is on the Home page viewing Account A.","1. Tap the ""History"" icon in the footer.
+2. Locate the most recent transaction entry.
+3. Tap the entry to view Transaction Details.","1. A ""Debit"" entry for the transfer amount is recorded.
+2. Transaction Details show: 
+To (Account B Name/Number) 
+Bank Name
+Date/Timestamp 
+Transaction ID
+Notes.
+3. Data matches the information from the confirmation screen.",,,,,,,,,,,,
+m5.7.4,Verify transaction history and details for the Recipient Account (Account B),✅ Automatable,"1. The transfer from m5.7.1 is successful.
+2. User is on the Home page.","1. Switch the dashboard view to Account B (Recipient).
+2. Verify that the Available Balance has increased by the transfer amount.
+3. Tap the ""History"" icon.
+4. Locate the most recent entry and tap to view Transaction Details.","1. Account B balance is updated instantly.
+2. A ""Credit"" entry for the transfer amount is recorded.
+3. Transaction Details show: 
+From (Account A Name)
+Sender Bank
+Date/Timestamp
+Transaction ID (must match Account A)Notes.
+4. No stale data from Account A is visible in the Account B context.",,,,,,,,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+"m5.8 As a User, I want to send money from Rural Bank San Antonio to Rural Bank of Abucay (RB-to-RB External / Cash In).",,,,,,,,,,,,,,,,
+m5.8.1,Verify that San Antonio can successfully send money to Abucay account,✅ Automatable,"1. San Antonio app is running on primary emulator.
+2. Abucay app is installed on Pixel emulator.
+3. Sender: jjavier+84@nmblr.ai has sufficient balance.
+4. Abucay recipient acct: 7710501333354703.","1. Login to San Antonio app.
+2. Tap Send Funds → Other Bank.
+3. Search for 'rc' and select Rizal Commercial Banking Corporation.
+   NOTE: All RB-to-RB transfers route through RCBC as the Instapay intermediary.
+4. Enter Abucay account number and name.
+5. Enter valid amount and optional notes.
+6. Tap Next → Review Confirmation → Tap Confirm.
+7. Enter OTP (123456).
+8. Observe Transfer Result screen.
+9. Click Refresh page then Done/Back to Home.","1. Transfer Pending is shown on Transfer Result screen.
+2. Instapay Reference Number is visible.
+3. From/To/Fee/Reference Number details are correct.
+4. After refresh: Transfer Successful or still Pending.
+5. Home screen balance is updated.",Not Tested,,,,,Not Tested,Pass,,,,
+m5.8.2,Verify that the transfer is reflected in San Antonio transaction history,✅ Automatable,1. m5.8.1 has been completed successfully.,"1. Login to San Antonio app.
+2. Tap History tab.
+3. Tap the most recent debit entry.
+4. View Transaction Details.","1. Debit entry is visible in history.
+2. Transaction Details show: To, Bank, Transaction ID, Instapay Reference Number, Notes.
+3. Recipient name (Abucay) is visible.",Not Tested,,,,,Not Tested,,,,,
+m5.8.3,Verify that the San Antonio sender balance is deducted after Abucay transfer,✅ Automatable,1. m5.8.1 has been completed successfully.,"1. Login to San Antonio app.
+2. Observe home screen balance and recent transactions.","1. Balance reflects deduction of transfer amount + ₱15.00 fee.
+2. Most recent home screen transaction card shows Abucay recipient with debit amount.",Not Tested,,,,,Not Tested,,,,,
+m5.8.4,Verify that the Abucay receiver can see the incoming transaction in their home screen,✅ Automatable,"1. m5.8.1 has been completed successfully.
+2. Abucay app is running on Pixel emulator.","1. Switch to Abucay app on Pixel emulator.
+2. Login with jjavier+1@nmblr.ai.
+3. Observe home screen recent transactions.","1. Incoming credit entry is visible on home screen.
+2. Sender bank (Rural Bank San Antonio) is shown in the transaction card.",Not Tested,,,,,Not Tested,,,,,
+m5.8.5,Verify that the Abucay receiver balance is updated after receiving the transfer,✅ Automatable,"1. m5.8.1 has been completed successfully.
+2. Abucay app is open on Pixel emulator.",1. Observe Abucay home screen balance.,"1. Abucay balance is updated to reflect the credited amount.
+2. Credit ('+') transaction entry is visible on home screen.",Not Tested,,,,,Not Tested,,,,,
+m5.8.6,Verify that the Abucay receiver transaction history shows the credit entry,✅ Automatable,"1. m5.8.1 has been completed.
+2. Abucay app is open on Pixel emulator.","1. Tap History tab in Abucay app.
+2. Tap the most recent credit entry.
+3. View Transaction Details.","1. Credit entry is visible in Abucay history.
+2. Transaction Details show: From, Bank, Transaction ID, Instapay Reference Number.",Not Tested,,,,,Not Tested,,,,,
+m5.8.7,Verify that the Instapay Reference Number matches between San Antonio and Abucay,✅ Automatable,1. m5.8.1 has been completed and SM_LAST_INSTAPAY_REF suite variable is set.,"1. In Abucay app, navigate to History → tap most recent credit → view Transaction Details.
+2. Read Instapay Reference Number.
+3. Compare with SM_LAST_INSTAPAY_REF captured from m5.8.1.",1. Instapay Reference Number in Abucay TX Details matches the one shown on San Antonio Transfer Result screen.,Not Tested,,,,,Not Tested,,,,,
+m5.8.8,Verify that sending to an invalid Abucay account number results in Transfer Failed,✅ Automatable,"1. San Antonio app is running.
+2. Abucay bank is available in Other Bank list.","1. Login to San Antonio app.
+2. Go to Send Funds → Other Bank.
+3. Search for 'rc' and select Rizal Commercial Banking Corporation.
+4. Enter an invalid account number and account name.
+5. Enter valid amount and confirm.
+6. Enter OTP and observe result.","1. Transfer Failed screen is displayed.
+2. Error message: ""The account doesn't exist. Please check and try again.""
+3. Account balance remains unchanged.",Not Tested,,,,,Not Tested,,,,,
+m5.8.9,Verify that sending to Abucay with insufficient funds shows an error,✅ Automatable,1. San Antonio app is running with a low balance account.,"1. Login to San Antonio app.
+2. Go to Send Funds → Other Bank.
+3. Search for 'rc' and select Rizal Commercial Banking Corporation.
+4. Enter valid Abucay account number and name.
+5. Enter an amount exceeding the available balance.
+6. Tap Next.","1. Error message displayed: ""Maximum amount is <current balance>.""
+2. User remains on Transfer screen.",Not Tested,,,,,Not Tested,,,,,
+m5.8.10,Verify that the OTP screen appears correctly during Abucay transfer,✅ Automatable,1. User is on the Confirmation screen for an Abucay transfer.,"1. Tap Confirm.
+2. Observe the OTP Verification screen.","1. OTP Verification screen is displayed.
+2. Masked email address is shown.
+3. 6 OTP input boxes are visible.
+4. Resend code link is visible.
+5. Resend available in X:XX timer is visible.",Not Tested,,,,,Not Tested,,,,,
+m5.8.11,Verify that an invalid OTP shows error during Abucay transfer,✅ Automatable,1. User is on OTP Verification screen for Abucay transfer.,"1. Enter an incorrect OTP (000000).
+2. Observe the system response.","1. Error message displayed: ""OTP is either Invalid or has expired, Please try again or request a new OTP""",Not Tested,,,,,Not Tested,,,,,
+m5.8.12,Verify that Rizal Commercial Banking Corporation appears in the Other Bank search results for RB-to-RB transfer,✅ Automatable,"1. San Antonio app is running.
+2. User is on Send Funds screen.","1. Tap Other Bank.
+2. Type 'rc' in the search field.
+3. Observe search results.","1. Rizal Commercial Banking Corporation appears in the search results.
+2. User can select it to proceed with the RB-to-RB transfer to Abucay.
+   NOTE: RCBC is the Instapay intermediary for all RB-to-RB transactions.",Not Tested,,,,,Not Tested,Pass,,,,

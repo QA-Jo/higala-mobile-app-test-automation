@@ -41,5 +41,5 @@ update_csv.py
 /report.html
 /output.xml
 
-# Automation doc reference (raw spreadsheets)
-Automation Doc Reference/
+# Automation doc reference — exclude raw xlsx, track labeled CSVs
+Automation Doc Reference/*.xlsx

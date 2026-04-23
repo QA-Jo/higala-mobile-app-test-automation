@@ -1,0 +1,536 @@
+o,Description,Automation Status,Pre-conditions,Steps Taken,Expected Output,1st Cycle: iOS,Actual Output,Comments,Tester,Date Tested,Version,1st Cycle: Android,Actual Output,Comments,Tester,Date Tested,Version
+"m3.1 As a User, I want to view my profile/account details.",,,,,,,,,,,,,,,,,
+m3.1.1,Verify that the user can view their profile summary,✅ Automatable,1. The user has successfully logged into the mobile application.,"1. Navigate to the ""Profile"" section from the dashboard.","1. The system displays:
+Full Name
+Mobile Number
+Email",Not Tested,,,,,,Passed,,,AI Automation,2026-04-20,1.0
+m3.1.2,Verify that the user can view their personal info ,✅ Automatable,1. The user is logged in and on the account section.,1. Tap on “Personal Info” to open the detailed view.,"1. The system displays the following sections and data:
+Identity Details Section
+Account Name
+ID Type
+ID Number
+- Show the last four digits only while replacing the first characters with Asterisks (*)
+ID Expiry Date
+
+Address Section
+Present Address
+Permanent Address
+
+Additional Details
+Nationality
+Gender
+Birthdate
+Occupation
+Company Industry
+Company Name
+ - Optional
+ - If provided during onboarding then show as detail
+Else, show detail as “N/A”
+Monthly Income
+Source of Funds
+US FATCA
+Yes or No
+",Not Tested,,,,,,Passed,,,AI Automation,2026-04-20,1.0
+m3.1.3,Verify the session timeout modal on the Profile screen due to inactivity,🔴 Not Automatable,1. The user is on the Profile page.,"1. Do not interact.
+2. Wait 5 minutes.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m3.1.4,Verify the session timeout modal on the Profile screen after minimizing,🔴 Not Automatable,1. The user is on the Profile page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m3.1.5,Verify the session timeout modal is still visible on Profile screen after minimizing and reopening the app,🔴 Not Automatable,1. The user is on the Profile page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session Expired screen is still visible with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m3.1.6,Verify that the session remains active while the user is interacting with the app,🔴 Not Automatable,1. The user is on the Profile page.,"1. Continuously interact with the app (tap/scroll/input) within the 5 session timeout window.
+2. Observe the session status.","1. Session remains active.
+2. Session timout screen should not be prompted",,,,,,,,,,,,
+m3.1.7,Verify the session timeout modal on the My Profile screen due to inactivity,🔴 Not Automatable,1. The user is on the My Profile page.,"1. In the Profile screen, click the More Details button.
+2. In the My Profile screen, do not interact.
+2. Wait 5 minutes.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m3.1.8,Verify the session timeout modal on the My Profile screen after minimizing,🔴 Not Automatable,1. The user is on the My Profile page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m3.1.9,Verify the session timeout modal is still visible on My Profile screen after minimizing and reopening the app,🔴 Not Automatable,1. The user is on the My Profile page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session Expired screen is still visible with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m3.1.10,Verify that session timeout resets on user activity and the homepage loads data normally.,🔴 Not Automatable,1. The user is on the My Profile page.,"1. Remain on the page and occasionally tap the screen to indicate activity (scroll or tap every few seconds).
+2. Continue this for at least 8 minutes.
+3. Navigate back to homepage.","1. The session timeout timer should reset with every user activity.
+2. Homepage, Transaction History, and Profile should load and display their data normally.",,,,,,,,,,,,
+"m3.2 As a User, I want to edit my profile/account details (except for my full name and email address).",,,,,,,,,,,,,,,,,
+m3.2.1,Verify that the user can edit profile details except full name and email address,✅ Automatable,1. The user is logged in and on the profile or account settings page.,"1. Navigate to the profile edit section.
+2. Observe that full name and email address fields should not be visible.
+3. Edit other allowed fields such as address and financial details.
+4. Tap the ""Save"" or ""Submit"" button.","1. The system validates the input.
+2. The changes are saved successfully.
+3. The user receives a confirmation: “Updated Successfully!”
+4. The updated information is reflected in the profile view.
+5. If company name is removed, ""N/A"" is shown after save.",Not Tested,,,,,,Failed,,Occupation field locator not found — React Native label uses content-desc not @text,AI Automation,2026-04-21,1.0
+m3.2.2,Verify validation error when required editable fields are left blank in profile edit,✅ Automatable,1. The user is logged in and on the profile edit screen.,"1. Leave one or more required fields blank.
+2. Tap the ""Save"" or ""Submit"" button.","1. The system displays an error message: “This field is required.” in red text.
+2. The system does not save the changes.
+3. The user remains on the edit screen until all required fields are filled.",Not Tested,,,,,,Failed,,UiAutomator2 accessibility timeout (41s) — UI thread blocked on emulator after navigation,AI Automation,2026-04-21,1.0
+m3.2.3,Verify the session timeout modal on the Edit Profile screen due to inactivity,🔴 Not Automatable,1. The user is on the Edit Profile page.,"1. In the Profile screen, click the Edit Profile button.
+2. In the Edit Profile screen, do not interact.
+2. Wait 5 minutes.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m3.2.4,Verify the session timeout modal on the Edit Profile screen after minimizing,🔴 Not Automatable,1. The user is on the Edit Profile page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m3.2.5,Verify the session timeout modal is still visible on Edit Profile screen after minimizing and reopening the app,🔴 Not Automatable,1. The user is on the Edit Profile page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session Expired screen is still visible with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m3.2.6,Verify that session timeout resets on user activity and the homepage loads data normally.,🔴 Not Automatable,1. The user is on the Edit Profile page.,"1. Remain on the page and occasionally tap the screen to indicate activity (scroll or tap every few seconds).
+2. Continue this for at least 8 minutes.
+3. Navigate back to homepage.","1. The session timeout timer should reset with every user activity.
+2. Homepage, Transaction History, and Profile should load and display their data normally.",,,,,,,,,,,,
+"m3.3 As a User, I want to update my password (with OTP security).",,,,,,,,,,,,,,,,,
+m3.3.1,Verify that the user can update their password successfully,✅ Automatable,"1. The user is logged into the mobile application.
+","1. Navigate to the profile or settings section.
+2. Tap the ""Change Password"" option.
+3. In the current password field, enter the current password
+4. Tap on New Password input field, then enter a valid new password that meets the system’s password criteria.
+5. Re-enter the same new password on the Confirm New Password input field.
+6. Tap the ""Submit"" button.","1. The system sends a verification code (OTP) to the registered email address
+2. The OTP is verified successfully upon input.
+3. The password is updated.
+4. The user can now log in using the new password.",Not Tested,,,,,,Failed,,Update Password screen not found after navigation — screen may use content-desc not @text,AI Automation,2026-04-21,1.0
+m3.3.2,Verify successful login and access to the digital bank account after password update,✅ Automatable,"1. The mobile app is launched.
+2. The user has successfully updated their password.","1. Tap the ""Sign In"" button to go to the login page
+2. Log in using the registered email and the new password.","1. The system authenticates the user.
+2. The user is granted access to the digital bank account and lands on the Home page.",Not Tested,,,,,,Failed,,Pre-condition not met: TC_M3.3_001 must run first to change the password,AI Automation,2026-04-21,1.0
+m3.3.3,Verify the session timeout modal on the Update Password screen due to inactivity,🔴 Not Automatable,1. The user is on the Update Password page.,"1. In the Profile screen, click the Change Password button.
+2. In the Update Password screen, do not interact.
+2. Wait 5 minutes.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m3.3.4,Verify the session timeout modal on the Update Password screen after minimizing,🔴 Not Automatable,1. The user is on the Update Password page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m3.3.5,Verify the session timeout modal is still visible on Update Password screen after minimizing and reopening the app,🔴 Not Automatable,1. The user is on the Update Password page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session Expired screen is still visible with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m3.3.6,Verify that session timeout resets on user activity and the homepage loads data normally.,🔴 Not Automatable,1. The user is on the Update Password page.,"1. Remain on the page and occasionally tap the screen to indicate activity (scroll or tap every few seconds).
+2. Continue this for at least 8 minutes.
+3. Navigate back to homepage.","1. The session timeout timer should reset with every user activity.
+2. Homepage, Transaction History, and Profile should load and display their data normally.",,,,,,,,,,,,
+m3.3.7,Verify that the user cannot request a new OTP upon password reset before the 1-minute cooldown period has passed,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the OTP screen after password reset flow.","1. Tap on the ""Resend code"" link.
+","1. ""Resend code"" should be disabled. 
+2. No new OTP should be generated or sent.
+3. The cooldown timer should continue until it completes the full 1-minute duration.",,,,,,,Passed,,,AI Automation,2026-04-20,1.0
+m3.3.8,Verify that the user can request a new OTP upon password reset ,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the OTP screen after password reset flow.","1. Tap on the ""Resend code"" link.
+2. Check the received email to confirm a new OTP has been sent.
+3. On the OTP screen, enter the newly received OTP.","1. The system should display a prompt indicating that a new OTP has been sent to the registered email address.
+2. The newly generated OTP should be received via email.
+3. The user should be able to enter OTP.",Not Tested,,,,,,Passed,,,AI Automation,2026-04-20,1.0
+m3.3.9,Verify if previously received OTP is not valid upon password reset ,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the OTP screen after password reset flow.","1. Tap on the ""Resend code"" link.
+2. Check the received email to confirm a new OTP has been sent.
+3. Attempt to enter the previously received OTP.
+4. Observe the system response.
+5. Repeat steps 1-4.","1. The system should display a validation message: 
+
+“OTP is either Invalid or has expired, Please try again or request a new OTP”
+
+2. Every request of new OTP will trigger all previously requested OTP to be invalid.
+",Not Tested,,,,,,Passed,,,AI Automation,2026-04-21,1.0
+m3.3.10,Verify validation message for incorrect OTP upon password update,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the OTP screen after update password flow.
+3. The previously received OTP has expired or the 1-minute OTP cooldown is complete.","1. Enter a registered email address in the prompt.
+2. Tap “Submit” to proceed.
+3. Check the provided email for the OTP code sent by the system.
+4. Enter an invalid or expired OTP in the verification screen.
+","1. The system should display a validation message: 
+
+“OTP is either Invalid or has expired, Please try again or request a new OTP”",Not Tested,,,,,,Failed,,UiAutomator2 accessibility timeout (12s) after OTP entry — emulator UI thread busy,AI Automation,2026-04-21,1.0
+m3.3.11,Verify validation message for expired OTP upon password update,🔴 Not Automatable,"1. The mobile app is launched.
+2. The user is on the OTP screen after update password flow.
+3. The previously received OTP has expired or the 1-minute OTP cooldown is complete.","1. Enter a registered email address in the prompt.
+2. Tap “Submit” to proceed.
+3. Check the provided email for the OTP code sent by the system.
+4. Enter an invalid or expired OTP in the verification screen.
+","1. The system should display a validation message: 
+
+“OTP is either Invalid or has expired, Please try again or request a new OTP”",,,,,,,,,,,,
+m3.3.12,Verify validation on the 5th failed OTP attempt (triggering max allowed attempts error),✅ Automatable,"1. The mobile app is launched.
+2. The user is on the  Profile page.
+3.The system allows a maximum of 5 OTP attempts per session.","1. Tap on ""Change Password""
+2. Enter and submit the current password and new password
+3. On the OTP screen, enter an invalid OTP for 4 times
+4. On the 5th attempt, enter an invalid OTP again.
+5. Observe the system behavior immediately after the 5th invalid entry.
+6. Click"" Ok""","1. Immediately after the 5th invalid OTP attempt, the system should display:
+""Verification Failed: You have reached the maximum number of attempts. For your security, we’re redirecting you to the previous page.""
+
+2. The user should be redirected back to the password update screen.",,,,,,,Passed,,,AI Automation,2026-04-21,1.0
+m3.3.13,Verify validation on 5th OTP input attempt across multiple resend requests,✅ Automatable,"1. The mobile app is launched.
+2. The user is on the OTP Verification page after initiating password update process.
+3.The system allows a maximum of 5 OTP attempts per session.","1. Enter 2 invalid OTPs (Attempts 1 & 2).
+2. Tap ""Resend code"".
+3. Enter 2 more invalid OTPs (Attempts 3 & 4).
+4. Tap ""Resend code"" again.
+5. Enter one more invalid OTP (Attempt 5).
+6. Observe the system behavior immediately after the 5th invalid entry.
+7. Click"" Ok""","1. Immediately after the 5th invalid OTP attempt, the system should display:
+
+""Verification Failed: You have reached the maximum number of attempts. For your security, we’re redirecting you to the previous page.""
+
+2. The user should be redirected back to the password update screen.",,,,,,,Failed,,Teardown failure — UiAutomator2 accessibility timeout + Sign in locator not found,AI Automation,2026-04-21,1.0
+m3.3.14,"Verify validation when OTP session expires before max attempts 
+
+(When the User has reached Session ID timeout without reaching the max input attempts.)",🔴 Not Automatable,"1. The mobile app is launched.
+2. The user is on the OTP Verification page after initiating password update process.
+3.The system allows a maximum of 5 OTP attempts per session.","1. Within 5 mins, input invalid OTP for 3 times
+2. After 5 mins when the OTP session expires, regardless of validity input an OTP (4th attempt)
+3. Tap on ""Resend Code""
+4. Tap on ""Request New Code"" button.","1. On the 4th OTP input attempt after session expiry, the system should display:
+
+“OTP is either invalid or has expired. Please try again or request a new OTP.”
+
+2. After tapping the ""Resend Code"" link, the system should show:
+
+“OTP Expired: Your one-time password has expired. Request a new code to continue.”
+
+3. After tapping the ""Request New Code"" button:
+
+- The user should be redirected back to the password update screen.
+
+- A new OTP session should be required to continue the password update process.",,,,,,,,,,,,
+,Verify that the system displays the correct error modal when an invalid or valid OTP is entered after the 5-minute OTP validity window has expired.,🔴 Not Automatable,"1. User is on the OTP verification screen.
+2. An OTP has already been generated.
+3. The 5-minute OTP validity window has expired.","1. Wait until the OTP validity period exceeds 5 minutes.
+2. Enter a valid or invalid OTP.
+3. Observe the system behavior.
+4. Tap the OK button on the modal.","1. System does not proceed with OTP verification.
+2. An error modal is displayed with the message:
+“OTP is either invalid or has expired. Please try again or request a new OTP.”
+3. The modal displays an OK button.
+4. Tapping OK redirects the user to the previous screen.",,,,,,,,,,,,
+m3.3.15,Verify that the user's email is blocked for 60 minutes after 3 unverified Change Password OTP sessions with 5 invalid attempts per session,✅ Automatable,"1.User is registered.
+2. Email is not currently blocked.
+","1. Initiate Change Password Session #1
+ - Enter 5 incorrect OTP(s)
+2. Initiate Change Password Session #2
+ - Enter 5 incorrect OTP(s)
+3. Initiate Change Password Session #3
+ - Enter 5 incorrect OTP(s)
+
+4. Attempt to initiate Change Password Session #4
+5. Click ""OK""","1. After the 3rd unverified OTP session, if all 3 occurred within 15 minutes, the system blocks the user's email for 60 minutes.
+
+2. After the 3rd unverified session, an error message is displayed in the Update Password page:
+""You have exceeded the maximum number of OTP attempts. You can try again in 59 mins.""
+
+3. Any attempt in clicking ""Change Password"" from Profile page during the block period should return an error message:
+
+""Change Password is currently unavailable. You can try again in 59 minutes.""
+
+4. Clicking ""OK"" will close the modal and user is still on the Profile page
+
+5. Email is sent to the customer:
+Subject: Security Notice: Unusual Activity Detected on Your Account
+
+Body:
+Hi <Customer Name>,
+
+We noticed several attempts to access your account that exceeded our security limits. To help keep your account safe, we’ve temporarily locked it as a precaution.
+
+If these attempts were made by you, no further action is needed. You can try signing in again after the cooldown period. If you need immediate access, please contact <replace customer support email> for assistance with resetting your account.
+",,,,,,,Failed,,OTP Verification screen not found during login with block account — locator mismatch,AI Automation,2026-04-21,1.0
+m3.3.16,Verify that the user's email is blocked for 60 minutes after 3 unverified Change Password OTP sessions with invalid attempts not reaching max (5) per session,✅ Automatable,"1.User is registered.
+2. Email is not currently blocked.
+","1. Initiate Change Password Session #1
+ - Enter 3 incorrect OTP(s) then exit to go back to home page
+2. Initiate Change Password Session #2
+ - Enter 3 incorrect OTP(s) then exit to go back to home page
+3. Initiate Change Password Session #3
+ - Enter 3 incorrect OTP(s) then exit to go back to home page
+4. Attempt to initiate Change Password Session #4
+5. Click ""OK""","1. After the 3rd unverified OTP session, if all 3 occurred within 15 minutes, the system blocks the user's email for 60 minutes.
+
+2. After the 3rd unverified session, an error message is displayed in the Update Password page:
+""You have exceeded the maximum number of OTP attempts. You can try again in 59 mins.""
+
+3. Any attempt in clicking ""Change Password"" from Profile page during the block period should return an error message:
+
+""Change Password is currently unavailable. You can try again in 59 minutes.""
+4. Clicking ""OK"" will close the modal and user is still on the Profile page
+
+5. Email is sent to the customer:
+Subject: Security Notice: Unusual Activity Detected on Your Account
+
+Body:
+Hi <Customer Name>,
+
+We noticed several attempts to access your account that exceeded our security limits. To help keep your account safe, we’ve temporarily locked it as a precaution.
+
+If these attempts were made by you, no further action is needed. You can try signing in again after the cooldown period. If you need immediate access, please contact <replace customer support email> for assistance with resetting your account.
+",,,,,,,Failed,,OTP Verification screen not found during login with block account — locator mismatch,AI Automation,2026-04-21,1.0
+m3.3.17,Verify that the user's email is blocked for 60 minutes after 3 unverified Change Password OTP sessions with no OTP attempts (session abandoned),✅ Automatable,"1.User is registered.
+2. Email is not currently blocked.
+","1. Initiate Change Password Session #1
+ - Leave the OTP input field blank
+ - Cancel the OTP verification and go back to home page.
+
+2. Initiate Change Password Session #2
+ - Leave the OTP input field blank
+ - Cancel the OTP verification and go back to home page.
+
+3. Initiate Change Password Session #3
+ - Leave the OTP input field blank
+ - Cancel the OTP verification and go back to home page.
+
+4. Attempt to initiate Change Password Session #4","1. After the 3rd unverified OTP session, if all 3 occurred within 15 minutes, the system blocks the user's email for 60 minutes.
+
+2. After the 3rd unverified session, an error message is displayed in the Update Password page:
+""You have exceeded the maximum number of OTP attempts. You can try again in 59 mins.""
+
+3. Any attempt in clicking ""Change Password"" from Profile page during the block period should return an error message:
+
+""Change Password is currently unavailable. You can try again in 59 minutes.""
+4. Clicking ""OK"" will close the modal and user is still on the Profile page
+
+5. Email is sent to the customer:
+Subject: Security Notice: Unusual Activity Detected on Your Account
+
+Body:
+Hi <Customer Name>,
+
+We noticed several attempts to access your account that exceeded our security limits. To help keep your account safe, we’ve temporarily locked it as a precaution.
+
+If these attempts were made by you, no further action is needed. You can try signing in again after the cooldown period. If you need immediate access, please contact <replace customer support email> for assistance with resetting your account.
+",,,,,,,Failed,,OTP Verification screen not found during login with block account — locator mismatch,AI Automation,2026-04-21,1.0
+m3.3.18,Verify that a user receives a blocking error message when trying to reset password through Change Password process with an email address that is currently blocked.,✅ Automatable,1. The user's email has been blocked due to failed OTP attempts ,"1. During the 60-minute blocking period, attempt to send money using the blocked email address multiple times.
+2. Observe the system’s response.","1. System does not proceed with OTP generation.
+
+2. A clear error message is displayed indicating the email is blocked:
+
+""You have exceeded the maximum number of OTP attempts. You can try again in <time remaining> minutes.""
+
+3. Each time the user attempts to Change while the email is still blocked, the system displays the same error message, with the remaining block time updated accordingly.",,,,,,,Failed,,Email Address field not found — block period likely expired before test ran,AI Automation,2026-04-21,1.0
+m3.3.19,Verify that a user can reset password successfully through change password  with a valid OTP after the 60-minute block period has expired.,🔴 Not Automatable,1. The user's email was blocked and 30 minutes have passed.,"1. Wait until 60 minutes have passed since the block was applied.
+2. Attempt to change password using the same email.
+3. Enter the correct OTP.","1. Change password process resumes normally.
+2. OTP is sent and validated successfully.
+3. PAssword updated is successful..",,,,,,,,,,,,
+m3.3.20,Verify that the system does not block the user if they input a valid OTP on the 5th attempt during the 3rd Change Password OTP  session,✅ Automatable,"1. User is registered.
+2. Two previous chnage password sessions have already occurred, both unverified and/or expired.
+5. Each session allows up to 5 OTP attempts.","1. Initiate change password Session #3
+2. Enter 4 incorrect OTPs.
+3. On the 5th attempt, enter the correct OTP.
+4. Observe the outcome of the session.
+5. Attempt to initiate change password Session #4.","1. Session #3 is considered verified.
+2. Blocking is not triggered (since only 2 sessions were unverified in last 10 minutes).
+3. Session #4 starts normally.
+4. User is not blocked.",,,,,,,Failed,,OTP close button (×) locator not matched — needs Appium Inspector for correct attribute,AI Automation,2026-04-21,1.0
+m3.3.21,Verify that the system does not block the user if the 3 unverified Change Password OTP sessions span more than 15 minutes,🔴 Not Automatable,"1.User is registered.
+2. Email is not currently blocked.
+3. Blocking occurs only after 3 unverified sessions within 10 minutes.","1. Start Session #1
+ - Time: 00:00:00
+ - Enter 2 incorrect OTPs then exit
+ - Ends at: 00:05:00 min
+
+2. Start  Session #2
+ - Time: 00:05:00 min
+ - Request OTP.
+ - Enter 2 incorrect OTPs then exit
+ - Ends at: 00:10:00 min
+
+3. Wait for 5 mins
+ - Time: 00:10:00 min
+ - Ends at 00:15:00 min
+
+4. Start Session #3
+- Time: 00:16:00 min
+- Enter incorrect OTPs then exit.
+- Ends at: 00:20:00 mins
+
+5. Start Session #4
+ - Time: 00:20:00 or 00:21:00  min
+ - Attempt to initiate send money session using the same email.","1. The system does not block the user.
+
+2. The system evaluates the previous sessions:
+
+ - Session #1: ended at 00:05
+
+ - Session #3: started at 00:16 → more than 15 minutes since #1 ended
+
+Therefore, the 3 unverified sessions do not fall within a 15-minute window.
+
+3. Session #4 is allowed.
+
+4. OTP is sent normally.
+
+5. No blocking error is shown.",,,,,,,,,,,,
+m3.3.22,Verify that the counter resets after successful verification of any change password OTP session ,🔴 Not Automatable,"1. User is registered and not currently blocked.
+2. Each OTP session allows a maximum of 5 attempts.
+3. Session timeout is 5 minutes.
+4. Blocking occurs only after 3 unverified sessions within 15 minutes.
+5. Two previous send money sessions have already occurred, both unverified and/or expired.
+","1. Initiate change password Session #3
+2. Enter 4 incorrect OTPs.
+3. On the 5th attempt, enter the correct OTP.
+4. Observe the outcome of the session.
+5. Initiate change password Session #4
+ - Leave the OTP input field blank
+ - Cancel the OTP verification 
+
+2.  Initiate change password Session #5
+ - Leave the OTP input field blank
+ - Cancel the OTP verification 
+
+3.  Initiate change password Session #6
+ - Leave the OTP input field blank
+ - Cancel the OTP verification 
+
+4. Attempt to initiate Change Password Session #7 using the same email.""","1. Change Password OTP sessions 4-6 are counted as new failures.
+2. No blocking should occur on session #6 because the previous two failures (1 & 2) were cleared due to the successful verification in #3.
+3. Blocking would only occur if 3 new unverified sessions happen after a successful one - within a new 15-minute window so in this case on Session 7
+4. On Session 7, a clear error message is displayed indicating the email is blocked:
+
+""You have exceeded the maximum number of OTP attempts. You can try again in <time remaining> minutes.""
+",,,,,,,,,,,,
+m3.3.23,Verify the session timeout modal on the OTP screen due to inactivity,🔴 Not Automatable,1. The user is on the OTP Verification page.,"1. In the Profile screen, click the Change Password button and follow the flow.
+2. In the OTP screen, do not interact.
+2. Wait 5 minutes.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m3.3.24,Verify the session timeout modal on the OTP screen after minimizing,🔴 Not Automatable,1. The user is on the OTP Verification page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m3.3.25,Verify the session timeout modal is still visible on OTP screen after minimizing and reopening the app,🔴 Not Automatable,1. The user is on the OTP Verification page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session Expired screen is still visible with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m3.3.26,Verify that session timeout resets on user activity and the homepage loads data normally.,🔴 Not Automatable,1. The user is on the OTP Verification page.,"1. Remain on the page and occasionally tap the screen to indicate activity (scroll or tap every few seconds).
+2. Continue this for at least 8 minutes.
+3. Navigate back to homepage.","1. The session timeout timer should reset with every user activity.
+2. Homepage, Transaction History, and Profile should load and display their data normally.",,,,,,,,,,,,
+m3.3.27,Verify error when required fields are left blank,✅ Automatable,"1. The user is logged into the mobile application.
+2. The user is on the “Update Password” screen.","1. Leave any of these blank: current password, new password, or confirm password.
+2. Tap the ""Save"" button.","1. The system displays: 
+
+“<Input field> is required.” in red text below the blank fields.
+
+2.The password update does not proceed.",Not Tested,,,,,,Failed,,EditText field not found on Update Password screen — app in degraded state from prior test,AI Automation,2026-04-21,1.0
+m3.3.28,Verify error message when user inputs incorrect current password,✅ Automatable,"1. The user is logged into the mobile application.
+2. The user is on the “Update Password” screen.","1. In the current password field, enter the incorrect current password
+","1. The system displays an error message:
+
+“Current Password does not match, please try again.”
+
+2.The user remains on the current screen and is allowed to retry.",Not Tested,,,,,,Failed,,Update Password screen not found after navigation,AI Automation,2026-04-21,1.0
+m3.3.29,Verify validation message when user inputs invalid password format on New Password Field,✅ Automatable,"1. The user is logged into the mobile application.
+2. The user is on the “Update Password” screen.
+","1. Tap on New Password input field, then enter a new password that does not meet the system’s password criteria.
+2. Tap the ""Save"" button.","1. In typing the new password, the system should display the validation message message below until the inputted password meets the system requirements: 
+
+""Please follow the password complexity
+         
+1 Uppercase Letter
+1 Lowercase Letter
+1 Number
+1 Special Character
+8 Characters minimum
+127 Characters maximum”
+
+2. The ""Submit"" button should still be disabled.",,,,,,,Failed,,Update Password screen not found after navigation,AI Automation,2026-04-21,1.0
+m3.3.30,Verify validation message when user inputs invalid password format on Confirm Password Field,✅ Automatable,"1. The user is logged into the mobile application.
+2. The user is on the “Update Password” screen.
+","1. Tap on Confirm Password input field, then enter a new password that does not meet the system’s password criteria.
+2. Tap the ""Save"" button.","1. In typing the new password, the system should display the validation message message below until the inputted password meets the system requirements: 
+
+""Please follow the password complexity
+         
+1 Uppercase Letter
+1 Lowercase Letter
+1 Number
+1 Special Character
+8 Characters minimum
+127 Characters maximum”
+
+2. The ""Submit"" button should still be disabled.",,,,,,,Failed,,Update Password screen not found after navigation,AI Automation,2026-04-21,1.0
+m3.3.31,Verify validation for mismatched new and confirm password,✅ Automatable,"1. The user is logged into the mobile application.
+2. The user is on the “Update Password” screen.
+3. OTP is verified.","1. Tap on Enter New Password input field, then enter a valid new password that meets the system’s password criteria.
+2. Enter a different password in the confirmation field.
+3. Tap the ""Save"" button.","1. The system displays: “Passwords do not match, please try again.”
+2.The user remains on the current screen and is allowed to retry.",Not Tested,,,,,,Failed,,Update Password screen not found after navigation,AI Automation,2026-04-21,1.0
+m3.3.32,Verify the session timeout modal on the New Password set screen due to inactivity,🔴 Not Automatable,1. The user is on the New Passwrord set page.,"1. In the Profile screen, click the Change Password button and follow the flow.
+2. In the New Password set screen, do not interact.
+2. Wait 5 minutes.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m3.3.33,Verify the session timeout modal on the New Password set screen after minimizing,🔴 Not Automatable,1. The user is on the New Passwrord set page.,"1. Minimize app.
+2. Wait 5 minutes.
+3. Restore app.","1. Session Expired screen prompted with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m3.3.34,Verify the session timeout modal is still visible on New Password set screen after minimizing and reopening the app,🔴 Not Automatable,1. The user is on the New Passwrord set page.,"1. Do not interact.
+2. Wait 5 minutes.
+3. When the session timeout modal prompted, minimize the app.
+4. Restore app.","1. Session Expired screen is still visible with the ""OK"" button
+2. Clicking the ""OK"" will redirect to the Login screen",,,,,,,,,,,,
+m3.3.35,Verify that session timeout resets on user activity and the homepage loads data normally.,🔴 Not Automatable,1. The user is on the New Passwrord set page.,"1. Remain on the page and occasionally tap the screen to indicate activity (scroll or tap every few seconds).
+2. Continue this for at least 8 minutes.
+3. Navigate back to homepage.","1. The session timeout timer should reset with every user activity.
+2. Homepage, Transaction History, and Profile should load and display their data normally.",,,,,,,,,,,,
+"m3.4 As a User, I want to log out of my account.",,,,,,,,,,,,,,,,,
+m3.4.1,Verify that the user can successfully log out from the mobile banking app,✅ Automatable,1. The user is logged into the mobile application.,"1. Navigate to the profile section of the app.
+2. Tap the ""Logout"" button.
+3. On the confirmation prompt, tap ""Yes"" or ""Confirm"".","1. The system prompts the user  with a confirmation message:
+""Are you sure you want to log out?"" 
+
+2. The user is successfully logged out.
+3. The application redirects the user to the login screen.",Not Tested,,,,,,Passed,,,AI Automation,2026-04-21,1.0
+m3.4.2,Verify that the user remains logged in when logout is cancelled,✅ Automatable,1. The user is logged into the mobile application.,"1. Navigate to the profile or menu section of the app.
+2. Tap the ""Logout"" button.
+3. On the confirmation prompt, tap ""No"" or ""Cancel"".","1. The logout action is cancelled.
+2. The user remains logged in and stays on the current screen.",Not Tested,,,,,,N/A,,No confirmation modal — logout redirects directly to Sign In (feature behavior changed),AI Automation,2026-04-21,1.0
+"m3.5 As a User, I want to request an account deletion.",,,,,,,,,,,,,,,,,
+m3.5.1,Verify that a user can access the Request Account Deletion option,✅ Automatable,"1. The user is authenticated and logged into the mobile banking app.
+2. The user has an active, verified account.
+3. The user should not have any active loans/penalties.
+4. The user should not have any active transactions with the account
+5. All remaining balance must be withdrawn/transferred if possible
+6. The user has cancelled Recurring Payments","1. Launch the mobile banking app.
+2. Navigate to the profile menu.
+3. Tap the “General Settings” button.
+4. Tap the “Request Account Closure” button.",1. The user is redirected to the FAQs page showing the article on how to request account deletion.,Not Tested,,,,,,N/A,,Feature not yet available — test case removed from automation suite,AI Automation,2026-04-21,1.0
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
+,,,,,,Not Tested,,,,,,Not Tested,,,,,
