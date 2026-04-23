@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Higala Mobile App — Test Reports</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f4f5f7;
+      color: #1a1a2e;
+    }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 24px 40px;
+    }
+    header h1 { font-size: 1.5rem; font-weight: 700; }
+    header p  { font-size: 0.9rem; color: #a0aec0; margin-top: 4px; }
+
+    .container { max-width: 1100px; margin: 32px auto; padding: 0 24px; }
+
+    .latest-banner {
+      background: #fffbea;
+      border-left: 4px solid #f6ad55;
+      padding: 14px 20px;
+      border-radius: 6px;
+      margin-bottom: 32px;
+      font-size: 0.95rem;
+    }
+    .latest-banner a { color: #c05621; font-weight: 600; text-decoration: none; }
+    .latest-banner a:hover { text-decoration: underline; }
+
+    .section { margin-bottom: 40px; }
+
+    .section-header {
+      background: #1a1a2e;
+      color: white;
+      padding: 14px 20px;
+      border-radius: 8px 8px 0 0;
+      font-size: 1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .badge {
+      background: #f6ad55;
+      color: #1a1a2e;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 20px;
+      text-transform: uppercase;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-top: none;
+      border-radius: 0 0 8px 8px;
+      overflow: hidden;
+    }
+
+    .card {
+      padding: 16px 20px;
+      border-right: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      transition: background 0.15s;
+    }
+    .card:hover { background: #eef2ff; }
+
+    .card a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .card .run-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1a1a2e;
+      margin-bottom: 4px;
+    }
+    .card .link-label {
+      font-size: 0.8rem;
+      color: #718096;
+    }
+    .card .pass  { color: #38a169; font-weight: 600; }
+    .card .fail  { color: #e53e3e; font-weight: 600; }
+    .card .mixed { color: #d69e2e; font-weight: 600; }
+
+    footer {
+      text-align: center;
+      padding: 32px;
+      font-size: 0.8rem;
+      color: #a0aec0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Higala Mobile App — Test Reports</h1>
+  <p>Robot Framework results published automatically after each local run</p>
+</header>
+
+<div class="container">
+
+  <div class="latest-banner">
+    Latest run: <strong>M4 Account Details (run 19)</strong> &nbsp;·&nbsp;
+    <a href="results/M4_run19/M4_run19_report.html">Jump to latest report →</a>
+  </div>
+
+  <!-- TEST RESULTS -->
+  <div class="section">
+    <div class="section-header">
+      Test Results
+      <span class="badge">latest</span>
+    </div>
+    <div class="grid">
+
+      <div class="card">
+        <a href="results/AccountCreation_HappyPath/report.html">
+          <div class="run-name">M1.2 Account Creation</div>
+          <div class="link-label">Happy Path &nbsp;<span class="pass">PASS</span></div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="results/m12_negative_run/report.html">
+          <div class="run-name">M1.2 Account Creation</div>
+          <div class="link-label">Negative Tests &nbsp;<span class="mixed">MIXED</span></div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="results/M3_run9/report.html">
+          <div class="run-name">M3 Account Management</div>
+          <div class="link-label">Run 9 &nbsp;<span class="fail">FAIL</span></div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="results/M4_run19/M4_run19_report.html">
+          <div class="run-name">M4 Account Details</div>
+          <div class="link-label">Run 19 &nbsp;<span class="mixed">MIXED</span></div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="results/smoke_sendmoney_20260415_120523/report.html">
+          <div class="run-name">M5 Send Money</div>
+          <div class="link-label">Smoke Test &nbsp;<span class="pass">PASS</span></div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="results/debug/report.html">
+          <div class="run-name">Debug Run</div>
+          <div class="link-label">report.html</div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODULES -->
+  <div class="section">
+    <div class="section-header">Modules</div>
+    <div class="grid">
+
+      <div class="card">
+        <a href="Modules/AccountActivation/M1.1_Account_Activation.robot">
+          <div class="run-name">higala-mobile</div>
+          <div class="link-label">m1.1-account-activation</div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="Modules/AccountCreation/M1.2_Account_Creation.robot">
+          <div class="run-name">higala-mobile</div>
+          <div class="link-label">m1.2-account-creation</div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="Modules/Login/M2.1_Login_Email_OTP.robot">
+          <div class="run-name">higala-mobile</div>
+          <div class="link-label">m2.1-login-email-otp</div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="Modules/Login/M2.2_Forgot_Password.robot">
+          <div class="run-name">higala-mobile</div>
+          <div class="link-label">m2.2-forgot-password</div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="Modules/AccountManagement/M3_Account_Management.robot">
+          <div class="run-name">higala-mobile</div>
+          <div class="link-label">m3-account-management</div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="Modules/AccountDetails/M4_Account_Details.robot">
+          <div class="run-name">higala-mobile</div>
+          <div class="link-label">m4-account-details</div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="Modules/SendMoney/M5_Send_Money.robot">
+          <div class="run-name">higala-mobile</div>
+          <div class="link-label">m5-send-money</div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Higala Mobile App · QA Automation · Robot Framework + Appium
+</footer>
+
+</body>
+</html>
