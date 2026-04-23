@@ -23,7 +23,7 @@ TC_M1.2_001 - Verify Sign Up Page UI Elements
     ...
     ...    Pre-conditions: Mobile app is launched.
     ...    Manual Test: UI visual verification requires human comparison against Figma designs.
-    [Tags]    M1.2.1    Manual    Skipped
+    [Tags]    M1.2.1    Positive    Manual    Skipped
     Skip    Manual test — UI comparison requires human judgment against Figma mockup
 
 # -------------------------------------------------------
@@ -366,7 +366,7 @@ TC_M1.2_011 - Verify User Can Login With Temporary Password And Reset It
     ...    set a new permanent password, verify OTP, and login with the new password.
     ...
     ...    Pre-conditions: Account created; temporary password received via email.
-    [Tags]    M1.2.11    Manual    Skipped
+    [Tags]    M1.2.11    Positive    Manual    Skipped
     Skip    Requires freshly created account with temporary password — manual test run needed
 
 # -------------------------------------------------------
@@ -377,7 +377,7 @@ TC_M1.2_012 - Verify Successful Login And Access To Digital Bank Account After P
     [Documentation]    Verify user can login with new permanent credentials and land on the Home page.
     ...
     ...    Pre-conditions: User has successfully updated their password after account creation.
-    [Tags]    M1.2.12    Manual    Skipped
+    [Tags]    M1.2.12    Positive    Manual    Skipped
     Skip    Requires freshly created account with updated password — manual test run needed
 
 # -------------------------------------------------------
@@ -390,7 +390,7 @@ TC_M1.2_014 - Verify System Allows Email Reuse Under A Different Rural Bank
     ...
     ...    Pre-conditions: Email is already onboarded under San Antonio.
     ...    Test environment must be pointing to a different bank (e.g., Abucay).
-    [Tags]    M1.2.14    Manual    Skipped
+    [Tags]    M1.2.14    Positive    Manual    Skipped
     Skip    Requires multi-bank environment configuration — cannot be automated in single-bank test env
 
 # -------------------------------------------------------
@@ -479,7 +479,7 @@ TC_M1.2_045 - Verify System Treats Email As Case-Insensitive During Onboarding A
     ...          the onboarding leg — run on a PHYSICAL DEVICE.
     ...          The login and password-reset legs can be verified independently using
     ...          a pre-existing account whose signup email is known to be mixed-case.
-    [Tags]    M1.2.45    Manual    Skipped
+    [Tags]    M1.2.45    Positive    Manual    Skipped
     Skip    Cross-flow E2E (Onboarding + Login + Password Reset) — Veriff requires physical device
     # --- Onboarding leg (physical device only) ---
     # Navigate To Signup OTP Screen    ${AC_CASE_SIGNUP_EMAIL}
