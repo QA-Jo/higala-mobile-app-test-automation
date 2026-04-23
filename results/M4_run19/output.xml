@@ -1,0 +1,798 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.3 on darwin)" generated="2026-04-22T12:12:27.372983" rpa="false" schemaversion="5">
+<suite id="s1" name="M4 Account Details" source="/Users/jocelynjavier/Higala/Mobile App/Modules/AccountDetails/M4_Account_Details.robot">
+<kw name="Run Keywords" owner="BuiltIn" type="SETUP">
+<kw name="Open Higala App" owner="common">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Close Application" owner="AppiumLibrary">
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2026-04-22T12:12:28.707874" level="FAIL">No application is open</msg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="FAIL" start="2026-04-22T12:12:28.705232" elapsed="0.007661">No application is open</status>
+</kw>
+<msg time="2026-04-22T12:12:28.718091" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg time="2026-04-22T12:12:28.718364" level="FAIL">No application is open</msg>
+<doc>Closes the current application and the webdriver session.</doc>
+<status status="FAIL" start="2026-04-22T12:12:28.704881" elapsed="0.014488">No application is open</status>
+</kw>
+<arg>Close Application</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2026-04-22T12:12:28.704490" elapsed="0.015008"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-04-22T12:12:30.722824" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-04-22T12:12:28.719672" elapsed="2.004933"/>
+</kw>
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>${APPIUM_SERVER}</arg>
+<arg>platformName=${PLATFORM}</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>appPackage=${APP_PACKAGE}</arg>
+<arg>appActivity=${APP_ACTIVITY}</arg>
+<arg>automationName=UiAutomator2</arg>
+<arg>noReset=${True}</arg>
+<arg>skipDeviceInitialization=${True}</arg>
+<arg>ignoreHiddenApiPolicyError=${True}</arg>
+<arg>enforceXPath1=${True}</arg>
+<arg>adbExecTimeout=120000</arg>
+<arg>uiautomator2ServerLaunchTimeout=120000</arg>
+<arg>uiautomator2ServerInstallTimeout=300000</arg>
+<arg>skipServerInstallation=${False}</arg>
+<arg>newCommandTimeout=300</arg>
+<doc>Opens a new application to the given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.19/guides/caps/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | No     | alias             |</doc>
+<status status="PASS" start="2026-04-22T12:12:30.730533" elapsed="58.351992"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-04-22T12:13:32.115808" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-04-22T12:13:29.096459" elapsed="3.023598"/>
+</kw>
+<kw name="Start Screen Recording" owner="common">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Start Screen Recording" owner="AppiumLibrary">
+<arg>timeLimit=1800s</arg>
+<doc>Starts an asynchronous Screen Recording for the current open application.</doc>
+<status status="PASS" start="2026-04-22T12:13:32.150273" elapsed="11.038767"/>
+</kw>
+<arg>AppiumLibrary.Start Screen Recording</arg>
+<arg>timeLimit=1800s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2026-04-22T12:13:32.142800" elapsed="11.059040"/>
+</kw>
+<status status="PASS" start="2026-04-22T12:13:32.129793" elapsed="11.073542"/>
+</kw>
+<kw name="Navigate To Login Page" owner="common">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2026-04-22T12:13:43.251196" level="INFO">Running command 'adb -s emulator-5554 shell pm clear com.higala.ruralbanksanantonioitg 2&gt;&amp;1'.</msg>
+<arg>adb -s ${DEVICE_NAME} shell pm clear ${APP_PACKAGE}</arg>
+<doc>_This keyword is considered deprecated. Use the
+[http://robotframework.org/robotframework/latest/libraries/Process.html|
+Process] library instead._</doc>
+<status status="PASS" start="2026-04-22T12:13:43.214698" elapsed="23.154272"/>
+</kw>
+<kw name="Run" owner="OperatingSystem">
+<msg time="2026-04-22T12:14:06.428089" level="INFO">Running command 'adb -s emulator-5554 shell am force-stop com.higala.ruralbanksanantonioitg 2&gt;&amp;1'.</msg>
+<arg>adb -s ${DEVICE_NAME} shell am force-stop ${APP_PACKAGE}</arg>
+<doc>_This keyword is considered deprecated. Use the
+[http://robotframework.org/robotframework/latest/libraries/Process.html|
+Process] library instead._</doc>
+<status status="PASS" start="2026-04-22T12:14:06.399366" elapsed="12.046868"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-04-22T12:14:21.488502" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-04-22T12:14:18.458391" elapsed="3.033238"/>
+</kw>
+<kw name="Activate Application" owner="AppiumLibrary">
+<arg>${APP_PACKAGE}</arg>
+<doc>Activates the application if it is not running or is running in the background.</doc>
+<status status="PASS" start="2026-04-22T12:14:21.495515" elapsed="4.362670"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-04-22T12:14:40.999076" level="INFO">Slept 15 seconds.</msg>
+<arg>15s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-04-22T12:14:25.868467" elapsed="15.160427"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2026-04-22T12:14:41.653567" level="FAIL">WebDriverException: Message: 'GET /screenshot' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'GET /screenshot' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.getScreenshot (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/screenshot.js:72:19)</msg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="FAIL" start="2026-04-22T12:14:41.484723" elapsed="0.491090">WebDriverException: Message: 'GET /screenshot' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'GET /screenshot' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.getScreenshot (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/screenshot.js:72:19)</status>
+</kw>
+<msg time="2026-04-22T12:14:42.005400" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: 'GET /screenshot' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'GET /screenshot' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.getScreenshot (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/screenshot.js:72:19)</msg>
+<msg time="2026-04-22T12:14:42.039904" level="INFO">xpath criteria: //*[@content-desc='Sign in']</msg>
+<msg time="2026-04-22T12:14:42.040681" level="FAIL">WebDriverException: Message: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/find.js:24:13)
+    at async doFind (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:24:23)
+    at async wrappedCondFn (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:97:20)
+    at async spin (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:166:24)
+    at async waitForCondition (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:184:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:99:16)
+    at async AndroidUiautomator2Driver.findElOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:12:16)
+    at async AndroidUiautomator2Driver.findElements (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:30:16)</msg>
+<arg>xpath=//*[@content-desc='Sign in']</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-04-22T12:14:41.052224" elapsed="0.996028">WebDriverException: Message: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/find.js:24:13)
+    at async doFind (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:24:23)
+    at async wrappedCondFn (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:97:20)
+    at async spin (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:166:24)
+    at async waitForCondition (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:184:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:99:16)
+    at async AndroidUiautomator2Driver.findElOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:12:16)
+    at async AndroidUiautomator2Driver.findElements (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:30:16)</status>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<arg>xpath=//*[@content-desc='Sign in']</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-04-22T12:14:42.049326" elapsed="0.000110"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<arg>xpath=//android.widget.EditText[@hint='Email Address']</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-04-22T12:14:42.049657" elapsed="0.000026"/>
+</kw>
+<status status="FAIL" start="2026-04-22T12:13:43.207801" elapsed="58.849124">WebDriverException: Message: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/find.js:24:13)
+    at async doFind (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:24:23)
+    at async wrappedCondFn (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:97:20)
+    at async spin (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:166:24)
+    at async waitForCondition (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:184:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:99:16)
+    at async AndroidUiautomator2Driver.findElOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:12:16)
+    at async AndroidUiautomator2Driver.findElements (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:30:16)</status>
+</kw>
+<status status="FAIL" start="2026-04-22T12:12:28.703761" elapsed="133.356326">WebDriverException: Message: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/find.js:24:13)
+    at async doFind (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:24:23)
+    at async wrappedCondFn (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:97:20)
+    at async spin (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:166:24)
+    at async waitForCondition (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:184:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:99:16)
+    at async AndroidUiautomator2Driver.findElOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:12:16)
+    at async AndroidUiautomator2Driver.findElements (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:30:16)</status>
+</kw>
+<arg>Open Higala App</arg>
+<arg>AND</arg>
+<arg>Setup Screenshot On Failure</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="FAIL" start="2026-04-22T12:12:28.700419" elapsed="133.367680">WebDriverException: Message: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/find.js:24:13)
+    at async doFind (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:24:23)
+    at async wrappedCondFn (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:97:20)
+    at async spin (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:166:24)
+    at async waitForCondition (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:184:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:99:16)
+    at async AndroidUiautomator2Driver.findElOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:12:16)
+    at async AndroidUiautomator2Driver.findElements (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:30:16)</status>
+</kw>
+<test id="s1-t1" name="TC_M4.1_001 - Verify That The User Can Access Bank Details From Home Screen" line="21">
+<doc>Login with a single-product account. Verify the Home screen shows:
+Account Number, Available Balance, and 3 recent transactions.
+Tap "Hide my balance" to mask balance.
+Tap "View Account Details" and verify Account Details + Interest Configuration sections.
+Verify "Switch Acct" button is NOT visible (single product).
+
+Pre-conditions: AD_VALID_EMAIL has one product and at least 3 transactions.</doc>
+<tag>AccountDetails</tag>
+<tag>M4</tag>
+<tag>M4.1.1</tag>
+<tag>Positive</tag>
+<status status="FAIL" start="2026-04-22T12:14:42.129121" elapsed="0.046175">Parent suite setup failed:
+WebDriverException: Message: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/find.js:24:13)
+    at async doFind (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:24:23)
+    at async wrappedCondFn (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:97:20)
+    at async spin (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:166:24)
+    at async waitForCondition (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:184:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:99:16)
+    at async AndroidUiautomator2Driver.findElOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:12:16)
+    at async AndroidUiautomator2Driver.findElements (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:30:16)</status>
+</test>
+<test id="s1-t2" name="TC_M4.1_002 - Verify That The Transaction History Shows Only The Last 3 Transactions On Home Screen" line="48">
+<doc>On the Home screen, verify the Recent Transactions section displays
+exactly 3 transaction cards (the most recent ones). Additional transactions are
+only visible on the full History page.
+
+Pre-conditions: AD_VALID_EMAIL has 3 or more transactions.</doc>
+<tag>AccountDetails</tag>
+<tag>M4</tag>
+<tag>M4.1.2</tag>
+<tag>Positive</tag>
+<status status="FAIL" start="2026-04-22T12:14:42.181041" elapsed="0.002273">Parent suite setup failed:
+WebDriverException: Message: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/find.js:24:13)
+    at async doFind (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:24:23)
+    at async wrappedCondFn (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:97:20)
+    at async spin (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:166:24)
+    at async waitForCondition (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:184:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:99:16)
+    at async AndroidUiautomator2Driver.findElOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:12:16)
+    at async AndroidUiautomator2Driver.findElements (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:30:16)</status>
+</test>
+<test id="s1-t3" name="TC_M4.1_011 - Verify Accessing Product List Via Switch Acct Button" line="62">
+<doc>Login with a multi-product account. Verify "Switch Acct" button is
+visible. Tap it and verify the My Accounts modal appears with all active products
+showing balance, account name, and account number.
+
+Pre-conditions: AD_MULTI_EMAIL has 2+ active products.</doc>
+<tag>AccountDetails</tag>
+<tag>M4</tag>
+<tag>M4.1.11</tag>
+<tag>Positive</tag>
+<status status="FAIL" start="2026-04-22T12:14:42.188019" elapsed="0.001666">Parent suite setup failed:
+WebDriverException: Message: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/find.js:24:13)
+    at async doFind (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:24:23)
+    at async wrappedCondFn (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:97:20)
+    at async spin (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:166:24)
+    at async waitForCondition (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:184:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:99:16)
+    at async AndroidUiautomator2Driver.findElOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:12:16)
+    at async AndroidUiautomator2Driver.findElements (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:30:16)</status>
+</test>
+<test id="s1-t4" name="TC_M4.1_012 - Verify Switching To A Different Savings Product" line="75">
+<doc>From the My Accounts modal, select a different savings account.
+Verify the Home screen updates: account number, balance, and last 3 transactions
+all reflect the newly selected account.
+Tap "Hide my balance" and verify balance is masked for the switched account.
+
+Pre-conditions: AD_MULTI_EMAIL has at least 2 active savings accounts.</doc>
+<tag>AccountDetails</tag>
+<tag>M4</tag>
+<tag>M4.1.12</tag>
+<tag>Positive</tag>
+<status status="FAIL" start="2026-04-22T12:14:42.195487" elapsed="0.002052">Parent suite setup failed:
+WebDriverException: Message: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/find.js:24:13)
+    at async doFind (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:24:23)
+    at async wrappedCondFn (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:97:20)
+    at async spin (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:166:24)
+    at async waitForCondition (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:184:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:99:16)
+    at async AndroidUiautomator2Driver.findElOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:12:16)
+    at async AndroidUiautomator2Driver.findElements (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:30:16)</status>
+</test>
+<test id="s1-t5" name="TC_M4.1_013 - Verify View Account Details Of A Savings Product" line="100">
+<doc>After switching to a savings account, tap "View Account Details".
+Verify the savings product configuration screen shows:
+Account Details (Product Name, Account Type, Account Number),
+Interest Configuration (Interest rate, type, time period, rate structure).
+
+Pre-conditions: AD_MULTI_EMAIL is on a savings product.</doc>
+<tag>AccountDetails</tag>
+<tag>M4</tag>
+<tag>M4.1.13</tag>
+<tag>Positive</tag>
+<status status="FAIL" start="2026-04-22T12:14:42.199344" elapsed="0.001913">Parent suite setup failed:
+WebDriverException: Message: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/find.js:24:13)
+    at async doFind (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:24:23)
+    at async wrappedCondFn (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:97:20)
+    at async spin (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:166:24)
+    at async waitForCondition (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:184:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:99:16)
+    at async AndroidUiautomator2Driver.findElOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:12:16)
+    at async AndroidUiautomator2Driver.findElements (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:30:16)</status>
+</test>
+<test id="s1-t6" name="TC_M4.1_018 - Verify Balance Remains Masked When Switching Accounts With Hide Balance Enabled" line="129">
+<doc>On Account A, tap "Hide my balance". Switch to Account B.
+Verify Account B's balance is also masked (hide state persists across switches).
+Tap Show balance to reveal Account B's balance.
+
+Pre-conditions: AD_MULTI_EMAIL has 2+ active accounts.</doc>
+<tag>AccountDetails</tag>
+<tag>M4</tag>
+<tag>M4.1.18</tag>
+<tag>Positive</tag>
+<status status="FAIL" start="2026-04-22T12:14:42.201612" elapsed="0.000617">Parent suite setup failed:
+WebDriverException: Message: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/find.js:24:13)
+    at async doFind (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:24:23)
+    at async wrappedCondFn (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:97:20)
+    at async spin (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:166:24)
+    at async waitForCondition (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:184:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:99:16)
+    at async AndroidUiautomator2Driver.findElOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:12:16)
+    at async AndroidUiautomator2Driver.findElements (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:30:16)</status>
+</test>
+<test id="s1-t7" name="TC_M4.1_020 - Verify System Stability During Rapid Account Switching" line="160">
+<doc>Rapidly switch between accounts 5 times in quick succession.
+Verify the app remains stable (no crash, no flickering), and the final selected
+account displays correct, synchronized data.
+
+Pre-conditions: AD_MULTI_EMAIL has 3+ active products.</doc>
+<tag>AccountDetails</tag>
+<tag>M4</tag>
+<tag>M4.1.20</tag>
+<tag>Positive</tag>
+<status status="FAIL" start="2026-04-22T12:14:42.202690" elapsed="0.001022">Parent suite setup failed:
+WebDriverException: Message: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/find.js:24:13)
+    at async doFind (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:24:23)
+    at async wrappedCondFn (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:97:20)
+    at async spin (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:166:24)
+    at async waitForCondition (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:184:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:99:16)
+    at async AndroidUiautomator2Driver.findElOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:12:16)
+    at async AndroidUiautomator2Driver.findElements (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:30:16)</status>
+</test>
+<test id="s1-t8" name="TC_M4.2_004 - Verify That The User Can View Full Transaction Details" line="200">
+<doc>From History, tap on any transaction. Verify the Transaction Details
+screen shows: Amount, transaction type (Send/Receive Money), To/From name + account,
+Bank, Date/Time, Transaction ID, Instapay Reference Number, and Notes.
+
+Pre-conditions: AD_VALID_EMAIL has 1+ transactions.</doc>
+<tag>AccountDetails</tag>
+<tag>M4</tag>
+<tag>M4.2.4</tag>
+<tag>Positive</tag>
+<status status="FAIL" start="2026-04-22T12:14:42.204779" elapsed="0.001949">Parent suite setup failed:
+WebDriverException: Message: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/find.js:24:13)
+    at async doFind (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:24:23)
+    at async wrappedCondFn (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:97:20)
+    at async spin (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:166:24)
+    at async waitForCondition (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:184:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:99:16)
+    at async AndroidUiautomator2Driver.findElOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:12:16)
+    at async AndroidUiautomator2Driver.findElements (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:30:16)</status>
+</test>
+<test id="s1-t9" name="TC_M4.2_005 - Verify Behavior When There Are No Transactions To Show" line="224">
+<doc>Login with an account that has no transaction history. Navigate to
+History page. Verify the empty state message is displayed.
+
+Pre-conditions: AD_EMPTY_EMAIL has no transactions.</doc>
+<tag>AccountDetails</tag>
+<tag>M4</tag>
+<tag>M4.2.5</tag>
+<tag>Positive</tag>
+<status status="FAIL" start="2026-04-22T12:14:42.207050" elapsed="0.000711">Parent suite setup failed:
+WebDriverException: Message: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/find.js:24:13)
+    at async doFind (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:24:23)
+    at async wrappedCondFn (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:97:20)
+    at async spin (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:166:24)
+    at async waitForCondition (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:184:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:99:16)
+    at async AndroidUiautomator2Driver.findElOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:12:16)
+    at async AndroidUiautomator2Driver.findElements (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:30:16)</status>
+</test>
+<test id="s1-t10" name="TC_M4.2_008 - Verify Search Bar Is Visible And Interactive In Transaction History" line="239">
+<doc>On the History page, tap the Search bar, type any input, and verify
+the transaction list filters dynamically in real-time.
+
+Pre-conditions: AD_VALID_EMAIL has 1+ transactions.</doc>
+<tag>AccountDetails</tag>
+<tag>M4</tag>
+<tag>M4.2.8</tag>
+<tag>Positive</tag>
+<status status="FAIL" start="2026-04-22T12:14:42.208900" elapsed="0.000641">Parent suite setup failed:
+WebDriverException: Message: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/find.js:24:13)
+    at async doFind (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:24:23)
+    at async wrappedCondFn (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:97:20)
+    at async spin (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:166:24)
+    at async waitForCondition (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:184:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:99:16)
+    at async AndroidUiautomator2Driver.findElOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:12:16)
+    at async AndroidUiautomator2Driver.findElements (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:30:16)</status>
+</test>
+<test id="s1-t11" name="TC_M4.2_009 - Verify Search By Account Name In Transaction History" line="253">
+<doc>Enter a known account name in the search bar.
+Verify only transactions involving that account name are shown.
+
+Pre-conditions: AD_VALID_EMAIL has a transaction with AD_KNOWN_NAME.</doc>
+<tag>AccountDetails</tag>
+<tag>M4</tag>
+<tag>M4.2.9</tag>
+<tag>Positive</tag>
+<status status="FAIL" start="2026-04-22T12:14:42.210191" elapsed="0.000909">Parent suite setup failed:
+WebDriverException: Message: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/find.js:24:13)
+    at async doFind (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:24:23)
+    at async wrappedCondFn (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:97:20)
+    at async spin (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:166:24)
+    at async waitForCondition (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:184:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:99:16)
+    at async AndroidUiautomator2Driver.findElOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:12:16)
+    at async AndroidUiautomator2Driver.findElements (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:30:16)</status>
+</test>
+<test id="s1-t12" name="TC_M4.2_010 - Verify Search By Account Number In Transaction History" line="268">
+<doc>Enter a known masked account number (e.g., "8998") in the search bar.
+Verify only transactions involving that account number are shown.
+
+Pre-conditions: AD_VALID_EMAIL has a transaction with AD_KNOWN_ACCT_NO.</doc>
+<tag>AccountDetails</tag>
+<tag>M4</tag>
+<tag>M4.2.10</tag>
+<tag>Positive</tag>
+<status status="FAIL" start="2026-04-22T12:14:42.212521" elapsed="0.000867">Parent suite setup failed:
+WebDriverException: Message: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/find.js:24:13)
+    at async doFind (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:24:23)
+    at async wrappedCondFn (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:97:20)
+    at async spin (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:166:24)
+    at async waitForCondition (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:184:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:99:16)
+    at async AndroidUiautomator2Driver.findElOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:12:16)
+    at async AndroidUiautomator2Driver.findElements (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:30:16)</status>
+</test>
+<test id="s1-t13" name="TC_M4.2_012 - Verify Search By Transaction Amount In Transaction History" line="284">
+<doc>Enter a known transaction amount in the search bar.
+Verify only transactions with that amount are shown.
+
+Pre-conditions: AD_VALID_EMAIL has a transaction for AD_KNOWN_AMOUNT.</doc>
+<tag>AccountDetails</tag>
+<tag>M4</tag>
+<tag>M4.2.12</tag>
+<tag>Positive</tag>
+<status status="FAIL" start="2026-04-22T12:14:42.213679" elapsed="0.001821">Parent suite setup failed:
+WebDriverException: Message: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/find.js:24:13)
+    at async doFind (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:24:23)
+    at async wrappedCondFn (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:97:20)
+    at async spin (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:166:24)
+    at async waitForCondition (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:184:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:99:16)
+    at async AndroidUiautomator2Driver.findElOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:12:16)
+    at async AndroidUiautomator2Driver.findElements (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:30:16)</status>
+</test>
+<test id="s1-t14" name="TC_M4.2_014 - Verify Clearing The Search Bar Restores Full Transaction List" line="296">
+<doc>After entering a search term and filtering the list, clear the search
+bar. Verify the full, unfiltered transaction list is restored.
+
+Pre-conditions: AD_VALID_EMAIL has transactions.</doc>
+<tag>AccountDetails</tag>
+<tag>M4</tag>
+<tag>M4.2.14</tag>
+<tag>Positive</tag>
+<status status="FAIL" start="2026-04-22T12:14:42.221376" elapsed="0.001160">Parent suite setup failed:
+WebDriverException: Message: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/find.js:24:13)
+    at async doFind (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:24:23)
+    at async wrappedCondFn (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:97:20)
+    at async spin (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:166:24)
+    at async waitForCondition (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:184:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:99:16)
+    at async AndroidUiautomator2Driver.findElOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:12:16)
+    at async AndroidUiautomator2Driver.findElements (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:30:16)</status>
+</test>
+<test id="s1-t15" name="TC_M4.2_023 - Verify Full Transaction History For Savings Product" line="315">
+<doc>While on the savings product (jjavier+1@nmblr.ai has 3 savings products),
+navigate to History. Verify all historical transactions specific to that savings
+product are displayed.
+
+Pre-conditions: AD_MULTI_EMAIL (jjavier+1@nmblr.ai) is on a savings product with transactions.</doc>
+<tag>AccountDetails</tag>
+<tag>M4</tag>
+<tag>M4.2.23</tag>
+<tag>Positive</tag>
+<status status="FAIL" start="2026-04-22T12:14:42.222991" elapsed="0.000870">Parent suite setup failed:
+WebDriverException: Message: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/find.js:24:13)
+    at async doFind (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:24:23)
+    at async wrappedCondFn (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:97:20)
+    at async spin (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:166:24)
+    at async waitForCondition (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:184:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:99:16)
+    at async AndroidUiautomator2Driver.findElOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:12:16)
+    at async AndroidUiautomator2Driver.findElements (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:30:16)</status>
+</test>
+<test id="s1-t16" name="TC_M4.2_025 - Verify Recent Transacted Accounts Are Visible In Send Money Flow" line="332">
+<doc>From the Home screen, tap "Send Money". Verify the recent transacted
+accounts associated with the selected savings product are displayed for quick reference.
+
+Pre-conditions: AD_VALID_EMAIL has at least 1 past send money transaction.</doc>
+<tag>AccountDetails</tag>
+<tag>M4</tag>
+<tag>M4.2.25</tag>
+<tag>Positive</tag>
+<status status="FAIL" start="2026-04-22T12:14:42.224129" elapsed="0.000437">Parent suite setup failed:
+WebDriverException: Message: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/find.js:24:13)
+    at async doFind (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:24:23)
+    at async wrappedCondFn (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:97:20)
+    at async spin (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:166:24)
+    at async waitForCondition (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:184:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:99:16)
+    at async AndroidUiautomator2Driver.findElOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:12:16)
+    at async AndroidUiautomator2Driver.findElements (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:30:16)</status>
+</test>
+<test id="s1-t17" name="TC_M4.2_013 - Verify Search With No Matching Results In Transaction History" line="401">
+<doc>Enter a random string that matches no transactions.
+Verify the transaction list becomes empty and a "No transactions available" message appears.
+
+Pre-conditions: AD_VALID_EMAIL is on the History screen.</doc>
+<tag>AccountDetails</tag>
+<tag>M4</tag>
+<tag>M4.2.13</tag>
+<tag>Negative</tag>
+<status status="FAIL" start="2026-04-22T12:14:42.224793" elapsed="0.000413">Parent suite setup failed:
+WebDriverException: Message: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/find.js:24:13)
+    at async doFind (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:24:23)
+    at async wrappedCondFn (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:97:20)
+    at async spin (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:166:24)
+    at async waitForCondition (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:184:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:99:16)
+    at async AndroidUiautomator2Driver.findElOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:12:16)
+    at async AndroidUiautomator2Driver.findElements (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:30:16)</status>
+</test>
+<test id="s1-t18" name="TC_M4.2_026 - Verify System Blocks Self-Transfer In Send Money Flow" line="415">
+<doc>In the Send Money flow, enter the user's own savings account number
+as the recipient. Verify the system displays:
+"You cannot send money to yourself." and blocks the transaction.
+
+Pre-conditions: AD_VALID_EMAIL is logged in. Sender's account number is known.</doc>
+<tag>AccountDetails</tag>
+<tag>M4</tag>
+<tag>M4.2.26</tag>
+<tag>Negative</tag>
+<status status="FAIL" start="2026-04-22T12:14:42.225455" elapsed="0.000736">Parent suite setup failed:
+WebDriverException: Message: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/find.js:24:13)
+    at async doFind (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:24:23)
+    at async wrappedCondFn (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:97:20)
+    at async spin (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:166:24)
+    at async waitForCondition (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:184:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:99:16)
+    at async AndroidUiautomator2Driver.findElOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:12:16)
+    at async AndroidUiautomator2Driver.findElements (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:30:16)</status>
+</test>
+<kw name="Close Higala App" owner="common" type="TEARDOWN">
+<kw name="Stop And Save Recording" owner="common">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2026-04-22T12:14:42.304023" level="INFO">${status_label} = FAIL</msg>
+<var>${status_label}</var>
+<arg>'${PREV_TEST_STATUS}' == 'PASS'</arg>
+<arg>PASS</arg>
+<arg>FAIL</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2026-04-22T12:14:42.266675" elapsed="0.037435"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Sanitize Filename" owner="RecordingLibrary">
+<msg time="2026-04-22T12:14:42.318875" level="FAIL">Variable '${TEST NAME}' not found. Did you mean:
+    ${PREV_TEST_NAME}</msg>
+<arg>${TEST NAME}</arg>
+<doc>Replace characters not safe for filenames with underscores.</doc>
+<status status="FAIL" start="2026-04-22T12:14:42.314527" elapsed="0.004438">Variable '${TEST NAME}' not found. Did you mean:
+    ${PREV_TEST_NAME}</status>
+</kw>
+<msg time="2026-04-22T12:14:42.319243" level="INFO">${r} = ('FAIL', "Variable '${TEST NAME}' not found. Did you mean:\n    ${PREV_TEST_NAME}")</msg>
+<var>${r}</var>
+<arg>Sanitize Filename</arg>
+<arg>${TEST NAME}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2026-04-22T12:14:42.313291" elapsed="0.005990"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2026-04-22T12:14:42.325561" level="INFO">${safe_name} = recording</msg>
+<var>${safe_name}</var>
+<arg>'${r[0]}' == 'PASS'</arg>
+<arg>${r[1]}</arg>
+<arg>recording</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2026-04-22T12:14:42.319531" elapsed="0.006185"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Stop Screen Recording" owner="AppiumLibrary">
+<msg time="2026-04-22T12:15:00.438165" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="FAIL_recording.mp4"&gt;&lt;video width="800px" controls&gt;&lt;source src="FAIL_recording.mp4" type="video/mp4"&gt;&lt;/video&gt;&lt;/a&gt;</msg>
+<arg>filename=${status_label}_${safe_name}</arg>
+<doc>Gathers the output from the previously started screen recording              to a media file, then embeds it to the log.html(Android Only).</doc>
+<status status="PASS" start="2026-04-22T12:14:42.326577" elapsed="18.115987"/>
+</kw>
+<arg>AppiumLibrary.Stop Screen Recording</arg>
+<arg>filename=${status_label}_${safe_name}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2026-04-22T12:14:42.326068" elapsed="18.118165"/>
+</kw>
+<status status="PASS" start="2026-04-22T12:14:42.263737" elapsed="18.181652"/>
+</kw>
+<kw name="Close Application" owner="AppiumLibrary">
+<doc>Closes the current application and the webdriver session.</doc>
+<status status="PASS" start="2026-04-22T12:15:00.452810" elapsed="11.535850"/>
+</kw>
+<status status="PASS" start="2026-04-22T12:14:42.263131" elapsed="29.743752"/>
+</kw>
+<status status="FAIL" start="2026-04-22T12:12:27.375229" elapsed="164.636506">Suite setup failed:
+WebDriverException: Message: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /elements' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/find.js:24:13)
+    at async doFind (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:24:23)
+    at async wrappedCondFn (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:97:20)
+    at async spin (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:166:24)
+    at async waitForCondition (/usr/local/lib/node_modules/appium/node_modules/asyncbox/build/lib/asyncbox.js:184:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/timeout.js:99:16)
+    at async AndroidUiautomator2Driver.findElOrEls (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/build/lib/commands/find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:12:16)
+    at async AndroidUiautomator2Driver.findElements (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/basedriver/commands/find.js:30:16)</status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="18" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="18" skip="0">AccountDetails</stat>
+<stat pass="0" fail="18" skip="0">M4</stat>
+<stat pass="0" fail="1" skip="0">M4.1.1</stat>
+<stat pass="0" fail="1" skip="0">M4.1.11</stat>
+<stat pass="0" fail="1" skip="0">M4.1.12</stat>
+<stat pass="0" fail="1" skip="0">M4.1.13</stat>
+<stat pass="0" fail="1" skip="0">M4.1.18</stat>
+<stat pass="0" fail="1" skip="0">M4.1.2</stat>
+<stat pass="0" fail="1" skip="0">M4.1.20</stat>
+<stat pass="0" fail="1" skip="0">M4.2.10</stat>
+<stat pass="0" fail="1" skip="0">M4.2.12</stat>
+<stat pass="0" fail="1" skip="0">M4.2.13</stat>
+<stat pass="0" fail="1" skip="0">M4.2.14</stat>
+<stat pass="0" fail="1" skip="0">M4.2.23</stat>
+<stat pass="0" fail="1" skip="0">M4.2.25</stat>
+<stat pass="0" fail="1" skip="0">M4.2.26</stat>
+<stat pass="0" fail="1" skip="0">M4.2.4</stat>
+<stat pass="0" fail="1" skip="0">M4.2.5</stat>
+<stat pass="0" fail="1" skip="0">M4.2.8</stat>
+<stat pass="0" fail="1" skip="0">M4.2.9</stat>
+<stat pass="0" fail="2" skip="0">Negative</stat>
+<stat pass="0" fail="16" skip="0">Positive</stat>
+</tag>
+<suite>
+<stat name="M4 Account Details" id="s1" pass="0" fail="18" skip="0">M4 Account Details</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2026-04-22T12:12:28.718091" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg time="2026-04-22T12:14:42.005400" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: 'GET /screenshot' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'GET /screenshot' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.getScreenshot (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/screenshot.js:72:19)</msg>
+</errors>
+</robot>

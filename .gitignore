@@ -1,0 +1,45 @@
+# OS
+.DS_Store
+.idea/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Claude
+.claude/
+
+# APKs
+*.apk
+APKs/
+
+# Video recordings
+*.mp4
+
+# XML screen dumps (debug artifacts)
+current_screen.xml
+dump_login.xml
+dump_welcome.xml
+debug_007_screen.xml
+screen_after_next.xml
+screen_dob_picker.xml
+
+# Debug/utility robot scripts (not part of test suite)
+debug_*.robot
+dump_*.robot
+dump_*.py
+
+# Python utility/fix scripts (not part of test suite)
+fix_*.py
+parse_xml.py
+randomize_emails.py
+replace_m12.py
+update_csv.py
+
+# Root-level stale reports (results are inside results/)
+/log.html
+/report.html
+/output.xml
+
+# Automation doc reference (raw spreadsheets)
+Automation Doc Reference/

@@ -1,0 +1,124 @@
+==============================================================================
+M3 Account Management                                                         
+==============================================================================
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: No application is open
+TC_M3.2_001 - Verify That The User Can Edit Profile Details Except... | FAIL |
+Element locator 'xpath=//android.widget.TextView[@text='Occupation']/following::android.widget.EditText[1]' did not match any elements after 10 seconds
+------------------------------------------------------------------------------
+TC_M3.3_002 - Verify Successful Login And Access To Digital Bank A... | FAIL |
+Element locator 'xpath=//android.widget.TextView[@text='OTP Verification']' did not match any elements after 30 seconds
+
+Also teardown failed:
+Element locator 'xpath=//*[@content-desc='Sign in']' did not match any elements after 30 seconds
+------------------------------------------------------------------------------
+TC_M3.3_020 - Verify No Block When Valid OTP Is Used On 5th Attemp... | FAIL |
+ValueError: Element locator 'xpath=//*[@content-desc='Close' or @content-desc='close' or @text='×' or @text='X']' did not match any elements.
+------------------------------------------------------------------------------
+TC_M3.4_001 - Verify That The User Can Successfully Log Out :: Nav... | PASS |
+------------------------------------------------------------------------------
+TC_M3.2_002 - Verify Validation Error When Required Editable Field... | FAIL |
+WebDriverException: Message: io.appium.uiautomator2.common.exceptions.UiAutomator2Exception: Timed out after 41936ms waiting for the root AccessibilityNodeInfo in the active window. Make sure the active window is not constantly hogging the main UI thread (e.g. the application is being idle long enough), so the accessibility manager could do its work
+Stacktrace:
+io.appium.uiautomator2.common.exceptions.UiAutomator2Exception: io.appium.uiautomator2.common.exceptions.UiAutomator2Exception: Timed out after 41936ms waiting for the root AccessibilityNodeInfo in the active window. Make sure the active window is not constantly hogging the main UI thread (e.g. the application is being idle long enough), so the accessibility manager could do its work
+	at io.appium.uiautomator2.core.AccessibilityNodeInfoDumper.findNodesUsingXpath1(AccessibilityNodeInfoDumper.java:306)
+	at io.appium.uiautomator2.core.AccessibilityNodeInfoDumper.findNodes(AccessibilityNodeInfoDumper.java:377)
+	at io.appium.uiautomator2.utils.ElementLocationHelpers.getXPathNodeMatch(ElementLocationHelpers.java:124)
+	at io.appium.uiautomator2.utils.ElementLocationHelpers.findElements(ElementLocationHelpers.java:200)
+	at io.appium.uiautomator2.handler.FindElements.safeHandle(FindElements.jav...
+    [ Message content over the limit has been removed. ]
+...t io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:1119)
+Caused by: io.appium.uiautomator2.common.exceptions.UiAutomator2Exception: Timed out after 41936ms waiting for the root AccessibilityNodeInfo in the active window. Make sure the active window is not constantly hogging the main UI thread (e.g. the application is being idle long enough), so the accessibility manager could do its work
+	at io.appium.uiautomator2.utils.AXWindowHelpers.getActiveWindowRoot(AXWindowHelpers.java:107)
+	at io.appium.uiautomator2.utils.AXWindowHelpers.retrieveWindowRoots(AXWindowHelpers.java:87)
+	at io.appium.uiautomator2.utils.AXWindowHelpers.getCachedWindowRoots(AXWindowHelpers.java:68)
+	at io.appium.uiautomator2.core.AccessibilityNodeInfoDumper.toStream(AccessibilityNodeInfoDumper.java:228)
+	at io.appium.uiautomator2.core.AccessibilityNodeInfoDumper.findNodesUsingXpath1(AccessibilityNodeInfoDumper.java:279)
+	... 33 more
+------------------------------------------------------------------------------
+TC_M3.3_009 - Verify Previously Received OTP Is Invalid After Requ... | PASS |
+------------------------------------------------------------------------------
+TC_M3.3_010 - Verify Validation Message For Incorrect OTP On Chang... | FAIL |
+WebDriverException: Message: io.appium.uiautomator2.common.exceptions.UiAutomator2Exception: Timed out after 12955ms waiting for the root AccessibilityNodeInfo in the active window. Make sure the active window is not constantly hogging the main UI thread (e.g. the application is being idle long enough), so the accessibility manager could do its work
+Stacktrace:
+io.appium.uiautomator2.common.exceptions.UiAutomator2Exception: io.appium.uiautomator2.common.exceptions.UiAutomator2Exception: Timed out after 12955ms waiting for the root AccessibilityNodeInfo in the active window. Make sure the active window is not constantly hogging the main UI thread (e.g. the application is being idle long enough), so the accessibility manager could do its work
+	at io.appium.uiautomator2.core.AccessibilityNodeInfoDumper.findNodesUsingXpath1(AccessibilityNodeInfoDumper.java:306)
+	at io.appium.uiautomator2.core.AccessibilityNodeInfoDumper.findNodes(AccessibilityNodeInfoDumper.java:377)
+	at io.appium.uiautomator2.utils.ElementLocationHelpers.getXPathNodeMatch(ElementLocationHelpers.java:124)
+	at io.appium.uiautomator2.utils.ElementLocationHelpers.findElements(ElementLocationHelpers.java:200)
+	at io.appium.uiautomator2.handler.FindElements.safeHandle(FindElements.jav...
+    [ Message content over the limit has been removed. ]
+...t io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:1119)
+Caused by: io.appium.uiautomator2.common.exceptions.UiAutomator2Exception: Timed out after 12955ms waiting for the root AccessibilityNodeInfo in the active window. Make sure the active window is not constantly hogging the main UI thread (e.g. the application is being idle long enough), so the accessibility manager could do its work
+	at io.appium.uiautomator2.utils.AXWindowHelpers.getActiveWindowRoot(AXWindowHelpers.java:107)
+	at io.appium.uiautomator2.utils.AXWindowHelpers.retrieveWindowRoots(AXWindowHelpers.java:87)
+	at io.appium.uiautomator2.utils.AXWindowHelpers.getCachedWindowRoots(AXWindowHelpers.java:68)
+	at io.appium.uiautomator2.core.AccessibilityNodeInfoDumper.toStream(AccessibilityNodeInfoDumper.java:228)
+	at io.appium.uiautomator2.core.AccessibilityNodeInfoDumper.findNodesUsingXpath1(AccessibilityNodeInfoDumper.java:279)
+	... 33 more
+------------------------------------------------------------------------------
+TC_M3.3_012 - Verify Validation On 5th Failed OTP Attempt On Chang... | PASS |
+------------------------------------------------------------------------------
+TC_M3.3_013 - Verify Validation On 5th OTP Attempt Across Multiple... | FAIL |
+Teardown failed:
+Several failures occurred:
+
+1) WebDriverException: Message: io.appium.uiautomator2.common.exceptions.UiAutomator2Exception: Timed out after 12480ms waiting for the root AccessibilityNodeInfo in the active window. Make sure the active window is not constantly hogging the main UI thread (e.g. the application is being idle long enough), so the accessibility manager could do its work
+Stacktrace:
+io.appium.uiautomator2.common.exceptions.UiAutomator2Exception: io.appium.uiautomator2.common.exceptions.UiAutomator2Exception: Timed out after 12480ms waiting for the root AccessibilityNodeInfo in the active window. Make sure the active window is not constantly hogging the main UI thread (e.g. the application is being idle long enough), so the accessibility manager could do its work
+	at io.appium.uiautomator2.core.AccessibilityNodeInfoDumper.findNodesUsingXpath1(AccessibilityNodeInfoDumper.java:306)
+	at io.appium.uiautomator2.core.AccessibilityNodeInfoDumper.findNodes(AccessibilityNodeInfoDumper.java:377)
+	at io.appium.uiautomator2.utils.ElementLocationHelpers.getXPathNodeMatch(ElementLocationHelpers.java:124)
+	at io.appium.uiautomator2.utils.ElementLocationHelpers.findElements(Elemen...
+    [ Message content over the limit has been removed. ]
+...ting for the root AccessibilityNodeInfo in the active window. Make sure the active window is not constantly hogging the main UI thread (e.g. the application is being idle long enough), so the accessibility manager could do its work
+	at io.appium.uiautomator2.utils.AXWindowHelpers.getActiveWindowRoot(AXWindowHelpers.java:107)
+	at io.appium.uiautomator2.utils.AXWindowHelpers.retrieveWindowRoots(AXWindowHelpers.java:87)
+	at io.appium.uiautomator2.utils.AXWindowHelpers.getCachedWindowRoots(AXWindowHelpers.java:68)
+	at io.appium.uiautomator2.core.AccessibilityNodeInfoDumper.toStream(AccessibilityNodeInfoDumper.java:228)
+	at io.appium.uiautomator2.core.AccessibilityNodeInfoDumper.findNodesUsingXpath1(AccessibilityNodeInfoDumper.java:279)
+	... 33 more
+
+2) ValueError: Element locator 'xpath=//*[@content-desc='Sign in']' did not match any elements.
+
+3) Element locator 'xpath=//android.widget.EditText[@hint='Email Address']' did not match any elements after 15 seconds
+------------------------------------------------------------------------------
+TC_M3.3_018 - Verify Blocked Error Message When Attempting Change ... | FAIL |
+ValueError: Element locator 'xpath=//android.widget.EditText[@hint='Email Address']' did not match any elements.
+------------------------------------------------------------------------------
+TC_M3.3_027 - Verify Error When Required Fields Are Left Blank On ... | FAIL |
+ValueError: Element locator 'xpath=(//android.widget.EditText)[1]' did not match any elements.
+------------------------------------------------------------------------------
+TC_M3.3_028 - Verify Error When Incorrect Current Password Is Ente... | FAIL |
+Element locator 'xpath=//*[contains(@text,'Update Password')]' did not match any elements after 20 seconds
+------------------------------------------------------------------------------
+TC_M3.3_029 - Verify Password Complexity Error On New Password Fie... | FAIL |
+Element locator 'xpath=//*[contains(@text,'Update Password')]' did not match any elements after 20 seconds
+------------------------------------------------------------------------------
+TC_M3.3_030 - Verify Password Complexity Error On Confirm Password... | FAIL |
+Element locator 'xpath=//*[contains(@text,'Update Password')]' did not match any elements after 20 seconds
+------------------------------------------------------------------------------
+TC_M3.3_031 - Verify Mismatched New And Confirm Password Error :: ... | FAIL |
+Element locator 'xpath=//*[contains(@text,'Update Password')]' did not match any elements after 20 seconds
+------------------------------------------------------------------------------
+TC_M3.3_001 - Verify That The User Can Update Their Password Succe... | FAIL |
+Element locator 'xpath=//*[contains(@text,'Update Password')]' did not match any elements after 20 seconds
+------------------------------------------------------------------------------
+TC_M3.3_015 - Verify Email Blocked For 60 Minutes After 3 Unverifi... | FAIL |
+Element locator 'xpath=//android.widget.TextView[@text='OTP Verification']' did not match any elements after 30 seconds
+------------------------------------------------------------------------------
+TC_M3.3_016 - Verify Email Blocked After 3 Unverified Sessions Wit... | FAIL |
+Element locator 'xpath=//android.widget.TextView[@text='OTP Verification']' did not match any elements after 30 seconds
+------------------------------------------------------------------------------
+TC_M3.3_017 - Verify Email Blocked After 3 Abandoned OTP Sessions ... | FAIL |
+Element locator 'xpath=//android.widget.TextView[@text='OTP Verification']' did not match any elements after 30 seconds
+------------------------------------------------------------------------------
+M3 Account Management                                                 | FAIL |
+19 tests, 3 passed, 16 failed
+==============================================================================
+Output:  /Users/jocelynjavier/Higala/Mobile App/results/M3_run9/output.xml
+Log:     /Users/jocelynjavier/Higala/Mobile App/results/M3_run9/log.html
+Report:  /Users/jocelynjavier/Higala/Mobile App/results/M3_run9/report.html
