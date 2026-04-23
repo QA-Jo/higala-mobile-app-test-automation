@@ -4,12 +4,10 @@ This repository contains the automated test suite for the **Higala Mobile App**.
 
 ## Project Structure
 
-- **APKs/**: Directory containing the mobile application installer(s) (e.g., `application-*.apk`).
 - **Modules/**: Contains the Robot Framework test scripts, organized by feature module.
 - **resources/**: Reusable resources, keywords, or variables used across different test modules.
 - **results/**: Directory where test execution reports and logs are generated.
 - **run_all_modules.sh**: A bash script to execute the entire test suite sequentially.
-- **\*.xlsx / \*.csv**: Test data files (e.g., for Account Creation, Account Details, Account Management, Send Money, and Login modules) used to feed data into the automation scripts.
 
 ## Test Modules
 
