@@ -7,18 +7,18 @@ m2.1.1,Verify the Login page UI elements,🔴 Not Automatable,1. The mobile app 
 4. ""Forgot your password?"" should be displayed below the input fields.
 5. All UI elements should match the Figma design mockup in terms of layout, fonts, buttons icons, colors, fonts, spacing, and labels.
 
-Refer to Card Bank Login page in this Figma file.",Not Tested,,,,,,Fail,,,jjavier,2026-04-23,
+Refer to Card Bank Login page in this Figma file.",Not Tested,,,,,,Pass,,,jjavier,2026-04-24,
 m2.1.2,Verify back button on the login page.,✅ Automatable,"1. The mobile app is launched.
 2. The user is on the login page.","1. Tap the ""Back"" button.","1. The system should redirect back to the Start page.
 
-Refer to Card Bank - Start page in this Figma file.",Not Tested,,,,,,Fail,,,jjavier,2026-04-23,
+Refer to Card Bank - Start page in this Figma file.",Not Tested,,,,,,Pass,,,jjavier,2026-04-24,
 m2.1.3,Verify if user can enter details in the login input fields,✅ Automatable,"1. The mobile app is launched.
 2. The user is on the login page.","1. Tap on the email input field
 2. Enter an email address
 3. Tap on the password input field
 4. Enter a password","1. The user should be able to tap on input fields.
 2. The user should be able to enter details in the input fields.
-3. The password input should be masked by bullets or dots.",Not Tested,,,,,,Fail,,,jjavier,2026-04-23,
+3. The password input should be masked by bullets or dots.",Not Tested,,,,,,Pass,,,jjavier,2026-04-24,
 m2.1.4,Verify Password Masking and Eye Icon Toggle Functionality,✅ Automatable,"1. The mobile app is launched.
 2. The user is on the login page.","1. Tap on the email input field
 2. Enter an email address
@@ -29,7 +29,7 @@ m2.1.4,Verify Password Masking and Eye Icon Toggle Functionality,✅ Automatable
 7. Tap on the eye icon again to close it.
 8. Observe the password input.","1. The password input should be masked by bullets or dots.
 2. When the eye icon is open, the password should be displayed as plain text.
-3. When the eye icon is closed, the password should be masked again.",Not Tested,,,,,,Fail,,,jjavier,2026-04-23,
+3. When the eye icon is closed, the password should be masked again.",Not Tested,,,,,,Pass,,,jjavier,2026-04-24,
 m2.1.5,Verify if user can login with valid credentials and OTP,✅ Automatable,"1. The mobile app is launched.
 2. The user is on the login page.
 3. The user has successfully activated their account by logging in for the first time.
@@ -39,7 +39,7 @@ m2.1.5,Verify if user can login with valid credentials and OTP,✅ Automatable,"
 4. Enter a valid password
 5. Tap on ""Sign In"" button
 6. On the OTP screen, enter the OTP sent to the registered email address.","1. The system should accept the inputs and proceed to the OTP verification screen.
-2. The user should be able to enter OTP and be redirected to the landing/home page.",Not Tested,,,,,,Pass,,,jjavier,2026-04-23,
+2. The user should be able to enter OTP and be redirected to the landing/home page.",Not Tested,,,,,,Pass,,,jjavier,2026-04-24,
 m2.1.6,Verify is user can login with valid credentials using saved password,✅ Automatable,"1. The mobile banking app is installed and launched.
 2. The user has previously saved their login credentials via the device's password manager (e.g., iCloud Keychain, Google Smart Lock).
 3. The user has successfully logged in and verified their identity at least once.","1. Launch the mobile banking app.
@@ -61,7 +61,7 @@ m2.1.6,Verify is user can login with valid credentials using saved password,✅ 
 4. Enter a valid password
 5. Tap on ""Sign In"" button
 6. On the OTP screen, enter the OTP sent to the registered email address.","1. The system should accept the inputs proving normalization of the string and proceed to the OTP verification screen.
-2. The user should be able to enter OTP and be redirected to the landing/home page.",,,,,,,,,,,,
+2. The user should be able to enter OTP and be redirected to the landing/home page.",,,,,,,Pass,,,jjavier,2026-04-24,
 m2.1.7,Verify if user cannot login with incorrect OTP,✅ Automatable,"1. The mobile app is launched.
 2. The user is on the login page.
 2. The OTP either is incorrect","1. Tap on the email input field
@@ -71,20 +71,20 @@ m2.1.7,Verify if user cannot login with incorrect OTP,✅ Automatable,"1. The mo
 5. Tap on ""Sign In"" button
 6. On the OTP screen, enter an invalid OTP","1. The system should display a validation message: 
 
-“OTP is either Invalid or has expired, Please try again or request a new OTP”",Not Tested,,,,,,,,,,,
+“OTP is either Invalid or has expired, Please try again or request a new OTP”",Not Tested,,,,,,Pass,,,jjavier,2026-04-24,
 m2.1.8,Verify that the user cannot request a new OTP upon login before the 1-minute cooldown period has passed,✅ Automatable,"1. The mobile app is launched.
 2. The user is on the OTP screen after entering valid email and password.
 3. The 1-minute OTP cooldown has not passed yet.","1. Tap on the ""Resend code"" link.
 ","1. ""Resend code"" should be disabled. 
 2. No new OTP should be generated or sent.
-3. The cooldown timer should continue until it completes the full 1-minute duration.",Not Tested,,,,,,Fail,,,jjavier,2026-04-23,
+3. The cooldown timer should continue until it completes the full 1-minute duration.",Not Tested,,,,,,Pass,,,jjavier,2026-04-24,
 m2.1.9,Verify that the user can request a new OTP upon login,✅ Automatable,"1. The mobile app is launched.
 2. The user is on the OTP screen after entering valid email and password.
 3. The previously received OTP has expired or the 1-minute OTP cooldown is complete.","1. Tap on the ""Resend code"" link.
 2. Check the received email to confirm a new OTP has been sent.
 3. On the OTP screen, enter the newly received OTP.","1. The system should display a prompt indicating that a new OTP has been sent to the registered email address.
 2. The newly generated OTP should be received via email.
-3. The user should be able to enter OTP and be redirected to the landing/home page.",Not Tested,,,,,,,,,,,
+3. The user should be able to enter OTP and be redirected to the landing/home page.",Not Tested,,,,,,Pass,,,jjavier,2026-04-24,
 m2.1.10,Verify if previously received OTP is not valid upon login,✅ Automatable,"1. The mobile app is launched.
 2. The user is on the OTP screen after entering valid email and password.","1. Tap on the ""Resend code"" link.
 2. Check the received email to confirm a new OTP has been sent.
@@ -110,7 +110,7 @@ m2.1.11,Verify validation on the 5th failed OTP attempt (triggering max allowed 
 9. Click"" Ok""","1. Immediately after the 5th invalid OTP attempt, the system should display:
 ""Verification Failed: You have reached the maximum number of attempts. For your security, we’re redirecting you to the previous page.""
 
-2. The user should be redirected back to the login screen.",Not Tested,,,,,,Not Tested,,,,,
+2. The user should be redirected back to the login screen.",Not Tested,,,,,,Failed,,Tagged Manual/Skipped — requires magic OTP disabled in test environment,jjavier,2026-04-24,
 m2.1.12,Verify validation on 5th OTP input attempt across multiple resend requests,✅ Automatable,"1. The mobile app is launched.
 2. The user is on the login page.
 3. A valid email and password are known.
@@ -168,7 +168,7 @@ m2.1.17,Verify the session timeout modal is still visible on OTP screen after mi
 2. Clicking the ""Back to Login"" will redirect to the Login screen",Not Tested,,,,,,,,,,,
 m2.1.18,Verify that the session remains active while the user is interacting with the app,✅ Automatable,1. The user is on the Login OTP page.,"1. Continuously interact with the app (tap/scroll/input) within the 5 session timeout window.
 2. Observe the session status.","1. Session remains active.
-2. Session timout screen should not be prompted",Not Tested,,,,,,Fail,,,jjavier,2026-04-23,
+2. Session timout screen should not be prompted",Not Tested,,,,,,Pass,,,jjavier,2026-04-24,
 m2.1.19,Verify validation message if entered email address is not related to the inputted password,✅ Automatable,"1. The mobile app is launched.
 2. The user is on the login page.","1. Tap on the email input field
 2. Enter an incorrect email address
@@ -179,7 +179,7 @@ m2.1.19,Verify validation message if entered email address is not related to the
 “Incorrect email or password, please try again.”
 
 2. The system should not proceed to the next screen or trigger login.
-",Not Tested,,,,,,Not Tested,,,,,
+",Not Tested,,,,,,Pass,,,jjavier,2026-04-24,
 m2.1.20,Verify validation message for blank email field,✅ Automatable,"1. The mobile app is launched.
 2. The user is on the login page.","1. Leave the email field empty
 3. Tap on the password input field
@@ -189,7 +189,7 @@ m2.1.20,Verify validation message for blank email field,✅ Automatable,"1. The 
 ""Email address is required.""
 
 2. The user should not proceed to the next screen or trigger login.
-",Not Tested,,,,,,Not Tested,,,,,
+",Not Tested,,,,,,Pass,,,jjavier,2026-04-24,
 m2.1.21,Verify validation message for incorrect email format in the email field,✅ Automatable,"1. The mobile app is launched.
 2. The user is on the login page.","1. Tap on the email input field
 2. Enter an email address with incorrect format
@@ -201,7 +201,7 @@ m2.1.21,Verify validation message for incorrect email format in the email field,
 “Incorrect email format.”
 
 2. The system should not proceed to the next screen or trigger login.
-",Not Tested,,,,,,Not Tested,,,,,
+",Not Tested,,,,,,Pass,,,jjavier,2026-04-24,
 m2.1.22,Verify validation message if entered password is not related to the inputted email,✅ Automatable,"1. The mobile app is launched.
 2. The user is on the login page.","1. Tap on the email input field
 2. Enter valid email address
@@ -212,7 +212,7 @@ m2.1.22,Verify validation message if entered password is not related to the inpu
 “Incorrect email or password, please try again.”
 
 2. The system should not proceed to the next screen or trigger login.
-",Not Tested,,,,,,Not Tested,,,,,
+",Not Tested,,,,,,Pass,,,jjavier,2026-04-24,
 m2.1.23,Verify validation message for blank password field,✅ Automatable,"1. The mobile app is launched.
 2. The user is on the login page.","1. Tap on the email input field
 2. Enter a valid email address
@@ -222,7 +222,7 @@ m2.1.23,Verify validation message for blank password field,✅ Automatable,"1. T
 ""Password is required.""
 
 2. The user should not proceed to the next screen or trigger login.
-",Not Tested,,,,,,Not Tested,,,,,
+",Not Tested,,,,,,Pass,,,jjavier,2026-04-24,
 m2.1.24,Verify validation message if entered email address and passwor is not existing in the system,✅ Automatable,"1. The mobile app is launched.
 2. The user is on the login page.","1. Tap on the email input field
 2. Enter a valid email address
@@ -232,7 +232,7 @@ m2.1.24,Verify validation message if entered email address and passwor is not ex
 “Incorrect email or password, please try again.”
 
 2. The system should not proceed to the next screen or trigger login.
-",Not Tested,,,,,,,,,,,
+",Not Tested,,,,,,Pass,,,jjavier,2026-04-24,
 m2.1.25,Verify that the user's email is blocked for 30 minutes after 3 unverified login sessions with 5 invalid attempts per session,✅ Automatable,"1.User is registered.
 2. Email is not currently blocked.
 ","1. Initiate Login Session #1
@@ -399,15 +399,15 @@ For your protection, we temporarily locked your account after multiple incorrect
 To regain access, simply use the Forgot Password option in the mobile app.
 
 If you did not try to log in, please contact support@higala.ph immediately so we can help secure your account.
-",Not Tested,,,,,,,,,,,
+",Not Tested,,,,,,Pass,,,jjavier,2026-04-24,
 m2.1.34,Verify blocked account cannot log in during 5-minute cooldown,✅ Automatable,"1. User is on the login page.
 2. Account blocked due to 5 failed attempts.
 3. 5-minute cooldown not expired.",1. Try logging in with correct credentials during cooldown.,"1. Login is denied.
-2. Message:  “Incorrect email or password. Too many attempts -- please try again in 5 minutes.”",Not Tested,,,,,,,,,,,
+2. Message:  “Incorrect email or password. Too many attempts -- please try again in 5 minutes.”",Not Tested,,,,,,Pass,,,jjavier,2026-04-24,
 m2.1.35,Verify account automatically unlocks after cooldown,✅ Automatable,"1. User is on the login page.
 2. Account previously blocked due to failed attempts.
 3. 5 minutes passed.",1. Log in with valid credentials after cooldown expires.,"1. The system successfully processes the credentials and navigates to the OTP verification screen.
-4. Upon entering a valid OTP, the user is logged in and redirected to the home page.",Not Tested,,,,,,Fail,,,jjavier,2026-04-23,
+4. Upon entering a valid OTP, the user is logged in and redirected to the home page.",Not Tested,,,,,,Fail,,,jjavier,2026-04-24,
 m2.1.36,Verify failed attempt counter persists across sessions/devices,🔴 Not Automatable,1. User failed login 3 times on Device A.,1. Attempt login with same account on Device B using wrong password 2 times.,"1. Counter continues from Device A (e.g., 4th attempt).
 2. Account blocks on 5th attempt overall.",Not Tested,,,,,,,,,,,
 m2.1.37,Verify blocking applies per account (not per device/IP),🔴 Not Automatable,1. Account is blocked on Device A.,1. Attempt login on Device B.,"1. Login blocked.
@@ -420,17 +420,17 @@ m2.1.39,Verify password reset during block period lifts block,✅ Automatable,1.
 2. Reset password.
 3. Log in with new credentials.","1. Login successful even before cooldown ends.
 2. Counter resets.
-3. Block lifted automatically.",Not Tested,,,,,,Pass,,,jjavier,2026-04-23,
+3. Block lifted automatically.",Not Tested,,,,,,Pass,,,jjavier,2026-04-24,
 m2.1.40,Verify counter resets to zero after successful login ,✅ Automatable,1. User is on login page.,"1. Enter incorrect credentials 4 times consecutively.
 2. On the 5th attempt, enter the correct credentials.
 3. Enter incorrect credentials 5 times consecutively.","1. After a successful login, user can have another max 5 attempts.
-2. On the 5th attempt, user is now blocked.",Not Tested,,,,,,,,,,,
+2. On the 5th attempt, user is now blocked.",Not Tested,,,,,,Failed,,MAILSAC account still blocked from TC_023 — cannot reach OTP screen to complete test,jjavier,2026-04-24,
 m2.1.41,Verify failed login with incorrect email address,✅ Automatable,1. User is on login page.,1. Login using unregistered email and any password 5 times consecutively.,"1. On the 5th failed attempt, system blocks the account.
 2. Displays message: “This account has reached the maximum number of login attempts. Please try again after 5 minutes.”
-3. All further login attempts denied during cooldown.",Not Tested,,,,,,,,,,,
+3. All further login attempts denied during cooldown.",Not Tested,,,,,,Pass,,,jjavier,2026-04-24,
 m2.1.42,Verify failed login with incorrect temporary password,✅ Automatable,1. Account is under password reset flow.,1. Enter correct email but invalid temporary password 5 times consecutively.,"1. On the 5th failed attempt, system blocks the account.
 2. Displays message: “This account has reached the maximum number of login attempts. Please try again after 5 minutes.”
-3. All further login attempts denied during cooldown.",Not Tested,,,,,,,,,,,
+3. All further login attempts denied during cooldown.",Not Tested,,,,,,Pass,,,jjavier,2026-04-24,
 m2.1.43,Verify behavior when an expired temporary password is used on the Login page.,🔴 Not Automatable,"1. The mobile app is launched.
 2. The user is on the login page.
 3. Temporary password has already expired beyond the 24 hour limit","1. Tap on the email input field.
@@ -452,7 +452,7 @@ m2.1.47,Verify Landing/Home Page UI for Users with Recent Transactions,🔴 Not 
 3. Transaction list is displayed correctly
 
 Refer to Card Bank - HP page in this Figma file.
-",Not Tested,,,,,,Fail,,,,,
+",Not Tested,,,,,,Pass,,,jjavier,2026-04-24,
 m2.1.48, Verify Landing/Home Page UI for New Users with No Transactions,🔴 Not Automatable,"1. The user has successfully logged in.
 2. The user account has no transaction history.","1. Compare the UI elements (layout, buttons, icons, colors, fonts, spacing, and labels) with the provided design specifications or the Figma mockups.","1.  All UI elements on the landing/home page should exactly match the design specifications in terms of layout, colors, font style and size, positioning, icons, spacing, and labels. 
 2. There should be no missing elements or visual inconsistencies.
@@ -471,7 +471,7 @@ m2.1.49,Verify navigation options on the landing page,✅ Automatable,1. The use
 2. Tapping MY QR should navigate the user to their QR code screen.
 3. Tapping History should navigate the user to their transaction history screen.
 4. Tapping Profile should navigate to the profile page.
-5. Tapping Home should navigate to the home or landing page.",Not Tested,,,,,,Not Tested,,,,,
+5. Tapping Home should navigate to the home or landing page.",Not Tested,,,,,,Pass,,,jjavier,2026-04-24,
 "m2.2 As a User, I want to initiate the forgot password process",,,,,,,,,,,,,,,,,
 m2.2.1,Verify that the user is able to change password,✅ Automatable,"1. The mobile app is launched.
 2. The user has already changed the temporary password.

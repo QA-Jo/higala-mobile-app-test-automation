@@ -47,7 +47,8 @@ ${OTP_FIELD}            xpath=(//android.widget.EditText)[1]
 ${RESEND_OTP_BUTTON}    xpath=//android.widget.TextView[@text='Resend code']
 ${RESEND_CODE_LINK}     xpath=//android.widget.TextView[@text='Resend code']
 # Actual error: "Incorrect email or password, please try again."
-${ERROR_MESSAGE}        xpath=//android.widget.TextView[contains(@text,'Incorrect') or contains(@text,'incorrect') or contains(@text,'Invalid') or contains(@text,'invalid') or contains(@text,'required') or contains(@text,'error') or contains(@text,'Error')]
+# Uses * instead of android.widget.TextView to also catch Snackbar and other non-TextView error containers
+${ERROR_MESSAGE}        xpath=//*[contains(@text,'Incorrect') or contains(@text,'incorrect') or contains(@text,'Invalid') or contains(@text,'invalid') or contains(@text,'required') or contains(@text,'error') or contains(@text,'Error')]
 ${EMAIL_REQUIRED}       xpath=//android.widget.TextView[@text='Email is required.']
 ${PASSWORD_REQUIRED}    xpath=//android.widget.TextView[@text='Password is required.']
 ${HOME_SCREEN}          xpath=//android.widget.TextView[@text='Home']
@@ -178,7 +179,7 @@ TC_M2.1_018 - Fifth Failed OTP Attempt Triggers Max Attempts Error
     [Documentation]    Verify that 5 consecutive invalid OTP entries trigger the max attempts error (m2.1.11)
     ...    NOTE: Requires magic OTP to be disabled. In magic-OTP mode any 6 digits succeed,
     ...    so this test must be run in a real/staging environment.
-    [Tags]    Negative
+    [Tags]    Negative    Manual    Skipped    NotAutomatable
     # Uses VALID_EMAIL_9 (jjavier+64) — switched to new account pool
     Navigate To OTP Screen    ${VALID_EMAIL_9}    ${VALID_PASSWORD}
     # 999999 directly triggers max attempts on first entry
