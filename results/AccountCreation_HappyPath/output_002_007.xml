@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.3 on darwin)" generated="2026-04-24T12:20:26.065298" rpa="false" schemaversion="5">
+<suite id="s1" name="M1.2 Account Creation" source="/Users/jocelynjavier/Higala/Mobile App/Modules/AccountCreation/M1.2_Account_Creation.robot">
+<kw name="Setup Screenshot On Failure" owner="common" type="SETUP">
+<kw name="Register Keyword To Run On Failure" owner="AppiumLibrary">
+<msg time="2026-04-24T12:20:26.347470" level="INFO">Capture Screenshot On Failure will be run on failure.</msg>
+<arg>Capture Screenshot On Failure</arg>
+<doc>Sets the keyword to be executed when an AppiumLibrary keyword fails.</doc>
+<status status="PASS" start="2026-04-24T12:20:26.344042" elapsed="0.003489"/>
+</kw>
+<status status="PASS" start="2026-04-24T12:20:26.343437" elapsed="0.004163"/>
+</kw>
+<test id="s1-t1" name="TC_M1.2_002 - Verify That The User Can Initiate The Signup Process" line="33">
+<kw name="Open Higala App For Signup" owner="common" type="SETUP">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Close Application" owner="AppiumLibrary">
+<kw name="Capture Screenshot On Failure" owner="common">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2026-04-24T12:20:26.350448" level="FAIL">No application is open</msg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="FAIL" start="2026-04-24T12:20:26.350056" elapsed="0.003669">No application is open</status>
+</kw>
+<msg time="2026-04-24T12:20:26.353872" level="INFO">${status} = False</msg>
+<var>${status}</var>
+<arg>Capture Page Screenshot</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-04-24T12:20:26.349525" elapsed="0.004370"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-04-24T12:20:26.355591" level="WARN">Could not capture screenshot — no active Appium session</msg>
+<arg>Could not capture screenshot — no active Appium session</arg>
+<arg>WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-04-24T12:20:26.354466" elapsed="0.001263"/>
+</kw>
+<arg>not ${status}</arg>
+<arg>Log</arg>
+<arg>Could not capture screenshot — no active Appium session</arg>
+<arg>WARN</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-04-24T12:20:26.354020" elapsed="0.001757"/>
+</kw>
+<status status="PASS" start="2026-04-24T12:20:26.349155" elapsed="0.006676"/>
+</kw>
+<msg time="2026-04-24T12:20:26.355903" level="FAIL">No application is open</msg>
+<doc>Closes the current application and the webdriver session.</doc>
+<status status="FAIL" start="2026-04-24T12:20:26.348639" elapsed="0.007786">No application is open</status>
+</kw>
+<arg>Close Application</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2026-04-24T12:20:26.348376" elapsed="0.008095"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-04-24T12:20:28.357845" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-04-24T12:20:26.356552" elapsed="2.002061"/>
+</kw>
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>${APPIUM_SERVER}</arg>
+<arg>platformName=${PLATFORM}</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>appPackage=${APP_PACKAGE}</arg>
+<arg>appActivity=${APP_ACTIVITY}</arg>
+<arg>automationName=UiAutomator2</arg>
+<arg>noReset=${True}</arg>
+<arg>skipDeviceInitialization=${True}</arg>
+<arg>ignoreHiddenApiPolicyError=${True}</arg>
+<arg>enforceXPath1=${True}</arg>
+<arg>adbExecTimeout=120000</arg>
+<arg>uiautomator2ServerLaunchTimeout=120000</arg>
+<arg>uiautomator2ServerInstallTimeout=120000</arg>
+<arg>newCommandTimeout=300</arg>
+<doc>Opens a new application to the given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.19/guides/caps/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | No     | alias             |</doc>
+<status status="PASS" start="2026-04-24T12:20:28.359535" elapsed="31.070195"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-04-24T12:21:02.448804" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-04-24T12:20:59.432972" elapsed="3.017310"/>
+</kw>
+<kw name="Navigate To Welcome Screen" owner="common">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2026-04-24T12:21:02.463602" level="INFO">Running command 'adb -s emulator-5554 shell am force-stop com.higala.ruralbanksanantonioitg 2&gt;&amp;1'.</msg>
+<arg>adb -s ${DEVICE_NAME} shell am force-stop ${APP_PACKAGE}</arg>
+<doc>_This keyword is considered deprecated. Use the
+[http://robotframework.org/robotframework/latest/libraries/Process.html|
+Process] library instead._</doc>
+<status status="PASS" start="2026-04-24T12:21:02.454812" elapsed="0.721887"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-04-24T12:21:05.181468" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-04-24T12:21:03.177327" elapsed="2.012935"/>
+</kw>
+<kw name="Activate Application" owner="AppiumLibrary">
+<arg>${APP_PACKAGE}</arg>
+<doc>Activates the application if it is not running or is running in the background.</doc>
+<status status="PASS" start="2026-04-24T12:21:05.194156" elapsed="2.028085"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-04-24T12:21:15.260946" level="INFO">Slept 8 seconds.</msg>
+<arg>8s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-04-24T12:21:07.228407" elapsed="8.065013"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2026-04-24T12:21:19.987174" level="INFO">xpath criteria: //*[@content-desc='Sign in']
+xpath criteria: //*[@content-desc='Sign in']</msg>
+<arg>xpath=//*[@content-desc='Sign in']</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-24T12:21:15.319272" elapsed="4.672439"/>
+</kw>
+<status status="PASS" start="2026-04-24T12:21:02.453287" elapsed="17.542631"/>
+</kw>
+<status status="PASS" start="2026-04-24T12:20:26.348174" elapsed="53.648549"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-04-24T12:21:20.020587" level="INFO">Clicking element 'xpath=//*[@text='Get started' or @text='Get Started']'.</msg>
+<msg time="2026-04-24T12:21:32.297992" level="INFO">xpath criteria: //*[@text='Get started' or @text='Get Started']</msg>
+<arg>${AC_GET_STARTED_BTN}</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-24T12:21:20.005062" elapsed="12.295146"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2026-04-24T12:21:32.610723" level="INFO">xpath criteria: //android.widget.EditText</msg>
+<arg>${AC_EMAIL_FIELD}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-24T12:21:32.304622" elapsed="0.306183"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-04-24T12:21:34.622169" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-04-24T12:21:32.612490" elapsed="2.015022"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2026-04-24T12:21:34.637628" level="INFO">Typing text 'jjavier+98@nmblr.ai' into text field 'xpath=//android.widget.EditText'</msg>
+<msg time="2026-04-24T12:21:35.640135" level="INFO">xpath criteria: //android.widget.EditText</msg>
+<arg>${AC_EMAIL_FIELD}</arg>
+<arg>${AC_CHAIN_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-24T12:21:34.630951" elapsed="1.010324"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-04-24T12:21:35.659193" level="INFO">Clicking element 'xpath=//*[@text='Next' or @text='Continue']'.</msg>
+<msg time="2026-04-24T12:21:49.965499" level="INFO">xpath criteria: //*[@text='Next' or @text='Continue']</msg>
+<arg>${AC_NEXT_BTN}</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-24T12:21:35.650545" elapsed="14.323745"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2026-04-24T12:21:53.334942" level="INFO">xpath criteria: //android.widget.TextView[@text='OTP Verification']
+xpath criteria: //android.widget.TextView[@text='OTP Verification']</msg>
+<arg>${AC_OTP_SCREEN}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-24T12:21:49.994075" elapsed="3.342254"/>
+</kw>
+<kw name="Expect Element" owner="AppiumLibrary">
+<msg time="2026-04-24T12:21:53.586999" level="INFO">xpath criteria: //android.widget.TextView[@text='OTP Verification']</msg>
+<arg>${AC_OTP_SCREEN}</arg>
+<arg>visible</arg>
+<doc>Verifies that the element with the given ``locator`` has the desired ``state`` (visible, not visible, enabled, disabled.)</doc>
+<status status="PASS" start="2026-04-24T12:21:53.338062" elapsed="0.249558"/>
+</kw>
+<doc>Verify user can tap Get Started, enter a valid unregistered email,
+tap Next, and be redirected to the OTP Verification screen.
+A system OTP is sent to the registered email.
+
+Pre-conditions: Mobile app is launched. AC_SIGNUP_EMAIL_1 is not registered.</doc>
+<tag>AccountCreation</tag>
+<tag>M1.2</tag>
+<tag>M1.2.2</tag>
+<tag>Positive</tag>
+<status status="PASS" start="2026-04-24T12:20:26.347657" elapsed="87.249709"/>
+</test>
+<test id="s1-t2" name="TC_M1.2_003 - Verify That The User Can Complete OTP Verification" line="53">
+<kw name="Enter OTP Into Boxes" owner="common">
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-04-24T12:21:53.627196" level="INFO">Clicking element 'xpath=(//android.widget.EditText)[1]'.</msg>
+<kw name="Capture Screenshot On Failure" owner="common">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2026-04-24T12:23:09.754086" level="FAIL">WebDriverException: Message: 'GET /screenshot' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'GET /screenshot' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.getScreenshot (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/screenshot.js:72:19)</msg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="FAIL" start="2026-04-24T12:23:09.643479" elapsed="0.239569">WebDriverException: Message: 'GET /screenshot' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'GET /screenshot' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:310:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.getScreenshot (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/screenshot.js:72:19)</status>
+</kw>
+<msg time="2026-04-24T12:23:09.885647" level="INFO">${status} = False</msg>
+<var>${status}</var>
+<arg>Capture Page Screenshot</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-04-24T12:23:09.606729" elapsed="0.279052"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-04-24T12:23:09.895443" level="WARN">Could not capture screenshot — no active Appium session</msg>
+<arg>Could not capture screenshot — no active Appium session</arg>
+<arg>WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-04-24T12:23:09.891361" elapsed="0.006402"/>
+</kw>
+<arg>not ${status}</arg>
+<arg>Log</arg>
+<arg>Could not capture screenshot — no active Appium session</arg>
+<arg>WARN</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-04-24T12:23:09.886128" elapsed="0.011706"/>
+</kw>
+<status status="PASS" start="2026-04-24T12:23:09.569158" elapsed="0.329419"/>
+</kw>
+<msg time="2026-04-24T12:23:09.898642" level="INFO">xpath criteria: (//android.widget.EditText)[1]</msg>
+<msg time="2026-04-24T12:23:09.898740" level="FAIL">WebDriverException: Message: Could not proxy command to the remote server. Original error: socket hang up
+Stacktrace:
+UnknownError: Could not proxy command to the remote server. Original error: socket hang up
+    at ProxyRequestError.getActualError (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/protocol/errors.js:692:16)
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:308:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.click (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/element.js:121:5)</msg>
+<arg>xpath=(//android.widget.EditText)[1]</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="FAIL" start="2026-04-24T12:21:53.619799" elapsed="76.282055">WebDriverException: Message: Could not proxy command to the remote server. Original error: socket hang up
+Stacktrace:
+UnknownError: Could not proxy command to the remote server. Original error: socket hang up
+    at ProxyRequestError.getActualError (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/protocol/errors.js:692:16)
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:308:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.click (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/element.js:121:5)</status>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<arg>xpath=(//android.widget.EditText)[1]</arg>
+<arg>${d1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-04-24T12:23:09.903134" elapsed="0.000026"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<arg>xpath=(//android.widget.EditText)[2]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-04-24T12:23:09.905612" elapsed="0.000035"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<arg>xpath=(//android.widget.EditText)[2]</arg>
+<arg>${d2}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-04-24T12:23:09.905745" elapsed="0.000015"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<arg>xpath=(//android.widget.EditText)[3]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-04-24T12:23:09.905827" elapsed="0.000012"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<arg>xpath=(//android.widget.EditText)[3]</arg>
+<arg>${d3}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-04-24T12:23:09.912052" elapsed="0.000046"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<arg>xpath=(//android.widget.EditText)[4]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-04-24T12:23:09.912342" elapsed="0.000053"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<arg>xpath=(//android.widget.EditText)[4]</arg>
+<arg>${d4}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-04-24T12:23:09.912507" elapsed="0.000014"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<arg>xpath=(//android.widget.EditText)[5]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-04-24T12:23:09.912587" elapsed="0.000011"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<arg>xpath=(//android.widget.EditText)[5]</arg>
+<arg>${d5}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-04-24T12:23:09.912680" elapsed="0.000024"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<arg>xpath=(//android.widget.EditText)[6]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-04-24T12:23:09.912811" elapsed="0.000018"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<arg>xpath=(//android.widget.EditText)[6]</arg>
+<arg>${d6}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-04-24T12:23:09.912887" elapsed="0.000013"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${post_sleep}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2026-04-24T12:23:09.912984" elapsed="0.000015"/>
+</kw>
+<arg>1</arg>
+<arg>2</arg>
+<arg>3</arg>
+<arg>4</arg>
+<arg>5</arg>
+<arg>6</arg>
+<arg>post_sleep=5s</arg>
+<status status="FAIL" start="2026-04-24T12:21:53.618762" elapsed="76.297568">WebDriverException: Message: Could not proxy command to the remote server. Original error: socket hang up
+Stacktrace:
+UnknownError: Could not proxy command to the remote server. Original error: socket hang up
+    at ProxyRequestError.getActualError (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/protocol/errors.js:692:16)
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:308:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.click (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/element.js:121:5)</status>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<arg>${AC_TC_LINK}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-04-24T12:23:09.916450" elapsed="0.000013"/>
+</kw>
+<kw name="Expect Element" owner="AppiumLibrary">
+<arg>${AC_TC_LINK}</arg>
+<arg>visible</arg>
+<doc>Verifies that the element with the given ``locator`` has the desired ``state`` (visible, not visible, enabled, disabled.)</doc>
+<status status="NOT RUN" start="2026-04-24T12:23:09.916534" elapsed="0.000013"/>
+</kw>
+<doc>Verify user can enter the magic OTP and be allowed to proceed
+to the next step: Policy Agreement screen.
+
+Pre-conditions: App launched. AC_SIGNUP_EMAIL_2 is not registered.
+NOTE: Magic OTP = 123456 (test environment only).</doc>
+<tag>AccountCreation</tag>
+<tag>M1.2</tag>
+<tag>M1.2.3</tag>
+<tag>Positive</tag>
+<status status="FAIL" start="2026-04-24T12:21:53.609925" elapsed="76.307668">WebDriverException: Message: Could not proxy command to the remote server. Original error: socket hang up
+Stacktrace:
+UnknownError: Could not proxy command to the remote server. Original error: socket hang up
+    at ProxyRequestError.getActualError (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/protocol/errors.js:692:16)
+    at UIA2Proxy.command (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/build/lib/jsonwp-proxy/proxy.js:308:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AndroidUiautomator2Driver.click (/Users/jocelynjavier/.appium/node_modules/appium-uiautomator2-driver/build/lib/commands/element.js:121:5)</status>
+</test>
+<test id="s1-t3" name="TC_M1.2_004 - Verify That The User Can Review And Agree To Bank Policies" line="72">
+<doc>Verify user can view Terms &amp; Conditions and Data Privacy Policy,
+tick both checkboxes, and tap Next to proceed to the Personal Details screen.
+
+Pre-conditions: App launched. AC_POLICY_EMAIL is not registered.
+NOTE: T&amp;C and Privacy modal close button locator — verify with Appium Inspector if this fails.</doc>
+<tag>AccountCreation</tag>
+<tag>M1.2</tag>
+<tag>M1.2.4</tag>
+<tag>Positive</tag>
+<tag>robot:exit</tag>
+<status status="FAIL" start="2026-04-24T12:23:09.919003" elapsed="0.000526">Failure occurred and exit-on-failure mode is in use.</status>
+</test>
+<test id="s1-t4" name="TC_M1.2_005 - Verify That User Can Fill Up Personal Details Page" line="99">
+<doc>Verify user can enter First Name, Middle Name (optional), Last Name,
+Suffix (optional), Gender, Date of Birth, and mobile number,
+then proceed to Verify Identity screen.
+
+Pre-conditions: App launched. AC_PERSONAL_EMAIL is not registered.
+NOTE: DOB uses a NumberPicker dialog — verify picker column order (Month/Day/Year) with Appium Inspector.
+NOTE: If hint-based locators fail for name fields, switch to positional (//android.widget.EditText)[N].</doc>
+<tag>AccountCreation</tag>
+<tag>M1.2</tag>
+<tag>M1.2.5</tag>
+<tag>Positive</tag>
+<tag>robot:exit</tag>
+<status status="FAIL" start="2026-04-24T12:23:09.919693" elapsed="0.000449">Failure occurred and exit-on-failure mode is in use.</status>
+</test>
+<test id="s1-t5" name="TC_M1.2_006 - Verify That The User Can Verify Identity Via Veriff" line="147">
+<doc>Verify user can select ID type, enter ID number and expiry date,
+tap Proceed to Veriff, and complete the KYC process (photo of ID + selfie).
+
+Pre-conditions: User is on the Verify Your Identity screen (reached via TC_M1.2_005 flow).
+NOTE: Veriff runs inside a Chrome WebView at alchemy.veriff.com.
+      Chrome WebRTC camera API does NOT work with Android emulator virtual camera.
+      This test REQUIRES a physical Android device for camera capture.
+NOTE: On sandbox/test env, tapping the capture button twice typically accepts
+      the image without valid scanning — verify with QA before automating.</doc>
+<tag>AccountCreation</tag>
+<tag>M1.2</tag>
+<tag>M1.2.6</tag>
+<tag>Positive</tag>
+<tag>robot:exit</tag>
+<status status="FAIL" start="2026-04-24T12:23:09.920809" elapsed="0.000842">Failure occurred and exit-on-failure mode is in use.</status>
+</test>
+<test id="s1-t6" name="TC_M1.2_007 - Verify That The User Can Successfully Input Profile Information" line="187">
+<doc>Verify user can select Nationality, Region/Province/City of Birth,
+select Civil Status, then proceed to Mother's Maiden Name page.
+
+Pre-conditions: AC_HAPPY_PV_EMAIL has Veriff bypass — OTP resumes at Profile screen.
+Independent test (no longer chained from 006). Uses Navigate To Profile Screen keyword.</doc>
+<tag>AccountCreation</tag>
+<tag>M1.2</tag>
+<tag>M1.2.7</tag>
+<tag>Positive</tag>
+<tag>robot:exit</tag>
+<status status="FAIL" start="2026-04-24T12:23:09.922118" elapsed="0.000509">Failure occurred and exit-on-failure mode is in use.</status>
+</test>
+<status status="FAIL" start="2026-04-24T12:20:26.067025" elapsed="163.867166"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="5" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat info="combined" combined="NOT robot:exit" pass="1" fail="1" skip="0">NOT robot:exit</stat>
+<stat pass="1" fail="5" skip="0">AccountCreation</stat>
+<stat pass="1" fail="5" skip="0">M1.2</stat>
+<stat pass="1" fail="0" skip="0">M1.2.2</stat>
+<stat pass="0" fail="1" skip="0">M1.2.3</stat>
+<stat pass="0" fail="1" skip="0">M1.2.4</stat>
+<stat pass="0" fail="1" skip="0">M1.2.5</stat>
+<stat pass="0" fail="1" skip="0">M1.2.6</stat>
+<stat pass="0" fail="1" skip="0">M1.2.7</stat>
+<stat pass="1" fail="5" skip="0">Positive</stat>
+</tag>
+<suite>
+<stat name="M1.2 Account Creation" id="s1" pass="1" fail="5" skip="0">M1.2 Account Creation</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2026-04-24T12:20:26.355591" level="WARN">Could not capture screenshot — no active Appium session</msg>
+<msg time="2026-04-24T12:23:09.895443" level="WARN">Could not capture screenshot — no active Appium session</msg>
+</errors>
+</robot>
