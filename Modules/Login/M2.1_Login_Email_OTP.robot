@@ -25,6 +25,10 @@ ${VALID_EMAIL_3}            jjavier+82@nmblr.ai
 ${VALID_EMAIL_4}            jjavier+89@nmblr.ai
 ${VALID_EMAIL_5}            jjavier+93@nmblr.ai
 ${VALID_EMAIL_6}            jjavier+157@nmblr.ai
+# Additional accounts for extended rotation (use when rate limiting is observed on above accounts)
+${VALID_EMAIL_7}            jjavier+61@nmblr.ai
+${VALID_EMAIL_8}            jjavier+98@nmblr.ai
+${VALID_EMAIL_9}            jjavier+64@nmblr.ai
 
 # Locators — based on actual app elements from Appium Inspector
 # Note: React Native app uses accessibility id and xpath (no resource-ids)
@@ -51,8 +55,8 @@ ${OTP_SCREEN}           xpath=//android.widget.TextView[@text='OTP Verification'
 ${BACK_BUTTON}              accessibility_id=Back
 # Eye icon is an SVG ViewGroup (no content-desc) — tap by bounds; verify coordinates with Appium Inspector if screen size differs
 ${EYE_ICON}                xpath=//android.view.ViewGroup[@bounds='[915,1704][967,1756]']
-# START_PAGE: text on the Welcome/Start screen's "Sign in" button (lowercase 'in')
-${START_PAGE}              xpath=//android.widget.TextView[@text='Sign in']
+# START_PAGE: Welcome/Start screen "Sign in" button — uses content-desc, not TextView text
+${START_PAGE}              xpath=//*[@content-desc='Sign in']
 ${MAX_ATTEMPTS_ERROR}      xpath=//android.widget.TextView[contains(@text,'maximum number of attempts') or contains(@text,'Verification Failed') or contains(@text,'Maximum')]
 # Session timeout modal (confirmed from screenshot)
 ${SESSION_TIMEOUT_MODAL}   xpath=//android.widget.TextView[@text='Session Timeout']
@@ -71,8 +75,8 @@ TC_M2.1_001 - Successful Login With Valid Email, Password, and OTP
     [Documentation]    Verify user can log in successfully using valid email, password, and correct OTP
     [Tags]    Positive
     [Teardown]    NONE
-    # Uses VALID_EMAIL_3 (jjavier+82) — confirmed working, different from VALID_EMAIL_2 used in TC_M2.1_002
-    Input Text          ${EMAIL_FIELD}       ${VALID_EMAIL_3}
+    # Uses VALID_EMAIL_7 (jjavier+61) — switched to new account pool
+    Input Text          ${EMAIL_FIELD}       ${VALID_EMAIL_7}
     Input Text          ${PASSWORD_FIELD}    ${VALID_PASSWORD}
     Click Element       ${LOGIN_BUTTON}
     Wait Until Element Is Visible    ${OTP_SCREEN}    timeout=30s
@@ -86,9 +90,9 @@ TC_M2.1_002 - OTP Screen Is Displayed After Valid Email and Password
     [Tags]    Positive
     [Setup]    NONE
     [Teardown]    NONE
-    # Uses VALID_EMAIL_2 to avoid rate limiting with TC_M2.1_001 (runs back-to-back)
+    # Uses VALID_EMAIL_8 (jjavier+98) — rotated from EMAIL_7 used in TC_M2.1_001
     Reset To Login Page
-    Input Text          ${EMAIL_FIELD}       ${VALID_EMAIL_2}
+    Input Text          ${EMAIL_FIELD}       ${VALID_EMAIL_8}
     Input Text          ${PASSWORD_FIELD}    ${VALID_PASSWORD}
     Click Element       ${LOGIN_BUTTON}
     Wait Until Element Is Visible    ${OTP_SCREEN}    timeout=30s
@@ -111,7 +115,7 @@ TC_M2.1_004 - Login Fails With Invalid Email
 TC_M2.1_005 - Login Fails With Invalid Password
     [Documentation]    Verify error message is shown when an incorrect password is entered (m2.1.22)
     [Tags]    Negative
-    Input Text          ${EMAIL_FIELD}       ${VALID_EMAIL}
+    Input Text          ${EMAIL_FIELD}       ${VALID_EMAIL_7}
     Input Text          ${PASSWORD_FIELD}    ${INVALID_PASSWORD}
     Click Element       ${LOGIN_BUTTON}
     Wait Until Element Is Visible    ${ERROR_MESSAGE}    timeout=10s
@@ -130,7 +134,7 @@ TC_M2.1_007 - Login Fails With Empty Password
     [Documentation]    Verify error message is shown when password field is left empty (m2.1.23)
     ...    Note: Field is already empty after Reset To Login Page — no Clear Text needed
     [Tags]    Negative
-    Input Text          ${EMAIL_FIELD}       ${VALID_EMAIL}
+    Input Text          ${EMAIL_FIELD}       ${VALID_EMAIL_7}
     Click Element       ${LOGIN_BUTTON}
     Wait Until Element Is Visible    ${PASSWORD_REQUIRED}    timeout=10s
     Expect Element        ${PASSWORD_REQUIRED}    visible
@@ -148,8 +152,8 @@ TC_M2.1_009 - Login Fails With Incorrect OTP
     ...    NOTE: Requires magic OTP to be disabled in the test environment.
     ...    In magic-OTP mode (any 6 digits accepted), this test will fail — run against real OTP environment.
     [Tags]    Negative
-    # Uses VALID_EMAIL_4 to avoid rate limiting while still reaching OTP screen
-    Navigate To OTP Screen    ${VALID_EMAIL_4}    ${VALID_PASSWORD}
+    # Uses VALID_EMAIL_9 (jjavier+64) — switched to new account pool
+    Navigate To OTP Screen    ${VALID_EMAIL_9}    ${VALID_PASSWORD}
     # Enter clearly wrong OTP digits — expect rejection
     Enter OTP Into Boxes    0    0    0    0    0    0
     Wait Until Element Is Visible    ${ERROR_MESSAGE}    timeout=10s
@@ -175,8 +179,8 @@ TC_M2.1_018 - Fifth Failed OTP Attempt Triggers Max Attempts Error
     ...    NOTE: Requires magic OTP to be disabled. In magic-OTP mode any 6 digits succeed,
     ...    so this test must be run in a real/staging environment.
     [Tags]    Negative
-    # Uses VALID_EMAIL_3 — dedicated to this test to avoid contaminating other accounts with 5 failed OTPs
-    Navigate To OTP Screen    ${VALID_EMAIL_3}    ${VALID_PASSWORD}
+    # Uses VALID_EMAIL_9 (jjavier+64) — switched to new account pool
+    Navigate To OTP Screen    ${VALID_EMAIL_9}    ${VALID_PASSWORD}
     # 999999 directly triggers max attempts on first entry
     Enter OTP Into Boxes    9    9    9    9    9    9
     Wait Until Element Is Visible    ${MAX_ATTEMPTS_ERROR}    timeout=10s
@@ -451,11 +455,8 @@ TC_M2.1_011 - Verify Login Page UI Elements Are Displayed
     [Tags]    Positive    UI
     [Setup]    NONE
     [Teardown]    NONE
-    # Chains from TC_M2.1_003 (OTP screen) — press Android back goes to Welcome/Start page, then tap Sign in
-    Press Keycode    4
-    Wait Until Element Is Visible    xpath=//android.widget.TextView[@text='Sign in']    timeout=15s
-    Click Element    xpath=//android.widget.TextView[@text='Sign in']
-    Wait Until Element Is Visible    ${EMAIL_FIELD}    timeout=15s
+    # Reset to Login page — back button from OTP is not a reliable nav path
+    Reset To Login Page
     Expect Element    ${EMAIL_FIELD}    visible
     Expect Element    ${PASSWORD_FIELD}    visible
     Expect Element    ${LOGIN_BUTTON}    visible
@@ -474,10 +475,8 @@ TC_M2.1_012 - Back Button Redirects To Start Page
     [Teardown]    NONE
     Expect Element    ${BACK_BUTTON}    visible
     Click Element                ${BACK_BUTTON}
-    Wait Until Element Is Visible    ${START_PAGE}    timeout=10s
-    Sleep    2s
-    # Re-query with retry to handle StaleElementReferenceException after React Native re-render
-    Wait Until Keyword Succeeds    3x    2s    Page Should Contain Element    ${START_PAGE}
+    # Re-query with retry — React Native re-renders after navigation, causing stale element refs
+    Wait Until Keyword Succeeds    3x    2s    Wait Until Element Is Visible    ${START_PAGE}    timeout=5s
 
 # -------------------------------------------------------
 # M2.1.3 — INPUT FIELD INTERACTION
@@ -489,11 +488,16 @@ TC_M2.1_013 - User Can Enter Details In Login Input Fields
     [Setup]    NONE
     [Teardown]    NONE
     # Chains from TC_M2.1_012 (Start/Welcome page) — tap Sign in to reach Login form
-    Click Element    xpath=//android.widget.TextView[@text='Sign in']
+    Click Element    ${START_PAGE}
     Wait Until Element Is Visible    ${EMAIL_FIELD}    timeout=15s
     Click Element       ${EMAIL_FIELD}
-    Input Text          ${EMAIL_FIELD}       ${VALID_EMAIL}
+    Input Text          ${EMAIL_FIELD}       ${VALID_EMAIL_7}
     Expect Element    ${EMAIL_FIELD}    visible
+    # Dismiss keyboard so it doesn't cover the password field
+    Run Keyword And Ignore Error    Hide Keyboard
+    Sleep    1s
+    Run Keyword And Ignore Error    Swipe    500    900    500    600
+    Wait Until Element Is Visible    ${PASSWORD_FIELD}    timeout=15s
     Click Element       ${PASSWORD_FIELD}
     Input Text          ${PASSWORD_FIELD}    ${VALID_PASSWORD}
     ${pwd_attr}=    Get Element Attribute    ${PASSWORD_FIELD}    password
@@ -538,7 +542,7 @@ TC_M2.1_015 - Resend Code Is Disabled During Cooldown Then Enabled After 1 Minut
     [Setup]    NONE
     [Teardown]    NONE
     # Chains from TC_M2.1_014 (Login page) — navigate to OTP screen to test resend cooldown
-    Navigate To OTP Screen    ${VALID_EMAIL_5}    ${VALID_PASSWORD}
+    Navigate To OTP Screen    ${VALID_EMAIL_9}    ${VALID_PASSWORD}
     # NOTE: The 'enabled' attribute may not accurately reflect the cooldown disabled state
     # (React Native may keep enabled=true visually but restrict tap). Skipping initial check.
     # Wait for 1-minute cooldown to expire
@@ -574,17 +578,16 @@ TC_M2.1_026 - Failed Login Counter Resets After Successful Login
     [Documentation]    Verify the failed login attempt counter resets after a successful login (m2.1.40)
     ...    Flow: fail once → login successfully → fail again → verify NOT blocked (counter was reset)
     [Tags]    Positive    Security
-    [Setup]    NONE
+    [Setup]    Open Higala App
     [Teardown]    NONE
-    Reset To Login Page
-    # Uses VALID_EMAIL_2 throughout — this test triggers OTP once (Step 2)
+    # Uses VALID_EMAIL_7 (jjavier+61) — switched to new account pool
     # Step 1: Fail once with wrong password (no OTP triggered)
-    Input Text      ${EMAIL_FIELD}      ${VALID_EMAIL_2}
+    Input Text      ${EMAIL_FIELD}      ${VALID_EMAIL_7}
     Input Text      ${PASSWORD_FIELD}   ${WRONG_PASSWORD}
     Click Element   ${LOGIN_BUTTON}
     Wait Until Element Is Visible    ${ERROR_MESSAGE}    timeout=10s
     # Step 2: Login successfully (counter should reset) — OTP triggered here
-    Input Text      ${EMAIL_FIELD}      ${VALID_EMAIL_2}
+    Input Text      ${EMAIL_FIELD}      ${VALID_EMAIL_7}
     Input Text      ${PASSWORD_FIELD}   ${VALID_PASSWORD}
     Click Element   ${LOGIN_BUTTON}
     Wait Until Element Is Visible    ${OTP_SCREEN}    timeout=30s
@@ -592,7 +595,7 @@ TC_M2.1_026 - Failed Login Counter Resets After Successful Login
     Wait Until Element Is Visible    ${HOME_SCREEN}    timeout=30s
     # Step 3: Return to login page and fail again — should NOT be blocked
     Reset To Login Page
-    Input Text      ${EMAIL_FIELD}      ${VALID_EMAIL_2}
+    Input Text      ${EMAIL_FIELD}      ${VALID_EMAIL_7}
     Input Text      ${PASSWORD_FIELD}   ${WRONG_PASSWORD}
     Click Element   ${LOGIN_BUTTON}
     Wait Until Element Is Visible    ${ERROR_MESSAGE}    timeout=10s
@@ -610,8 +613,8 @@ TC_M2.1_029 - Login Succeeds With Uppercase Email Address
     [Setup]    NONE
     [Teardown]    NONE
     Reset To Login Page
-    # Uses VALID_EMAIL_4 (jjavier+89@nmblr.ai) converted to uppercase → JJAVIER+89@NMBLR.AI
-    ${upper_email}=    Convert To Uppercase    ${VALID_EMAIL_4}
+    # Uses VALID_EMAIL_8 (jjavier+98@nmblr.ai) converted to uppercase → JJAVIER+98@NMBLR.AI
+    ${upper_email}=    Convert To Uppercase    ${VALID_EMAIL_8}
     Input Text          ${EMAIL_FIELD}       ${upper_email}
     Input Text          ${PASSWORD_FIELD}    ${VALID_PASSWORD}
     Click Element       ${LOGIN_BUTTON}
@@ -627,8 +630,8 @@ TC_M2.1_030 - Login Succeeds With Mixed Case Email Address
     [Setup]    NONE
     [Teardown]    NONE
     Reset To Login Page
-    # Mixed case version of VALID_EMAIL_5 (jjavier+93@nmblr.ai) → JJavier+93@Nmblr.Ai
-    Input Text          ${EMAIL_FIELD}       JJavier+93@Nmblr.Ai
+    # Mixed case version of VALID_EMAIL_9 (jjavier+64@nmblr.ai) → JJavier+64@Nmblr.Ai
+    Input Text          ${EMAIL_FIELD}       JJavier+64@Nmblr.Ai
     Input Text          ${PASSWORD_FIELD}    ${VALID_PASSWORD}
     Click Element       ${LOGIN_BUTTON}
     Wait Until Element Is Visible    ${OTP_SCREEN}    timeout=15s
@@ -648,8 +651,8 @@ TC_M2.1_031 - Home Page UI Elements Are Displayed After Successful Login
     [Setup]    NONE
     [Teardown]    NONE
     Reset To Login Page
-    # Uses VALID_EMAIL_3 — rotated from its last use in TC_M2.1_018 (several tests back)
-    Input Text          ${EMAIL_FIELD}       ${VALID_EMAIL_3}
+    # Uses VALID_EMAIL_9 (jjavier+64) — switched to new account pool
+    Input Text          ${EMAIL_FIELD}       ${VALID_EMAIL_9}
     Input Text          ${PASSWORD_FIELD}    ${VALID_PASSWORD}
     Click Element       ${LOGIN_BUTTON}
     Wait Until Element Is Visible    ${OTP_SCREEN}    timeout=30s
@@ -682,8 +685,8 @@ TC_M2.1_032 - Navigation Options Are Visible On The Landing Page
     [Setup]    NONE
     [Teardown]    NONE
     Reset To Login Page
-    # Uses VALID_EMAIL_4 (jjavier+89) — enough gap from TC_M2.1_029 for rate limit to reset
-    Input Text          ${EMAIL_FIELD}       ${VALID_EMAIL_4}
+    # Uses VALID_EMAIL_8 (jjavier+98) — switched to new account pool
+    Input Text          ${EMAIL_FIELD}       ${VALID_EMAIL_8}
     Input Text          ${PASSWORD_FIELD}    ${VALID_PASSWORD}
     Click Element       ${LOGIN_BUTTON}
     Wait Until Element Is Visible    ${OTP_SCREEN}    timeout=30s
@@ -866,8 +869,8 @@ TC_M2.1_042 - Verify Account Blocked After 5 Failed Logins With Incorrect Tempor
 TC_M2.1_019 - Session Timeout Modal Appears After 5 Minutes Of Inactivity On OTP Screen
     [Documentation]    Verify Session Timeout modal appears on the OTP screen after 5 minutes of inactivity (m2.1.15)
     [Tags]    Negative    Session
-    # Uses VALID_EMAIL_4 — session tests are long-running (5 min+), isolated from regular OTP tests
-    Navigate To OTP Screen    ${VALID_EMAIL_4}    ${VALID_PASSWORD}
+    # Uses VALID_EMAIL_8 (jjavier+98) — switched to new account pool
+    Navigate To OTP Screen    ${VALID_EMAIL_8}    ${VALID_PASSWORD}
     # Stay idle for 5 minutes — no interaction
     Sleep    310s
     Wait Until Element Is Visible    ${SESSION_TIMEOUT_MODAL}    timeout=15s
@@ -886,8 +889,8 @@ TC_M2.1_019 - Session Timeout Modal Appears After 5 Minutes Of Inactivity On OTP
 TC_M2.1_020 - Session Timeout Modal Appears After Minimizing App For 5 Minutes On OTP Screen
     [Documentation]    Verify Session Timeout modal appears on OTP screen after the app is minimized for 5 minutes (m2.1.16)
     [Tags]    Negative    Session
-    # Uses VALID_EMAIL_5 — session tests run sequentially so each gets its own account
-    Navigate To OTP Screen    ${VALID_EMAIL_5}    ${VALID_PASSWORD}
+    # Uses VALID_EMAIL_9 (jjavier+64) — switched to new account pool
+    Navigate To OTP Screen    ${VALID_EMAIL_9}    ${VALID_PASSWORD}
     # Minimize the app (background it)
     Background Application    -1
     # Wait 5 minutes while app is in background
@@ -909,8 +912,8 @@ TC_M2.1_020 - Session Timeout Modal Appears After Minimizing App For 5 Minutes O
 TC_M2.1_021 - Session Timeout Modal Is Still Visible After Minimizing And Reopening App
     [Documentation]    Verify Session Timeout modal is still shown after the modal appeared, then app is minimized and reopened (m2.1.17)
     [Tags]    Negative    Session
-    # Uses VALID_EMAIL_4 — rotated back after the 5 min+ gap from TC_M2.1_019
-    Navigate To OTP Screen    ${VALID_EMAIL_4}    ${VALID_PASSWORD}
+    # Uses VALID_EMAIL_8 (jjavier+98) — switched to new account pool
+    Navigate To OTP Screen    ${VALID_EMAIL_8}    ${VALID_PASSWORD}
     # Wait for session timeout modal to appear (5 min inactivity)
     Sleep    310s
     Wait Until Element Is Visible    ${SESSION_TIMEOUT_MODAL}    timeout=15s
@@ -935,7 +938,7 @@ TC_M2.1_022 - Session Remains Active While User Is Interacting With OTP Screen
     [Tags]    Positive    Session
     [Setup]    NONE
     [Teardown]    NONE
-    # Uses VALID_EMAIL_5 — gap from TC_M2.1_015 is >15 min, rate limit reset
+    # Uses VALID_EMAIL_9 (jjavier+64) — switched to new account pool
     # pm clear needed here — TC_M2.1_039 logged in and force-stop alone won't clear auth token
     Run    adb -s ${DEVICE_NAME} shell pm clear ${APP_PACKAGE}
     Sleep    3s
@@ -944,7 +947,7 @@ TC_M2.1_022 - Session Remains Active While User Is Interacting With OTP Screen
     Wait Until Element Is Visible    xpath=//android.widget.TextView[@text='Sign in']    timeout=30s
     Click Element    xpath=//android.widget.TextView[@text='Sign in']
     Wait Until Element Is Visible    ${EMAIL_FIELD}    timeout=15s
-    Navigate To OTP Screen    ${VALID_EMAIL_5}    ${VALID_PASSWORD}
+    Navigate To OTP Screen    ${VALID_EMAIL_9}    ${VALID_PASSWORD}
     # Interact with OTP boxes every 60 seconds for 6 minutes (360s total)
     Keep Session Active    360    60
     # After 6 minutes of activity — session timeout modal should NOT appear
@@ -966,9 +969,9 @@ TC_M2.1_035 - Verify Account Automatically Unlocks After 5-Minute Cooldown
     [Teardown]    NONE
     # TC_M2.1_022 may fail due to session issues, so use Navigate To Login Page for robustness
     Navigate To Login Page
-    # Block the account (uses VALID_EMAIL — MAILSAC password was changed to NewPass@2025 by TC_M2.1_039)
+    # Block the account using VALID_EMAIL_7 (jjavier+61) — switched to new account pool
     FOR    ${i}    IN RANGE    5
-        Input Text       ${EMAIL_FIELD}       ${VALID_EMAIL}
+        Input Text       ${EMAIL_FIELD}       ${VALID_EMAIL_7}
         Input Text       ${PASSWORD_FIELD}    ${WRONG_PASSWORD}
         Click Element    ${LOGIN_BUTTON}
         Sleep    2s
@@ -977,7 +980,7 @@ TC_M2.1_035 - Verify Account Automatically Unlocks After 5-Minute Cooldown
     # Wait for cooldown (5 minutes + buffer)
     Sleep    310s
     # Login with correct credentials — should succeed
-    Input Text       ${EMAIL_FIELD}       ${VALID_EMAIL}
+    Input Text       ${EMAIL_FIELD}       ${VALID_EMAIL_7}
     Input Text       ${PASSWORD_FIELD}    ${VALID_PASSWORD}
     Click Element    ${LOGIN_BUTTON}
     Wait Until Element Is Visible    ${OTP_SCREEN}    timeout=15s
