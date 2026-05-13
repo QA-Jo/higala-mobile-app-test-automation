@@ -17,7 +17,7 @@ ${SBX_APP_ACTIVITY}             .MainActivity
 # Primary sender: Rhiza Talavera (Customer 1)
 # -------------------------------------------------------
 ${SBX_EMAIL}                    rtalavera@nmblr.ai
-${SBX_PASSWORD}                 @Password123
+${SBX_PASSWORD}                 Password123!
 
 # Change Password (Mobile_021): changes to SBX_CP_NEW_PASSWORD then restores — no cleanup needed.
 ${SBX_CP_NEW_PASSWORD}          NewPass@2025
@@ -27,10 +27,10 @@ ${SBX_FP_NEW_PASSWORD}          FPNewPass@2025
 
 # -------------------------------------------------------
 # SAME-BANK RECIPIENT (Mobile_008, Mobile_010)
-# Recipient: Illyzabeth Tsui (Customer 2) — same Alegre RB
+# Recipient: Kacey Chui (Customer 2) — same Alegre RB
 # -------------------------------------------------------
-${SBX_SAME_BANK_RECIPIENT_ACCT}     7711498267780269
-${SBX_SAME_BANK_RECIPIENT_NAME}     Illyzabeth Tsui
+${SBX_SAME_BANK_RECIPIENT_ACCT}     7710398891916835
+${SBX_SAME_BANK_RECIPIENT_NAME}     Kacey Chui
 
 # -------------------------------------------------------
 # EXTERNAL BANK RECIPIENT (Mobile_012, Mobile_014)

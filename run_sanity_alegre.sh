@@ -20,9 +20,9 @@ $ROBOT \
   -e ExternalRCBC \
   --variable SBX_APP_PACKAGE:com.higala.alegresandbox \
   --variable SBX_EMAIL:rtalavera@nmblr.ai \
-  --variable "SBX_PASSWORD:@Password123" \
-  --variable SBX_SAME_BANK_RECIPIENT_ACCT:7711498267780269 \
-  --variable "SBX_SAME_BANK_RECIPIENT_NAME:Illyzabeth Tsui" \
+  --variable "SBX_PASSWORD:Password123!" \
+  --variable SBX_SAME_BANK_RECIPIENT_ACCT:7710398891916835 \
+  --variable "SBX_SAME_BANK_RECIPIENT_NAME:Kacey Chui" \
   --variable SBX_RB_BANK_SEARCH_TERM:rc \
   --variable "SBX_RB_BANK_RESULT:xpath=//android.widget.TextView[@text='Rizal Commercial Banking Corporation']" \
   --variable SBX_RB_RECIPIENT_ACCT:7710737754140432 \
