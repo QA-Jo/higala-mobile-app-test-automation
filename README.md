@@ -15,18 +15,18 @@ This repository contains the automated test suite for the **Higala Mobile App**.
 
 ### SBX Environment — DFSP Sanity Tests
 
-| Field | Value |
-|---|---|
-| Checklist | DFSP Toggle Testing Checklist — Abucay Rural Bank |
-| Coverage | Mobile_001 – Mobile_024 (24 test cases) |
-| Automated (active) | 8 tests: Mobile_006, 008, 010, 018, 019, 020, 021, 023 |
-| Excluded | Mobile_012, 014, 016 (`ExternalRCBC`) — RCBC issue pending |
-| Platform | Android |
-| App Package | `com.higala.bancoabucay` |
-| Module | `Modules/Sanity/Sanity_SBX.robot` |
-| Variables | `resources/variables/SBX_variables.resource` |
-| Run Script | `run_sanity_abucay.sh` |
-| OTP | Magic OTP (123456) — enabled in SBX for all flows |
+| Field | Abucay RB | Alegre |
+|---|---|---|
+| Checklist | DFSP Toggle Testing Checklist | DFSP Toggle Testing Checklist |
+| Coverage | Mobile_001 – Mobile_024 | Mobile_001 – Mobile_024 |
+| Automated (active) | 9 tests (incl. Mobile_016) | 8 tests |
+| Excluded | Mobile_012, 014 (`ExternalRCBC`) | Mobile_012, 014, 016 (`ExternalRCBC`) |
+| Platform | Android | Android |
+| App Package | `com.higala.bancoabucay` | `com.higala.alegresandbox` |
+| Variables | `resources/variables/Abucay_variables.resource` | `resources/variables/Alegre_variables.resource` |
+| Run Script | `run_sanity_abucay.sh` | `run_sanity_alegre.sh` |
+| OTP | Magic OTP (123456) | Magic OTP (123456) |
+| Module | `Modules/Sanity/Sanity_SBX.robot` (shared) | `Modules/Sanity/Sanity_SBX.robot` (shared) |
 
 ## Codebase Structure
 
@@ -236,6 +236,22 @@ Use these JSON capabilities when connecting Appium Inspector to inspect UI eleme
 }
 ```
 
+### SBX — Alegre (Sandbox)
+
+```json
+{
+  "platformName": "Android",
+  "appium:deviceName": "emulator-5554",
+  "appium:appPackage": "com.higala.alegresandbox",
+  "appium:appActivity": ".MainActivity",
+  "appium:automationName": "UiAutomator2",
+  "appium:noReset": true,
+  "appium:skipDeviceInitialization": true,
+  "appium:enforceXPath1": true,
+  "appium:newCommandTimeout": 300
+}
+```
+
 > Make sure the target app is already open on the emulator before starting a session in Appium Inspector.
 
 ---
@@ -340,6 +356,7 @@ All run scripts automatically set `ANDROID_HOME`, create the output directory, a
 | Script | Target RB | Excludes | Output Dir |
 |---|---|---|---|
 | `run_sanity_abucay.sh` | Abucay Rural Bank | `Manual`, `Skipped`, `ResetPassword`, `ExternalRCBC` | `results/Sanity_Abucay` |
+| `run_sanity_alegre.sh` | Alegre (Sandbox) | `Manual`, `Skipped`, `ResetPassword`, `ExternalRCBC` | `results/Sanity_Alegre` |
 
 ```bash
 ./run_sanity_abucay.sh
