@@ -15,18 +15,22 @@ This repository contains the automated test suite for the **Higala Mobile App**.
 
 ### SBX Environment — DFSP Sanity Tests
 
-| Field | Abucay RB | Alegre |
-|---|---|---|
-| Checklist | DFSP Toggle Testing Checklist | DFSP Toggle Testing Checklist |
-| Coverage | Mobile_001 – Mobile_024 | Mobile_001 – Mobile_024 |
-| Automated (active) | 9 tests (incl. Mobile_016) | 8 tests |
-| Excluded | Mobile_012, 014 (`ExternalRCBC`) | Mobile_012, 014, 016 (`ExternalRCBC`) |
-| Platform | Android | Android |
-| App Package | `com.higala.bancoabucay` | `com.higala.alegresandbox` |
-| Variables | `resources/variables/Abucay_variables.resource` | `resources/variables/Alegre_variables.resource` |
-| Run Script | `run_sanity_abucay.sh` | `run_sanity_alegre.sh` |
-| OTP | Magic OTP (123456) | Magic OTP (123456) |
-| Module | `Modules/Sanity/Sanity_SBX.robot` (shared) | `Modules/Sanity/Sanity_SBX.robot` (shared) |
+| Field | San Narciso RB | Abucay RB | Alegre |
+|---|---|---|---|
+| Checklist | DFSP Toggle Testing Checklist | DFSP Toggle Testing Checklist | DFSP Toggle Testing Checklist |
+| Coverage | Mobile_001 – Mobile_024 | Mobile_001 – Mobile_024 | Mobile_001 – Mobile_024 |
+| Automated (active) | **11 tests** (all incl. 012, 014, 016) | 9 tests (incl. Mobile_016) | 8 tests |
+| Excluded | None (external via Chinabank) | Mobile_012, 014 (`ExternalRCBC`) | Mobile_012, 014, 016 (`ExternalRCBC`) |
+| Platform | Android | Android | Android |
+| App Package | `com.higala.ruralbankofsannarcisosandbox` | `com.higala.bancoabucay` | `com.higala.alegresandbox` |
+| Sender | jjavier+3@nmblr.ai / Password!1 | jjavier+1@nmblr.ai / Password!1 | jjavier+4@nmblr.ai / Password!1 |
+| Same-Bank Recipient | Jocelyn Amban — 7710935377438751 | Peach Marie Villados — 7710589946921181 | Kacey Chui — 7710398891916835 |
+| RB-to-RB Recipient | Paulo Navarro — 7710737754140432 (via RCBC) | Paulo Navarro — 7710737754140432 (via RCBC) | Paulo Navarro — 7710737754140432 (via RCBC) |
+| External Bank | China Banking Corporation (Chinabank) | _(excluded)_ | _(excluded)_ |
+| External Recipient | John Doe — 101400001643 | _(excluded)_ | _(excluded)_ |
+| Run Script | `run_sanity_sannarciso.sh` | `run_sanity_abucay.sh` | `run_sanity_alegre.sh` |
+| OTP | Magic OTP (123456) | Magic OTP (123456) | Magic OTP (123456) |
+| Module | `Modules/Sanity/Sanity_SBX.robot` (shared) | `Modules/Sanity/Sanity_SBX.robot` (shared) | `Modules/Sanity/Sanity_SBX.robot` (shared) |
 
 ## Codebase Structure
 
@@ -50,7 +54,9 @@ Mobile App/
 │   │   ├── M5.3_QR_Generation.robot
 │   │   ├── M5.4_QR_Scan.robot
 │   │   └── M5.5_QR_Receive.robot
-│   └── Sanity/                      # SBX environment sanity tests (Alegre Sandbox)
+│   ├── Loans/
+│   │   └── M7_Loan_Module.robot         # M7.1, M7.4, M7.5, M7.6
+│   └── Sanity/                      # SBX environment sanity tests (shared suite)
 │       └── Sanity_SBX.robot
 │
 ├── resources/                       # Shared keywords, libraries, and variables
@@ -63,6 +69,7 @@ Mobile App/
 │       ├── M3_variables.resource
 │       ├── M4_variables.resource
 │       ├── M5_variables.resource
+│       ├── M7_variables.resource    # Loan module test accounts, locators
 │       └── SBX_variables.resource   # Alegre SBX test accounts, app config, locators
 │
 ├── APKs/                            # App builds used for testing
@@ -71,8 +78,12 @@ Mobile App/
 ├── Automation Doc Reference/        # Source test case spreadsheets (Excel/CSV)
 │   └── *.csv / *.xlsx
 │
-├── results/                         # Robot Framework output (auto-generated, gitignored)
-│   ├── <run_folder>/
+├── results/                         # Robot Framework output (committed for GitHub Pages)
+│   ├── <run_folder>/                # Base dir — always contains the latest run (for index.html links)
+│   │   ├── log.html
+│   │   ├── report.html
+│   │   └── output.xml
+│   ├── <run_folder>/YYYYMMDD_HHMMSS/  # Timestamped subdir — every run preserved, never overwritten
 │   │   ├── log.html
 │   │   ├── report.html
 │   │   └── output.xml
@@ -88,7 +99,12 @@ Mobile App/
 ├── run_m3_happy.sh                  # M3 Account Management — happy path
 ├── run_m5_happy.sh                  # M5 Send Money — happy path
 ├── run_m5_negative.sh               # M5 Send Money — negative path
+├── run_m7_happy.sh                  # M7 Loan Module — happy path
+├── run_m7_negative.sh               # M7 Loan Module — negative path
+├── run_m21_all.sh                   # M2.1 Login — full run (happy + negative, excludes Session)
+├── run_sanity_sannarciso.sh         # SBX sanity — San Narciso Rural Bank (all 11 tests incl. external)
 ├── run_sanity_abucay.sh             # SBX sanity — Abucay Rural Bank
+├── run_sanity_alegre.sh             # SBX sanity — Alegre Rural Bank
 ├── run_sanity_sbx.sh                # SBX sanity — generic (uses SBX_variables.resource defaults)
 ├── publish_reports.sh               # Publishes results to GitHub Pages (index.html)
 │
@@ -121,42 +137,44 @@ Mobile App/
 
 | Module | File | Description |
 |---|---|---|
-| Sanity | `Modules/Sanity/Sanity_SBX.robot` | End-to-end sanity tests for Alegre Sandbox |
+| Sanity | `Modules/Sanity/Sanity_SBX.robot` | End-to-end DFSP sanity tests (shared across all RBs) |
 
-The SBX sanity suite covers 24 test cases from the **DFSP Toggle Testing Checklist — Abucay and Hermosa Rural Bank**. It uses the same UI locators as the ITG modules (shared via `M5_variables.resource`) but overrides the app package and test accounts for the target RB via `SBX_variables.resource`.
+The SBX sanity suite covers 24 test cases from the **DFSP Toggle Testing Checklist**. The same `.robot` file is shared across all RBs — the target bank, credentials, and recipient accounts are passed as `--variable` overrides in each bank's run script. All OTP steps use **Magic OTP (123456)**. No real email access is required for automated tests.
 
-All OTP steps use **Magic OTP (123456)**, which is enabled in the SBX environment. No real email access is required for automated tests.
+| # | Test Case | Automated | San Narciso | Abucay / Alegre | Notes |
+|---|---|---|---|---|---|
+| Mobile_001 | Account Creation | Manual | — | — | Requires fresh unregistered email per run |
+| Mobile_002 | Onboarding OTP Email Notification | Manual | — | — | Verify inbox after Mobile_001 |
+| Mobile_003 | Temp Creds Email Notification | Manual | — | — | Verify inbox after account creation |
+| Mobile_004 | Reset Password | Yes | Excluded (`ResetPassword`) | Excluded (`ResetPassword`) | Excluded by default to protect account state |
+| Mobile_005 | Reset Password Email Notification | Manual | — | — | Verify inbox after Mobile_004 |
+| Mobile_006 | Login | Yes | ✅ PASS | ✅ PASS | Uses Magic OTP |
+| Mobile_007 | Login OTP Email Notification | Manual | — | — | Verify inbox during Mobile_006 |
+| Mobile_008 | Internal Transfer — New Recipient | Yes | ✅ PASS | ✅ PASS | Uses Magic OTP |
+| Mobile_009 | Internal Transfer New Recipient Email Notification | Manual | — | — | Verify inbox after Mobile_008 |
+| Mobile_010 | Internal Transfer — Recent Recipient | Yes | ✅ PASS | ✅ PASS | Depends on Mobile_008 |
+| Mobile_011 | Internal Transfer Recent Recipient Email Notification | Manual | — | — | Verify inbox after Mobile_010 |
+| Mobile_012 | External Transfer — New Recipient | Yes | ✅ PASS | Excluded (`ExternalRCBC`) | San Narciso uses Chinabank; Abucay/Alegre exclude due to RCBC issue |
+| Mobile_013 | External Transfer New Recipient Email Notification | Manual | — | — | Verify inbox after Mobile_012 |
+| Mobile_014 | External Transfer — Recent Recipient | Yes | ✅ PASS | Excluded (`ExternalRCBC`) | San Narciso uses Chinabank; Abucay/Alegre exclude due to RCBC issue |
+| Mobile_015 | External Transfer Recent Recipient Email Notification | Manual | — | — | Verify inbox after Mobile_014 |
+| Mobile_016 | External Transfer (RB-to-RB) | Yes | ✅ PASS | ✅ PASS (Abucay) / Excluded (Alegre) | Instapay via RCBC as intermediary |
+| Mobile_017 | RB-to-RB Email Notification | Manual | — | — | Verify inbox after Mobile_016 |
+| Mobile_018 | Transaction History | Yes | ✅ PASS | ✅ PASS | |
+| Mobile_019 | Transaction Details | Yes | ✅ PASS | ✅ PASS | |
+| Mobile_020 | View and Edit Profile Details | Yes | ✅ PASS | ✅ PASS | |
+| Mobile_021 | Change Password | Yes | ✅ PASS | ✅ PASS | Self-restoring — uses Magic OTP |
+| Mobile_022 | Change Password Email Notification | Manual | — | — | Verify inbox after Mobile_021 |
+| Mobile_023 | Forgot Password | Yes | ✅ PASS | ✅ PASS | Self-restoring — uses Magic OTP |
+| Mobile_024 | Forgot Password Email Notification | Manual | — | — | Verify inbox after Mobile_023 |
 
-| # | Test Case | Automated | Notes |
-|---|---|---|---|
-| Mobile_001 | Account Creation | Manual | Requires fresh unregistered email per run |
-| Mobile_002 | Onboarding OTP Email Notification | Manual | Verify inbox after Mobile_001 |
-| Mobile_003 | Temp Creds Email Notification | Manual | Verify inbox after account creation |
-| Mobile_004 | Reset Password | Yes | Self-restoring — no cleanup needed |
-| Mobile_005 | Reset Password Email Notification | Manual | Verify inbox after Mobile_004 |
-| Mobile_006 | Login | Yes | Uses Magic OTP |
-| Mobile_007 | Login OTP Email Notification | Manual | Verify inbox during Mobile_006 |
-| Mobile_008 | Internal Transfer — New Recipient | Yes | Uses Magic OTP |
-| Mobile_009 | Internal Transfer New Recipient Email Notification | Manual | Verify inbox after Mobile_008 |
-| Mobile_010 | Internal Transfer — Recent Recipient | Yes | Depends on Mobile_008 |
-| Mobile_011 | Internal Transfer Recent Recipient Email Notification | Manual | Verify inbox after Mobile_010 |
-| Mobile_012 | External Transfer — New Recipient | Yes (ExternalRCBC) | Excluded from run — ongoing RCBC issue |
-| Mobile_013 | External Transfer New Recipient Email Notification | Manual | Verify inbox after Mobile_012 |
-| Mobile_014 | External Transfer — Recent Recipient | Yes (ExternalRCBC) | Excluded from run — ongoing RCBC issue |
-| Mobile_015 | External Transfer Recent Recipient Email Notification | Manual | Verify inbox after Mobile_014 |
-| Mobile_016 | External Transfer (Rural Bank to Rural Bank) | Yes (ExternalRCBC) | Excluded from run — ongoing RCBC issue |
-| Mobile_017 | RB-to-RB Email Notification | Manual | Verify inbox after Mobile_016 |
-| Mobile_018 | Transaction History | Yes | |
-| Mobile_019 | Transaction Details | Yes | |
-| Mobile_020 | View and Edit Profile Details | Yes | |
-| Mobile_021 | Change Password | Yes | Self-restoring — uses Magic OTP |
-| Mobile_022 | Change Password Email Notification | Manual | Verify inbox after Mobile_021 |
-| Mobile_023 | Forgot Password | Yes | Self-restoring — uses Magic OTP |
-| Mobile_024 | Forgot Password Email Notification | Manual | Verify inbox after Mobile_023 |
-
-> **Note:** Mobile_004, Mobile_021, and Mobile_023 are self-restoring — they change the password and immediately restore it, so no manual cleanup is needed between runs.
+> **Mobile_004, 021, 023** are self-restoring — they change the password and immediately restore it, so no manual cleanup is needed between runs.
 >
-> **Mobile_012, 014, 016** are tagged `ExternalRCBC` and excluded from `run_sanity_abucay.sh` due to an ongoing issue with RCBC external transfers. Remove `-e ExternalRCBC` from the run script to re-enable them once resolved. Mobile_016 (Abucay→Hermosa RB-to-RB) requires `SBX_RB_BANK_SEARCH_TERM`, `SBX_RB_BANK_RESULT`, `SBX_RB_RECIPIENT_ACCT`, and `SBX_RB_RECIPIENT_NAME` to be configured in `run_sanity_abucay.sh` before running.
+> **Mobile_012, 014** use `ExternalRCBC` tag. San Narciso runs these against **China Banking Corporation** (Chinabank, account: John Doe / 101400001643) — the tag is NOT excluded in `run_sanity_sannarciso.sh`. Abucay and Alegre exclude them due to an ongoing RCBC issue.
+>
+> **Mobile_016** (RB-to-RB) routes via RCBC as the Instapay intermediary on all banks. Recipient: Paulo Navarro — 7710737754140432. Alegre excludes it; Abucay and San Narciso run it.
+>
+> **External transfers (012, 014)** include automatic Pending → Success polling (up to 10 × 5s refreshes) and a transaction-level retry (up to 2 attempts) before failing.
 
 ## ITG Test Case Traceability
 
@@ -252,6 +270,22 @@ Use these JSON capabilities when connecting Appium Inspector to inspect UI eleme
 }
 ```
 
+### SBX — San Narciso (Sandbox)
+
+```json
+{
+  "platformName": "Android",
+  "appium:deviceName": "emulator-5554",
+  "appium:appPackage": "com.higala.ruralbankofsannarcisosandbox",
+  "appium:appActivity": ".MainActivity",
+  "appium:automationName": "UiAutomator2",
+  "appium:noReset": true,
+  "appium:skipDeviceInitialization": true,
+  "appium:enforceXPath1": true,
+  "appium:newCommandTimeout": 300
+}
+```
+
 > Make sure the target app is already open on the emulator before starting a session in Appium Inspector.
 
 ---
@@ -328,50 +362,58 @@ robot -i M2.1.32 Modules/Login/M2.1_Login_Email_OTP.robot
 
 ## Shell Scripts
 
-All run scripts automatically set `ANDROID_HOME`, create the output directory, and invoke `robot` with the appropriate tag filters.
+All run scripts automatically set `ANDROID_HOME`, create the output directory, and invoke `robot` with the appropriate tag filters. Every script saves to a timestamped subfolder (`YYYYMMDD_HHMMSS/`) inside the base dir — previous runs are never overwritten.
 
 ### Happy Path Scripts
 
-| Script | Module | Includes | Excludes | Output Dir |
+| Script | Module | Includes | Excludes | Base Output Dir |
 |---|---|---|---|---|
-| `run_m12_happy.sh` | M1.2 Account Creation | `Positive` | `Manual`, `Skipped` | `results/AccountCreation_HappyPath` |
-| `run_m21_happy.sh` | M2.1 Login | `Positive` | `Manual`, `Skipped` | `results/Login_HappyPath` |
-| `run_m22_happy.sh` | M2.2 Forgot Password | `Positive` | `Negative`, `Session`, `Security`, `Destructive`, `Manual`, `Skipped` | `results/ForgotPassword_HappyPath` |
-| `run_m3_happy.sh` | M3 Account Management | `Positive` | `Destructive` | `results/m3_happy_debug` |
-| `run_m5_happy.sh` | M5 Send Money | `Positive` | `Manual`, `Skipped`, `multi-device` | `results/SendMoney_HappyPath` |
+| `run_m12_happy.sh` | M1.2 Account Creation | `Positive` | `Manual`, `Skipped` | `results/AccountCreation_HappyPath/` |
+| `run_m21_happy.sh` | M2.1 Login | `Positive` | `Manual`, `Skipped` | `results/Login_HappyPath/` |
+| `run_m22_happy.sh` | M2.2 Forgot Password | `Positive` | `Negative`, `Session`, `Security`, `Destructive`, `Manual`, `Skipped` | `results/ForgotPassword_HappyPath/` |
+| `run_m3_happy.sh` | M3 Account Management | `Positive` | `Destructive` | `results/m3_happy_debug/` |
+| `run_m5_happy.sh` | M5 Send Money | `Positive` | `Manual`, `Skipped`, `multi-device` | `results/SendMoney_HappyPath/` |
 
 ### Negative Path Scripts
 
-| Script | Module | Includes | Excludes | Output Dir |
+| Script | Module | Includes | Excludes | Base Output Dir |
 |---|---|---|---|---|
-| `run_m12_negative.sh` | M1.2 Account Creation | `Negative` | `Session`, `Destructive`, `M1.2.19`, `M1.2.25` | `results/AccountCreation_NegativePath` |
-| `run_m21_negative.sh` | M2.1 Login | `Negative` | `Destructive`, `Session`, `Skipped` | `results/Login_NegativePath` |
-| `run_m22_negative.sh` | M2.2 Forgot Password | `Negative` | `Positive`, `Session`, `Security`, `Destructive`, `Manual`, `Skipped` | `results/ForgotPassword_NegativePath` |
-| `run_m5_negative.sh` | M5 Send Money | _(all non-excluded)_ | `Positive`, `destructive`, `multi-device`, `Manual`, `Skipped` | `results/SendMoney_NegativePath` |
+| `run_m12_negative.sh` | M1.2 Account Creation | `Negative` | `Session`, `Destructive`, `M1.2.19`, `M1.2.25` | `results/AccountCreation_NegativePath/` |
+| `run_m21_negative.sh` | M2.1 Login | `Negative` | `Destructive`, `Session`, `Skipped` | `results/Login_NegativePath/` |
+| `run_m22_negative.sh` | M2.2 Forgot Password | `Negative` | `Positive`, `Session`, `Security`, `Destructive`, `Manual`, `Skipped` | `results/ForgotPassword_NegativePath/` |
+| `run_m5_negative.sh` | M5 Send Money | _(all non-excluded)_ | `Positive`, `destructive`, `multi-device`, `Manual`, `Skipped` | `results/SendMoney_NegativePath/` |
 
 > **Note:** M5 negative tests use `validation` and `otp` tags instead of `Negative`. The negative script filters by exclusion rather than inclusion.
 
-### SBX Sanity Script
+### SBX Sanity Scripts
 
-| Script | Target RB | Excludes | Output Dir |
-|---|---|---|---|
-| `run_sanity_abucay.sh` | Abucay Rural Bank | `Manual`, `Skipped`, `ResetPassword`, `ExternalRCBC` | `results/Sanity_Abucay` |
-| `run_sanity_alegre.sh` | Alegre (Sandbox) | `Manual`, `Skipped`, `ResetPassword`, `ExternalRCBC` | `results/Sanity_Alegre` |
+Each run script saves results to a timestamped subfolder (`results/<NAME>/YYYYMMDD_HHMMSS/`) to preserve history. The base folder is kept in sync with the latest run so `index.html` links remain stable.
 
-```bash
-./run_sanity_abucay.sh
-```
+| Script | Target RB | Tests Run | Excludes | Base Output Dir |
+|---|---|---|---|---|
+| `run_sanity_sannarciso.sh` | San Narciso Rural Bank | 11 (all incl. 012, 014, 016) | `Manual`, `Skipped`, `ResetPassword` | `results/Sanity_SanNarciso/` |
+| `run_sanity_abucay.sh` | Abucay Rural Bank | 9 (incl. 016) | `Manual`, `Skipped`, `ResetPassword`, `ExternalRCBC` | `results/Sanity_Abucay/` |
+| `run_sanity_alegre.sh` | Alegre (Sandbox) | 8 | `Manual`, `Skipped`, `ResetPassword`, `ExternalRCBC` | `results/Sanity_Alegre/` |
+| `run_sanity_sbx.sh` | Generic SBX | varies | `Manual`, `Skipped` | `results/Sanity_SBX/` |
 
-Runs all automatable sanity tests (Mobile_001–024) against **Abucay RB** on `emulator-5554`.
+**Tag exclusion reference:**
 
 | Excluded Tag | Tests | Reason |
 |---|---|---|
 | `Manual` | Mobile_001–003, 007, 009, 011, 013, 015, 017, 022, 024 | Email notifications / KYC — verify inbox manually |
 | `Skipped` | — | Permanently excluded tests |
 | `ResetPassword` | Mobile_004 | Excluded by default to protect account state; run separately when needed |
-| `ExternalRCBC` | Mobile_012, 014, 016 | External transfers via RCBC excluded due to ongoing RCBC issue |
+| `ExternalRCBC` | Mobile_012, 014 (and 016 for Alegre) | Abucay/Alegre exclude external transfers; San Narciso runs all via Chinabank |
 
-> Before running, confirm the variable overrides in `run_sanity_abucay.sh` are filled in: app package, test account credentials, and same-bank recipient details.
+**Quick start — San Narciso:**
+
+```bash
+./run_sanity_sannarciso.sh
+```
+
+Runs all 11 automatable sanity tests against **San Narciso RB** (`com.higala.ruralbankofsannarcisosandbox`) on `emulator-5554`.
+
+> Before running any sanity script, confirm the app is installed and open on the emulator, and that Appium is running at `http://127.0.0.1:4723`.
 
 ### Full Suite
 
